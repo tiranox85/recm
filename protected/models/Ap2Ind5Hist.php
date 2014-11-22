@@ -1,26 +1,26 @@
 <?php
 
 /**
- * This is the model class for table "ap1Ind1".
+ * This is the model class for table "ap2Ind5_hist".
  *
- * The followings are the available columns in table 'ap1Ind1':
+ * The followings are the available columns in table 'ap2Ind5_hist':
  * @property integer $id
- * @property integer $id_periodo
- * @property integer $entidad
- * @property integer $municipio
- * @property integer $actividad
- * @property double $valor
- * @property integer $usuario
+ * @property string $periodo
+ * @property string $config
+ * @property integer $validado
+ * @property integer $autorizado
  * @property string $fecha_reg
+ * @property integer $user_reg
  */
-class Ap1Ind62 extends CActiveRecord
+class Ap2Ind5Hist extends CActiveRecord
 {
+    public $_archivo;
 	/**
 	 * @return string the associated database table name
 	 */
 	public function tableName()
 	{
-		return 'ap1Ind62';
+		return 'ap2Ind5_hist';
 	}
 
 	/**
@@ -31,12 +31,14 @@ class Ap1Ind62 extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('periodo_id, user_reg, user_mod', 'numerical', 'integerOnly'=>true),
-			array('valor', 'numerical'),
-			array('fecha_reg', 'safe'),
+			array('periodo, config, validado, autorizado, activo, fecha_reg, user_reg', 'required'),
+			array('validado, autorizado, user_reg', 'numerical', 'integerOnly'=>true),
+			array('periodo, config', 'length', 'max'=>200),
+                        array('_archivo', 'file', 'types'=>'xls', "allowEmpty"=>false,'maxSize'=>1024 * 1024 * 2 ,  'tooLarge'=>'Archivo debe ser menor a 2mb', "on"=>"insert"),
+                        array('_archivo', 'file', 'types'=>'xls', "allowEmpty"=>true,'maxSize'=>1024 * 1024 * 2,  'tooLarge'=>'Archivo debe ser menor a 2mb', "on"=>"update"),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('id, periodo_id, user_mod, valor, fecha_reg', 'safe', 'on'=>'search'),
+			array('id, periodo, config, validado, autorizado, fecha_reg, user_reg', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -45,9 +47,10 @@ class Ap1Ind62 extends CActiveRecord
 	 */
 	public function relations()
 	{
-		// NOTE: you may need to adjust the relation name and the related ap1Ind1_hist
+		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
-		
+		return array(
+		);
 	}
 
 	/**
@@ -57,13 +60,12 @@ class Ap1Ind62 extends CActiveRecord
 	{
 		return array(
 			'id' => 'ID',
-			'id_periodo' => 'Periodo',
-			'entidad' => 'Entidad',
-			'municipio' => 'Municipio',
-			'actividad' => 'Actividad',
-			'valor' => 'Valor',
-			'usuario' => 'Usuario',
+			'periodo' => 'Periodo',
+			'config' => 'config',
+			'validado' => 'Validado',
+			'autorizado' => 'Autorizado',
 			'fecha_reg' => 'Fecha Reg',
+			'user_reg' => 'User Reg',
 		);
 	}
 
@@ -79,20 +81,19 @@ class Ap1Ind62 extends CActiveRecord
 	 * @return CActiveDataProvider the data provider that can return the models
 	 * based on the search/filter conditions.
 	 */
-	public function search($id)
+	public function search()
 	{
 		// @todo Please modify the following code to remove attributes that should not be searched.
 
 		$criteria=new CDbCriteria;
 
 		$criteria->compare('id',$this->id);
-		$criteria->compare('id_periodo',$id);
-		$criteria->compare('entidad',$this->entidad);
-		$criteria->compare('municipio',$this->municipio);
-		$criteria->compare('actividad',$this->actividad);
-		$criteria->compare('valor',$this->valor);
-		$criteria->compare('usuario',$this->usuario);
+		$criteria->compare('periodo',$this->periodo,true);
+		$criteria->compare('config',$this->config,true);
+		$criteria->compare('validado',$this->validado);
+		$criteria->compare('autorizado',$this->autorizado);
 		$criteria->compare('fecha_reg',$this->fecha_reg,true);
+		$criteria->compare('user_reg',$this->user_reg);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,
@@ -103,7 +104,7 @@ class Ap1Ind62 extends CActiveRecord
 	 * Returns the static model of the specified AR class.
 	 * Please note that you should have this exact method in all your CActiveRecord descendants!
 	 * @param string $className active record class name.
-	 * @return Ap1Ind1 the static model class
+	 * @return Ap1ind1HistJorge the static model class
 	 */
 	public static function model($className=__CLASS__)
 	{
