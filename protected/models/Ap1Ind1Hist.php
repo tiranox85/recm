@@ -15,6 +15,10 @@
 class Ap1Ind1Hist extends CActiveRecord
 {
     public $_archivo;
+    public $titulo1;
+    public $nota1;
+    public $titulo2;
+    public $nota2;
 	/**
 	 * @return string the associated database table name
 	 */
@@ -31,9 +35,10 @@ class Ap1Ind1Hist extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
+			array('titulo1,titulo2, nota1, nota2', 'safe'),
 			array('periodo, config, validado, autorizado, activo, fecha_reg, user_reg', 'required'),
 			array('validado, autorizado, user_reg', 'numerical', 'integerOnly'=>true),
-			array('periodo, config', 'length', 'max'=>200),
+			//array('periodo, config', 'length', 'max'=>600),
                         array('_archivo', 'file', 'types'=>'xls', "allowEmpty"=>false,'maxSize'=>1024 * 1024 * 2 ,  'tooLarge'=>'Archivo debe ser menor a 2mb', "on"=>"insert"),
                         array('_archivo', 'file', 'types'=>'xls', "allowEmpty"=>true,'maxSize'=>1024 * 1024 * 2,  'tooLarge'=>'Archivo debe ser menor a 2mb', "on"=>"update"),
 			// The following rule is used by search().
@@ -59,6 +64,10 @@ class Ap1Ind1Hist extends CActiveRecord
 	public function attributeLabels()
 	{
 		return array(
+			'titulo1'=>'Titulo del cuadro',
+			'titulo2'=>'Titulo del Gráfico',
+			'nota1'=>'Nota',
+			'nota2'=>'Nota de Grafico',
 			'id' => 'ID',
 			'periodo' => 'Periodo',
 			'config' => 'config',
