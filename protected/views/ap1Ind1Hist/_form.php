@@ -3,7 +3,12 @@
 /* @var $model Ap1ind1HistJorge */
 /* @var $form CActiveForm */
 ?>
-
+<?php
+        $this->beginWidget('zii.widgets.CPortlet', array(
+            'title'=>'Configuracion del Indicador',
+        ));
+        
+?>
 <div class="form">
 
 <?php $form=$this->beginWidget('CActiveForm', array(
@@ -21,27 +26,125 @@
 	<?php echo $form->errorSummary($model); ?>
 
 	<div class="row">
-		<?php echo $form->labelEx($model,'periodo'); ?>
-		<?php echo $form->textField($model,'periodo'); ?>
-		<?php echo $form->error($model,'periodo'); ?>
+        <div class="row-left">
+           
+				<?php echo $form->labelEx($model,'periodo'); ?>
+				<?php echo $form->textField($model,'periodo',array('class'=>'span6')); ?>
+				<?php echo $form->error($model,'periodo'); ?>
+			
+		</div>
 	</div>
 
 	<div class="row">
-		<?php echo $form->labelEx($model,'config'); ?>
-		<?php echo $form->textField($model,'config'); ?>
-		<?php echo $form->error($model,'config'); ?>
+        <div class="row-left">
+           
+		<?php echo $form->labelEx($model,'titulo1'); ?>
+		<?php //echo $form->textArea($model,'titulo1', array('id'=>'detalle','class'=>'span6','rows'=>"3", 'cols'=>"500")); ?>
+			<?php 
+	$this->widget('ext.widgets.xheditor.XHeditor',array(
+    'model'=>$model,
+    'modelAttribute'=>'titulo1',
+    'config'=>array(
+        'id'=>'xheditor_1',
+        'tools'=>'simple', // mini, simple, mfull, full or from XHeditor::$_tools, tool names are case sensitive
+        'skin'=>'vista', // default, nostyle, o2007blue, o2007silver, vista
+        'width'=>'740px',
+        'height'=>'400px',
+        //'loadCSS'=>XHtml::cssUrl('editor.css'),
+      //  'upImgUrl'=>$this->createUrl('request/uploadFile'), // NB! Access restricted by IP        'upImgExt'=>'jpg,jpeg,gif,png',
+    ),
+));
+		?>
+		<?php echo $form->error($model,'titulo1'); ?>
+			
+		</div>
 	</div>
 
 	<div class="row">
-		<?php echo $form->labelEx($model,'_archivo'); ?>
-		<?php echo $form->fileField($model,'_archivo'); ?>
-		<?php echo $form->error($model,'_archivo'); ?>
+        <div class="row-left">
+            
+		<?php echo $form->labelEx($model,'nota1'); ?>
+		<?php //echo $form->textArea($model,'nota1', array('id'=>'detalle','class'=>'span6','rows'=>"3", 'cols'=>"500")); ?>
+		<?php 
+	$this->widget('ext.widgets.xheditor.XHeditor',array(
+    'model'=>$model,
+    'modelAttribute'=>'nota1',
+    'config'=>array(
+        'id'=>'xheditor_2',
+        'tools'=>'simple', // mini, simple, mfull, full or from XHeditor::$_tools, tool names are case sensitive
+        'skin'=>'vista', // default, nostyle, o2007blue, o2007silver, vista
+        'width'=>'740px',
+        'height'=>'400px',
+        //'loadCSS'=>XHtml::cssUrl('editor.css'),
+      //  'upImgUrl'=>$this->createUrl('request/uploadFile'), // NB! Access restricted by IP        'upImgExt'=>'jpg,jpeg,gif,png',
+    ),
+));
+		?>
+		<?php echo $form->error($model,'nota1'); ?>
+			
+		</div>
 	</div>
 
+		<div class="row">
+        <div class="row-left">
+           
+		<?php echo $form->labelEx($model,'titulo1'); ?>
+		<?php //echo $form->textArea($model,'titulo1', array('id'=>'detalle','class'=>'span6','rows'=>"3", 'cols'=>"500")); ?>
+			<?php 
+	$this->widget('ext.widgets.xheditor.XHeditor',array(
+    'model'=>$model,
+    'modelAttribute'=>'titulo1',
+    'config'=>array(
+        'id'=>'xheditor_3',
+        'tools'=>'simple', // mini, simple, mfull, full or from XHeditor::$_tools, tool names are case sensitive
+        'skin'=>'vista', // default, nostyle, o2007blue, o2007silver, vista
+        'width'=>'740px',
+        'height'=>'400px',
+        //'loadCSS'=>XHtml::cssUrl('editor.css'),
+      //  'upImgUrl'=>$this->createUrl('request/uploadFile'), // NB! Access restricted by IP        'upImgExt'=>'jpg,jpeg,gif,png',
+    ),
+));
+		?>
+		<?php echo $form->error($model,'titulo1'); ?>
+			
+		</div>
+	</div>
+
+	<div class="row">
+        <div class="row-left">
+            
+		<?php echo $form->labelEx($model,'nota2'); ?>
+		<?php //echo $form->textArea($model,'nota2', array('id'=>'detalle','class'=>'span6','rows'=>"3", 'cols'=>"500")); ?>
+		<?php 
+	$this->widget('ext.widgets.xheditor.XHeditor',array(
+    'model'=>$model,
+    'modelAttribute'=>'nota2',
+    'config'=>array(
+        'id'=>'xheditor_4',
+        'tools'=>'simple', // mini, simple, mfull, full or from XHeditor::$_tools, tool names are case sensitive
+        'skin'=>'vista', // default, nostyle, o2007blue, o2007silver, vista
+        'width'=>'740px',
+        'height'=>'400px',
+        //'loadCSS'=>XHtml::cssUrl('editor.css'),
+      //  'upImgUrl'=>$this->createUrl('request/uploadFile'), // NB! Access restricted by IP        'upImgExt'=>'jpg,jpeg,gif,png',
+    ),
+));
+		?>
+		<?php echo $form->error($model,'nota2'); ?>
+			
+		</div>
+	</div>
+
+
+<div class="row">
 	<div class="row buttons">
-		<?php echo CHtml::submitButton($model->isNewRecord ? 'Create' : 'Save'); ?>
+		<?php echo CHtml::submitButton($model->isNewRecord ? 'Agregar' : 'Guardar',array('class'=>'btn btn-success')); ?>
 	</div>
+</div>
 
 <?php $this->endWidget(); ?>
 
 </div><!-- form -->
+
+
+ <?php $this->endWidget();?>
