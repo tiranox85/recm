@@ -83,7 +83,7 @@
                         'htmlOptions'=>array('class'=>'btn btn-info','style'=>'padding: 0px;'),
 
 
-                        'url' => array('ap1Ind1Hist/config/'.$item->id.''),
+                        'url' => array('ap1Ind1Hist/update/'.$item->id.''),
                         //'onclick'=>new CJavaScriptExpression('function(){alert("Save button has been clicked"); this.blur(); return false;}'),
                   ));
             ?>

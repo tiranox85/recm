@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <title>Sedeco::Reporte Economico</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Sedeco">
@@ -38,6 +38,7 @@
         <link rel="alternate stylesheet" type="text/css" media="screen" title="style6" href="<?php echo $baseUrl;?>/css/style-purple.css" />
         <link rel="alternate stylesheet" type="text/css" media="screen" title="style7" href="<?php echo $baseUrl;?>/css/style-red.css" />
 	  <?php
+      
 	  $cs->registerScriptFile($baseUrl.'/js/bootstrap.min.js');
 	  $cs->registerScriptFile($baseUrl.'/js/plugins/jquery.sparkline.js');
 	  $cs->registerScriptFile($baseUrl.'/js/plugins/jquery.flot.min.js');
@@ -46,6 +47,8 @@
 	  $cs->registerScriptFile($baseUrl.'/js/plugins/jquery.knob.js');
 	  $cs->registerScriptFile($baseUrl.'/js/plugins/jquery.masonry.min.js');
 	  $cs->registerScriptFile($baseUrl.'/js/styleswitcher.js');
+    $cs->registerScriptFile($baseUrl.'/js/highcharts.js');
+    $cs->registerScriptFile($baseUrl.'/js/modules/exporting.js');
 	?>
   </head>
 

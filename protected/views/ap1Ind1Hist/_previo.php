@@ -1,7 +1,12 @@
-<?php
+  <?php
+/* @var $this Ap1ind1JorgeController */
+/* @var $model Ap1ind1Jorge */
 
-//print_r(json_encode($model));
-//die();
+$this->breadcrumbs=array(
+	'Regresar'=>array('index'),
+	//"Previo"=>array('previo','id'=>$model->id),
+	'Previo',
+);
 
 ?>
 
@@ -16,19 +21,7 @@
 		        	Vista Previa del Indicador
 		        </p>
         		<div>
-        	  	<?php
-				  $this->widget('zii.widgets.jui.CJuiButton', array(
-				  	    'buttonType'=>'link',
-						'name'=>'Regresar'.$registro['periodo'].'',
-						'caption'=>'Regresar',
-						'value'=>'Regresar',
-						'htmlOptions'=>array('class'=>'btn btn-gray','style'=>'padding: 0px;'),
-
-
-						//'url' => array('apa1ind1/admin/'.$registro['id'].''),
-						'onclick'=>new CJavaScriptExpression('function(){alert("Al autorizar se publicara en la pagina web"); this.blur(); return false;}'),
-				  ));
-			?>
+        	  	
 	  	<?php
 				  if($autoriza){
 				  $this->widget('zii.widgets.jui.CJuiButton', array(
@@ -58,19 +51,7 @@
 						'onclick'=>new CJavaScriptExpression('function(){alert("Al autorizar se publicara en la pagina web"); this.blur(); return false;}'),
 				  ));
 			?>
-			<?php
-				  $this->widget('zii.widgets.jui.CJuiButton', array(
-				  	    'buttonType'=>'link',
-						'name'=>'Grafico'.$registro['periodo'].'',
-						'caption'=>'Mostrar Grafico',
-						'value'=>'Grafico',
-						'htmlOptions'=>array('class'=>'btn btn-warning','style'=>'padding: 0px;'),
-
-
-						//'url' => array('apa1ind1/admin/'.$registro['id'].''),
-						'onclick'=>new CJavaScriptExpression('function(){alert("Al autorizar se publicara en la pagina web"); this.blur(); return false;}'),
-				  ));
-			?>
+		
 
 			<?php
 				  $this->widget('zii.widgets.jui.CJuiButton', array(
@@ -81,8 +62,8 @@
 						'htmlOptions'=>array('class'=>'btn btn-primary','style'=>'padding: 0px;'),
 
 
-						//'url' => array('apa1ind1/admin/'.$registro['id'].''),
-						'onclick'=>new CJavaScriptExpression('function(){alert("Al autorizar se publicara en la pagina web"); this.blur(); return false;}'),
+						//'url' => array('apa1ind1/grafico/'.$registro['id'].''),
+						//'onclick'=>new CJavaScriptExpression('function(){alert("Al autorizar se publicara en la pagina web"); this.blur(); return false;}'),
 				  ));
 			?>
 
@@ -99,6 +80,21 @@
 						'onclick'=>new CJavaScriptExpression('function(){alert("Al autorizar se publicara en la pagina web"); this.blur(); return false;}'),
 				  ));
 			?>
+		
+
+			 <?php
+                  $this->widget('zii.widgets.jui.CJuiButton', array(
+                        'buttonType'=>'link',
+                        'name'=>'Grafico'.$registro['periodo'].'',
+                        'caption'=>'Mostrar Grafico',
+                        'value'=>'Grafico',
+                        'htmlOptions'=>array('class'=>'btn btn-warning','style'=>'padding: 0px;'),
+
+
+                        'url' => array('ap1Ind1Hist/grafico/'.$id.''),
+                        //'onclick'=>new CJavaScriptExpression('function(){alert("Save button has been clicked"); this.blur(); return false;}'),
+                  ));
+            ?>
 </div>
         	</p>
 		        
@@ -631,19 +627,9 @@ foreach ($model as $indice => $valor) {
 			        </div>
 		        </div>
 
-		        <div class="option_1">
-		        	<div id="valor_censal">
+		      
 		        
-		        	</div>
-		        	<div class="table_explanation">
-		        		<p class="table_exp_title">Nota: Milpa Alta aparece con un valor de 429,646.</p>
-				        <p class="table_exp_source"><span>Fuente: </span>Elaboración con base en datos de INEGI, Censo Económico 2009</p>
-		        	</div>
-		        </div>
-		        
-		        
-        	</div>
+</div>
 
 
-        </div>
-        
+          

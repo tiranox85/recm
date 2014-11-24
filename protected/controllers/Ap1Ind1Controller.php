@@ -32,7 +32,7 @@ class Ap1Ind1Controller extends Controller
 				'users'=>array('*'),
 			),
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
-				'actions'=>array('create','update'),
+				'actions'=>array('create','update','config','grafico'),
 				'users'=>array('@'),
 			),
 			array('allow', // allow admin user to perform 'admin' and 'delete' actions
@@ -52,6 +52,13 @@ class Ap1Ind1Controller extends Controller
 	public function actionView($id)
 	{
 		$this->render('view',array(
+			'model'=>$this->loadModel($id),
+		));
+	}
+
+	public function actionGrafico($id)
+	{
+		$this->render('_grafico',array(
 			'model'=>$this->loadModel($id),
 		));
 	}
@@ -85,6 +92,25 @@ class Ap1Ind1Controller extends Controller
 	 * @param integer $id the ID of the model to be updated
 	 */
 	public function actionUpdate($id)
+	{
+		$model=$this->loadModel($id);
+
+		// Uncomment the following line if AJAX validation is needed
+		// $this->performAjaxValidation($model);
+
+		if(isset($_POST['Ap1Ind1']))
+		{
+			$model->attributes=$_POST['Ap1Ind1'];
+			if($model->save())
+				$this->redirect(array('view','id'=>$model->id));
+		}
+
+		$this->render('update',array(
+			'model'=>$model,
+		));
+	}
+
+	public function actionConfig($id)
 	{
 		$model=$this->loadModel($id);
 

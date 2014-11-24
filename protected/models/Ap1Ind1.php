@@ -15,6 +15,10 @@
  */
 class Ap1Ind1 extends CActiveRecord
 {
+	//Configuracion
+
+	
+
 	/**
 	 * @return string the associated database table name
 	 */
@@ -31,6 +35,7 @@ class Ap1Ind1 extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
+			array('titulo1, nota1', 'required'),
 			array('id_periodo, entidad, municipio, actividad, usuario', 'numerical', 'integerOnly'=>true),
 			array('valor', 'numerical'),
 			array('fecha_reg', 'safe'),
@@ -62,6 +67,7 @@ class Ap1Ind1 extends CActiveRecord
 	public function attributeLabels()
 	{
 		return array(
+			
 			'id' => 'ID',
 			'id_periodo' => 'Periodo',
 			'entidad' => 'Entidad',

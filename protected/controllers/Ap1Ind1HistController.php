@@ -28,7 +28,7 @@ class Ap1Ind1HistController extends Controller {
     public function accessRules() {
         return array(
             array('allow', // allow all users to perform 'index' and 'view' actions
-                'actions' => array('index', 'view', 'preview','previo','excel'),
+                'actions' => array('index', 'view', 'preview','previo','excel','config','modConfig','grafico'),
                 'users' => array('@'),
             ),
             array('allow', // allow authenticated user to perform 'create' and 'update' actions
@@ -67,6 +67,13 @@ class Ap1Ind1HistController extends Controller {
             'registros' => $registros,
         ));
     }
+
+    public function actionGrafico($id)
+    {
+        $this->render('_grafico',array(
+            'model'=>$this->loadModel($id),
+        ));
+    }
     public function mostrarAutorizar()
         {
 
@@ -97,7 +104,7 @@ class Ap1Ind1HistController extends Controller {
         $autoriza=$this->mostrarAutorizar($perfil,1,2,4);
         $model=Ap1Ind1Hist::model()->findByPk($id);
 
-        $url = "http://localhost/recm_cesar/index.php/api/ap1Ind1";
+        $url = "http://localhost/recm/index.php/api/ap1Ind1";
         //$url = $baseUrl;
         $data = file_get_contents($url);
         $model= CJSON::decode($data);
@@ -222,7 +229,101 @@ class Ap1Ind1HistController extends Controller {
      * If update is successful, the browser will be redirected to the 'view' page.
      * @param integer $id the ID of the model to be updated
      */
-    public function actionUpdate($id) {
+
+        public function actionConfig($id)
+    {
+        $model=$this->loadModel($id);
+
+        // Uncomment the following line if AJAX validation is needed
+        // $this->performAjaxValidation($model);
+        $data = CJSON::decode($model->config);
+        foreach ($data as $key => $value) {
+                $model->$key = $value;
+            }
+
+
+
+
+
+        if(isset($_POST['Ap1Ind1']))
+        {
+            $model->attributes=$_POST['Ap1Ind1'];
+            if($model->save())
+                $this->redirect(array('view','id'=>$model->id));
+        }
+
+        $this->render('_config',array(
+            'model'=>$model,
+            'data'=>$data,
+        ));
+    }
+
+    public function actionModConfigx($id) {
+        $model = $this->loadModel($id);
+        $data = CJSON::decode($model->config);
+        foreach ($data as $key => $value) {
+                $model->$key = $value;
+            }
+        // Uncomment the following line if AJAX validation is needed
+        // $this->performAjaxValidation($model);
+        
+      //  $model->periodo= utf8_encode($model->periodo);
+        //$model->titulo= utf8_encode($model->titulo);
+
+        if (isset($_POST['Ap1Ind1Hist'])) {
+     
+        }
+
+        $this->render('_formconfig', array(
+            'model' => $model,
+            'data'=>$data,
+        ));
+    }
+
+    public function actionUpdate($id)
+    {
+      
+        $model=$this->loadModel($id);
+
+        if($model->config){
+        $data = CJSON::decode($model->config);
+                foreach ($data as $key => $value) {
+                        $model->$key = base64_decode($value);
+                    }
+        }
+
+        // Uncomment the following line if AJAX validation is needed
+        // $this->performAjaxValidation($model);
+
+        if(isset($_POST['Ap1Ind1Hist']))
+        {
+            $model->attributes=$_POST['Ap1Ind1Hist'];
+            $model->config = CJSON::encode(array('titulo1' => base64_encode($model->titulo1), 'nota1' => base64_encode($model->nota1),'titulo2' => base64_encode($model->titulo2),'nota2' => base64_encode($model->nota2)));
+            if($model->save())
+                $this->redirect(array('index','id'=>$model->id));
+        }
+
+        $this->render('update',array(
+            'model'=>$model,
+        ));
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    public function actionUpdatex($id) {
         $model = $this->loadModel($id);
         // Uncomment the following line if AJAX validation is needed
         // $this->performAjaxValidation($model);
@@ -296,6 +397,8 @@ class Ap1Ind1HistController extends Controller {
      * Lists all models.
      */
     public function actionIndex() {
+
+        $layout = '//layouts/main';
         $criteria = new CDbCriteria();
 
         $item_count = Ap1Ind1Hist::model()->count($criteria);
