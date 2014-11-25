@@ -47,12 +47,6 @@ or <b>=</b>) at the beginning of each of your search values to specify how the c
 	'columns'=>array(
 		'id',
 		'rubro',
-            array(
-            'name'=>'rubro',
-            'value'=>'$data->Rubro->rubro',
-            'filter'=>Relaciones::model()->options,
-            'htmlOptions'=>array('style'=>'width: 80px;  text-align:center;'),
-                    ),
 		'valor',
 		'anio',
 		'mes',

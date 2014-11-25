@@ -30,5 +30,6 @@ $this->menu=array(
 		'fecha_mod',
 		'user_reg',
 		'user_mod',
+		'columna',
 	),
 )); ?>

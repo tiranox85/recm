@@ -55,6 +55,7 @@ or <b>=</b>) at the beginning of each of your search values to specify how the c
 		'fecha_mod',
 		'user_reg',
 		'user_mod',
+		'columna',
 		*/
 		array(
 			'class'=>'CButtonColumn',

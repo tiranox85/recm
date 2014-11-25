@@ -56,6 +56,11 @@
 		<?php echo $form->textField($model,'user_mod'); ?>
 	</div>
 
+	<div class="row">
+		<?php echo $form->label($model,'columna'); ?>
+		<?php echo $form->textField($model,'columna'); ?>
+	</div>
+
 	<div class="row buttons">
 		<?php echo CHtml::submitButton('Search'); ?>
 	</div>

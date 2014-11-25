@@ -42,6 +42,10 @@
 	<?php echo CHtml::encode($data->user_mod); ?>
 	<br />
 
+	<b><?php echo CHtml::encode($data->getAttributeLabel('columna')); ?>:</b>
+	<?php echo CHtml::encode($data->columna); ?>
+	<br />
+
 	*/ ?>
 
 </div>
