@@ -76,18 +76,25 @@ class Ap1Ind72HistController extends Controller {
 
         return $html;
         }
-    public function actionPrevio($id)
+     public function actionPrevio($id)
     {
         $perfil = Yii::app()->user->perfil;
         $autoriza=$this->mostrarAutorizar($perfil,1,2,4);
-        $model=Ap1Ind72Hist::model()->findByPk($id);
+        $model=Ap1Ind62Hist::model()->findByPk($id);
+
+        $url = "http://localhost/recm/index.php/api/ap1Ind72?anio=2014&trim_inicio=1&trim_fin=6&grafico=0";
+        //$url = $baseUrl;
+        $data = file_get_contents($url);
+        $model= CJSON::decode($data);
 
         $this->render('_previo',array(
             'model'=>$model,
             'id'=>$id,
             'autoriza'=>$autoriza,
+            //'model'=>$model,
         ));
     }
+    
     
     public function actionPreview($id) {
         $registros= Ap1ind1::model()->findAll("id_periodo=:id_periodo", array(":id_periodo"=>$id));

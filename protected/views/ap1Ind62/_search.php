@@ -17,8 +17,8 @@
 	</div>
 
 	<div class="row">
-		<?php echo $form->label($model,'periodo_id'); ?>
-		<?php echo $form->textField($model,'periodo_id'); ?>
+		<?php echo $form->label($model,'mes'); ?>
+		<?php echo $form->textField($model,'mes'); ?>
 	</div>
 
 	<div class="row">
@@ -49,6 +49,16 @@
 	<div class="row">
 		<?php echo $form->label($model,'user_mod'); ?>
 		<?php echo $form->textField($model,'user_mod'); ?>
+	</div>
+
+	<div class="row">
+		<?php echo $form->label($model,'anio'); ?>
+		<?php echo $form->textField($model,'anio'); ?>
+	</div>
+
+	<div class="row">
+		<?php echo $form->label($model,'periodo_id'); ?>
+		<?php echo $form->textField($model,'periodo_id',array('size'=>19,'maxlength'=>19)); ?>
 	</div>
 
 	<div class="row buttons">

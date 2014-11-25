@@ -9,8 +9,8 @@
 	<?php echo CHtml::link(CHtml::encode($data->id), array('view', 'id'=>$data->id)); ?>
 	<br />
 
-	<b><?php echo CHtml::encode($data->getAttributeLabel('periodo_id')); ?>:</b>
-	<?php echo CHtml::encode($data->periodo_id); ?>
+	<b><?php echo CHtml::encode($data->getAttributeLabel('mes')); ?>:</b>
+	<?php echo CHtml::encode($data->mes); ?>
 	<br />
 
 	<b><?php echo CHtml::encode($data->getAttributeLabel('rubro')); ?>:</b>
@@ -36,6 +36,14 @@
 	<?php /*
 	<b><?php echo CHtml::encode($data->getAttributeLabel('user_mod')); ?>:</b>
 	<?php echo CHtml::encode($data->user_mod); ?>
+	<br />
+
+	<b><?php echo CHtml::encode($data->getAttributeLabel('anio')); ?>:</b>
+	<?php echo CHtml::encode($data->anio); ?>
+	<br />
+
+	<b><?php echo CHtml::encode($data->getAttributeLabel('periodo_id')); ?>:</b>
+	<?php echo CHtml::encode($data->periodo_id); ?>
 	<br />
 
 	*/ ?>

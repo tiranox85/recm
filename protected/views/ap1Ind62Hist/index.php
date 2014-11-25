@@ -99,7 +99,7 @@
                         'htmlOptions'=>array('class'=>'btn btn-success','style'=>'padding: 0px;'),
 
 
-                        'url' => array('ap1Ind62Hist/view/'.$item->id.''),
+                        'url' => array('ap1Ind62/admin/'.$item->id.''),
                         //'onclick'=>new CJavaScriptExpression('function(){alert("Save button has been clicked"); this.blur(); return false;}'),
                   ));
             ?>

@@ -88,12 +88,9 @@ class Ap1Ind62Hist extends CActiveRecord
 		$criteria=new CDbCriteria;
 
 		$criteria->compare('id',$this->id);
-		$criteria->compare('periodo',$this->periodo,true);
-		$criteria->compare('config',$this->config,true);
-		$criteria->compare('validado',$this->validado);
-		$criteria->compare('autorizado',$this->autorizado);
-		$criteria->compare('fecha_reg',$this->fecha_reg,true);
-		$criteria->compare('user_reg',$this->user_reg);
+		$criteria->compare('periodo_id',$this->periodo_id,true);
+                $criteria->compare('rubro',$this->rubro,true);
+	
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,
@@ -110,4 +107,8 @@ class Ap1Ind62Hist extends CActiveRecord
 	{
 		return parent::model($className);
 	}
+        public function getOptions()
+{
+return CHtml::listData($this->findAll(),'id','rubro');
+}
 }

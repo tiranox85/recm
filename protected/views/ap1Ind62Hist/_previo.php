@@ -1,10 +1,3 @@
-<?php
-
-//print_r(json_encode($model));
-//die();
-
-?>
-
 <div id="main_content">
         	
         	<br>
@@ -132,10 +125,7 @@
                                                 <td>Sector público Distrito Federal</td>
                                                 <td>Sector privado Distrito Federal</td>
 			        	</tr>
-<tr class="rEven">
-    <td>
-        % respecto al total del DF
-    </td>
+
    
 			     <?php 
 
@@ -153,6 +143,8 @@ foreach($model as $mod){
             
            
         }
+        
+           //porcentajes
            $totaldf=$z[3];
            $sector_publico=($z[1]/$totaldf)*100;
            $sector_privado=($z[2]/$totaldf)*100;
@@ -163,22 +155,57 @@ foreach($model as $mod){
            $transporte=($z[7]/$totaldf)*100;
            $petroleo=($z[8]/$totaldf)*100;
            $otras=($z[9]/$totaldf)*100;
+           
+           
+           //absolutos
+           $sector_publico_abs=($z[1]);
+           $sector_privado_abs=($z[2]);
+           
+           $edificacion_abs=($z[4]);
+           $agua_abs=($z[5]);
+           $electricidad_abs=($z[6]);
+           $transporte_abs=($z[7]);
+           $petroleo_abs=($z[8]);
+           $otras_abs=($z[9]);
           
          
            
 }
 
+function round_up ($value, $places=0) {
+  if ($places < 0) { $places = 0; }
+  $mult = pow(10, $places);
+  return ceil($value * $mult) / $mult;
+}
+
 
 ?>
+<tr class="rEven">
+    <td>
+       Absoluto
+    </td>    
+    <td class="data"><?php echo round_up($edificacion_abs, 2); ?></td>
+    <td class="data"><?php echo round_up($agua_abs, 2); ?></td>
+    <td class="data"><?php echo round_up($electricidad_abs, 2); ?></td>
+    <td class="data"><?php echo round_up($transporte_abs, 2); ?></td>
+    <td class="data"><?php echo round_up($petroleo_abs, 2); ?></td>
+    <td class="data"><?php echo round_up($edificacion_abs, 2); ?></td>
+    <td class="data"><?php echo round_up($sector_publico_abs, 2); ?></td>
+    <td class="data"><?php echo round_up($sector_privado_abs, 2); ?></td>
     
-    <td class="data"><?php echo $edificacion; ?></td>
-    <td class="data"><?php echo $agua; ?></td>
-    <td class="data"><?php echo $electricidad; ?></td>
-    <td class="data"><?php echo $transporte; ?></td>
-    <td class="data"><?php echo $petroleo; ?></td>
-    <td class="data"><?php echo $edificacion; ?></td>
-    <td class="data"><?php echo $sector_publico; ?></td>
-    <td class="data"><?php echo $sector_privado; ?></td>
+</tr>
+<tr class="rEven">
+    <td>
+        % respecto al total del DF
+    </td>    
+    <td class="data"><?php echo round_up($edificacion, 2); ?>%</td>
+    <td class="data"><?php echo round_up($agua, 2); ?>%</td>
+    <td class="data"><?php echo round_up($electricidad, 2); ?>%</td>
+    <td class="data"><?php echo round_up($transporte, 2); ?>%</td>
+    <td class="data"><?php echo round_up($petroleo, 2); ?>%</td>
+    <td class="data"><?php echo round_up($edificacion, 2); ?>%</td>
+    <td class="data"><?php echo round_up($sector_publico, 2); ?>%</td>
+    <td class="data"><?php echo round_up($sector_privado, 2); ?>%</td>
     
 </tr>
 		

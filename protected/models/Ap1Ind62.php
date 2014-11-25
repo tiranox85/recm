@@ -31,12 +31,12 @@ class Ap1Ind62 extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('periodo_id, user_reg, user_mod', 'numerical', 'integerOnly'=>true),
+			array('periodo_id, user_reg, user_mod, anio, mes', 'numerical', 'integerOnly'=>true),
 			array('valor', 'numerical'),
 			array('fecha_reg', 'safe'),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('id, periodo_id, user_mod, valor, fecha_reg', 'safe', 'on'=>'search'),
+			array('id, periodo_id, user_mod, valor, fecha_reg, mes, anio', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -45,8 +45,11 @@ class Ap1Ind62 extends CActiveRecord
 	 */
 	public function relations()
 	{
-		// NOTE: you may need to adjust the relation name and the related ap1Ind1_hist
-		// class name for the relations automatically generated below.
+		return array(
+				'Relaciones' => array(self::BELONGS_TO, 'Relaciones', 'rubro'),
+				
+			
+		);
 		
 	}
 
@@ -58,12 +61,8 @@ class Ap1Ind62 extends CActiveRecord
 		return array(
 			'id' => 'ID',
 			'id_periodo' => 'Periodo',
-			'entidad' => 'Entidad',
-			'municipio' => 'Municipio',
-			'actividad' => 'Actividad',
-			'valor' => 'Valor',
-			'usuario' => 'Usuario',
-			'fecha_reg' => 'Fecha Reg',
+                    'rubro' => 'Rubro',
+			
 		);
 	}
 
@@ -84,15 +83,8 @@ class Ap1Ind62 extends CActiveRecord
 		// @todo Please modify the following code to remove attributes that should not be searched.
 
 		$criteria=new CDbCriteria;
-
-		$criteria->compare('id',$this->id);
-		$criteria->compare('id_periodo',$id);
-		$criteria->compare('entidad',$this->entidad);
-		$criteria->compare('municipio',$this->municipio);
-		$criteria->compare('actividad',$this->actividad);
-		$criteria->compare('valor',$this->valor);
-		$criteria->compare('usuario',$this->usuario);
-		$criteria->compare('fecha_reg',$this->fecha_reg,true);
+                $criteria->compare('id',$this->id);
+		$criteria->compare('rubro',$this->id);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,
@@ -109,4 +101,5 @@ class Ap1Ind62 extends CActiveRecord
 	{
 		return parent::model($className);
 	}
+        
 }

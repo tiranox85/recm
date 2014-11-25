@@ -97,7 +97,7 @@ class Ap1Ind62HistController extends Controller {
         $autoriza=$this->mostrarAutorizar($perfil,1,2,4);
         $model=Ap1Ind62Hist::model()->findByPk($id);
 
-        $url = "http://localhost/recm/index.php/api/ap1Ind62?id=1&id2=2";
+        $url = "http://localhost/recm/index.php/api/ap1Ind62?anio=2014&grafico=0";
         //$url = $baseUrl;
         $data = file_get_contents($url);
         $model= CJSON::decode($data);

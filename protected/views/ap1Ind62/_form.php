@@ -26,9 +26,9 @@
 	</div>
 
 	<div class="row">
-		<?php echo $form->labelEx($model,'periodo_id'); ?>
-		<?php echo $form->textField($model,'periodo_id'); ?>
-		<?php echo $form->error($model,'periodo_id'); ?>
+		<?php echo $form->labelEx($model,'mes'); ?>
+		<?php echo $form->textField($model,'mes'); ?>
+		<?php echo $form->error($model,'mes'); ?>
 	</div>
 
 	<div class="row">
@@ -65,6 +65,18 @@
 		<?php echo $form->labelEx($model,'user_mod'); ?>
 		<?php echo $form->textField($model,'user_mod'); ?>
 		<?php echo $form->error($model,'user_mod'); ?>
+	</div>
+
+	<div class="row">
+		<?php echo $form->labelEx($model,'anio'); ?>
+		<?php echo $form->textField($model,'anio'); ?>
+		<?php echo $form->error($model,'anio'); ?>
+	</div>
+
+	<div class="row">
+		<?php echo $form->labelEx($model,'periodo_id'); ?>
+		<?php echo $form->textField($model,'periodo_id',array('size'=>19,'maxlength'=>19)); ?>
+		<?php echo $form->error($model,'periodo_id'); ?>
 	</div>
 
 	<div class="row buttons">

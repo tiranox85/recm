@@ -22,12 +22,14 @@ $this->menu=array(
 	'data'=>$model,
 	'attributes'=>array(
 		'id',
-		'periodo_id',
+		'mes',
 		'rubro',
 		'valor',
 		'fecha_reg',
 		'fecha_mod',
 		'user_reg',
 		'user_mod',
+		'anio',
+		'periodo_id',
 	),
 )); ?>
