@@ -138,8 +138,8 @@ foreach($model as $mod){
 
        for($t=$trim_inicio;$t<=$trim_fin;$t++){
                
-                $total_df += $mod[0][$anio][$t]['valor'];
-                $total_df_pasado += $mod[0][$anio_anterior][$t]['valor'];
+                $total_df += $mod[1][$anio][$t]['valor'];
+                $total_df_pasado += $mod[1][$anio_anterior][$t]['valor'];
                 
             }
          
