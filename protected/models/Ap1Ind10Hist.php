@@ -15,6 +15,8 @@
 class Ap1Ind10Hist extends CActiveRecord
 {
     public $_archivo;
+    public $titulo1;
+    public $nota1;
 	/**
 	 * @return string the associated database table name
 	 */
@@ -31,6 +33,7 @@ class Ap1Ind10Hist extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
+			array('titulo1, nota1', 'safe'),
 			array('periodo, config, validado, autorizado, activo, fecha_reg, user_reg', 'required'),
 			array('validado, autorizado, user_reg', 'numerical', 'integerOnly'=>true),
 			array('periodo, config', 'length', 'max'=>200),
@@ -59,6 +62,8 @@ class Ap1Ind10Hist extends CActiveRecord
 	public function attributeLabels()
 	{
 		return array(
+			'titulo1'=>'Titulo del Cuadro',
+			'nota1'=>'Nota',
 			'id' => 'ID',
 			'periodo' => 'Periodo',
 			'config' => 'config',

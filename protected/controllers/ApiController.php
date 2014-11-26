@@ -16,16 +16,10 @@ $resultado = Ap1Ind1::model()->findAll((array(
 
 foreach ($resultado as $key => $row) {
 
-
-	
-
-	
-
 	    $resultado2 = Delegaciones::model()->findAll((array(
 
 		    'order'=>'id'
 			)));
-
 
 
 		foreach ($resultado2 as $key2 => $row2) {
