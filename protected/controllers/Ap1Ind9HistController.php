@@ -82,10 +82,16 @@ class Ap1Ind9HistController extends Controller {
         $autoriza=$this->mostrarAutorizar($perfil,1,2,4);
         $model=Ap1Ind9Hist::model()->findByPk($id);
 
+        $url = "http://localhost/recm/index.php/api/ap1Ind9?anios=2009,2010,2011,2012&grafico=0";
+        //$url = $baseUrl;
+        $data = file_get_contents($url);
+        $model= CJSON::decode($data);
+
         $this->render('_previo',array(
             'model'=>$model,
             'id'=>$id,
             'autoriza'=>$autoriza,
+            //'model'=>$model,
         ));
     }
     

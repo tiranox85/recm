@@ -129,79 +129,73 @@ $anio_anterior=$anio-1;
 $trim_inicio=1;
 $trim_fin=6+1;
 
- $sql = "SELECT * from relaciones where indicador='ap1Ind72'"; 
+ $sql = "SELECT * from relaciones where indicador='ap1Ind72' ORDER BY orden ASC"; 
 	$actividad = Yii::app()->db->createCommand($sql)->queryAll();
         //print_r($actividad);
         
         
 foreach($model as $mod){
-
-       for($t=$trim_inicio;$t<=$trim_fin;$t++){
+        
+        //aca calculo el total del df con la sumatoria de la primera columna y los agrego a una variable
+        for($t=$trim_inicio;$t<=$trim_fin;$t++){
                
                 $total_df += $mod[1][$anio][$t]['valor'];
                 $total_df_pasado += $mod[1][$anio_anterior][$t]['valor'];
                 
-            }
+        }
          
-       $x=0;
-       //(dato del df por tipo / valor de construcción del df)*100
-       foreach($mod as $value){
-        /*echo "<pre>";
-        print_r($value);
-        echo "</pre>";*/
+        $x=0; 
        
-       $sumas=array();    
-       $x++;   
-       
-           
-           for($i=$trim_inicio;$i<=$trim_fin;$i++){
+        //arranco el arreglo de las sumas
+        $sumas=array(); 
+      
+        foreach($mod as $key=>$value){
+            
+            $x++;   
+
+            //aqui le hago un push a cada sumatoria para luego poder ordenarla   
+            for($i=$trim_inicio;$i<=$trim_fin;$i++){
                 $s_actual[$x]+= $value[$anio][$i]['valor'];
             }
             array_push($sumas, $s_actual[$x]);
-         
-            //print_r($sumas);
-           
-           
         }
-        
-       $estados = array(
-           
-           
-       );
-       
-       
-        
+
+
+        //aqui creo un arreglo ordenado en base a los valores
         $orden = array();
         foreach ($sumas as $key => $row)
             {
-                $orden[$key] = $row['value'];
+                $orden[$key] = $row;
             } 
+        //aca ordeno el arreglo sumatorias y lo regreso acomodado   
         array_multisort($orden, SORT_DESC, $sumas);
-        print_r($orden);
-        
-            
-        for($o=2;$o<=20;$o++){
-           
-           echo "<tr class='rEven'><td >".utf8_encode($actividad[$o-1]['titulo'])."</td><td class='data'>".round_up($s_actual[$o],2)."</td>";
-           
-      
-           
-            $operacion1[$o] = ($s_actual[$o]/$total_df)*100;
-            
+        //echo "<pre>";
+        //print_r($sumas);
+        //echo "</pre>";
+
+        //aca despliego el arreglo para la tabla y le agrego el rubo o el estado    
+        foreach($sumas as $key => $row){
+            if($key>0){
+            echo "<tr class='rEven'><td >".utf8_encode($actividad[$key]['titulo'])."</td><td class='data'>".round_up($row,2)."</td>";
+
+            //operacion de totales
+            $operacion1[$o] = ($row/$total_df)*100;
+
             echo "<td class='data'>".round($operacion1[$o], 2)."</td><tr>";
-            
-            
-            
-            
-           
-       }
-       
+
+        }
+
+
+
+   }
+
            
            
        echo "<tr class='rEven'><td >Nacional</td><td  class='data'>".round_up($total_df,2)."</td><td class='data'>".round((($total_df/$total_df))*100 , 2)."</td></tr>";
            
 }
 
+//Esta es la funcion para redondear las cifras con criterios especificos
 function round_up ($value, $places=0) {
   if ($places < 0) { $places = 0; }
   $mult = pow(10, $places);

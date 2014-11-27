@@ -68,7 +68,7 @@
                         'htmlOptions'=>array('class'=>'btn btn-primary','style'=>'padding: 0px;'),
 
 
-                        'url' => array('ap1Ind8Hist/previo/'.$item->id.''),
+                        'url' => array('ap1Ind82Hist/previo/'.$item->id.''),
                         //'onclick'=>new CJavaScriptExpression('function(){alert("Save button has been clicked"); this.blur(); return false;}'),
                   ));
             ?>
@@ -83,7 +83,7 @@
                         'htmlOptions'=>array('class'=>'btn btn-info','style'=>'padding: 0px;'),
 
 
-                        'url' => array('ap1Ind8Hist/config/'.$item->id.''),
+                        'url' => array('ap1Ind82Hist/config/'.$item->id.''),
                         //'onclick'=>new CJavaScriptExpression('function(){alert("Save button has been clicked"); this.blur(); return false;}'),
                   ));
             ?>
@@ -98,7 +98,7 @@
                         'htmlOptions'=>array('class'=>'btn btn-success','style'=>'padding: 0px;'),
 
 
-                        'url' => array('ap1Ind8Hist/view/'.$item->id.''),
+                        'url' => array('ap1Ind82Hist/view/'.$item->id.''),
                         //'onclick'=>new CJavaScriptExpression('function(){alert("Save button has been clicked"); this.blur(); return false;}'),
                   ));
             ?>
@@ -114,7 +114,7 @@
                         'htmlOptions'=>array('class'=>'btn btn-warning','style'=>'padding: 0px;'),
 
 
-                        'url' => array('ap1Ind8Hist/update/'.$item->id.''),
+                        'url' => array('ap1Ind82Hist/admin/'.$item->id.''),
                         //'onclick'=>new CJavaScriptExpression('function(){alert("Save button has been clicked"); this.blur(); return false;}'),
                   ));
             ?>

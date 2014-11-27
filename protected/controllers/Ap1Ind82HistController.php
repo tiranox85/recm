@@ -1,6 +1,6 @@
 <?php
 
-class Ap1Ind8HistController extends Controller {
+class Ap1Ind82HistController extends Controller {
 
     /**
      * @var string the default layout for the views. Defaults to '//layouts/column2', meaning
@@ -80,33 +80,52 @@ class Ap1Ind8HistController extends Controller {
     {
         $perfil = Yii::app()->user->perfil;
         $autoriza=$this->mostrarAutorizar($perfil,1,2,4);
-        $model=Ap1Ind8Hist::model()->findByPk($id);
+        $model=Ap1Ind62Hist::model()->findByPk($id);
+
+        $url = "http://localhost/recm/index.php/api/ap1Ind82?anios=2007,2008,2009,2010,2011,2012&grafico=0";
+        //$url = $baseUrl;
+        $data = file_get_contents($url);
+        $model= CJSON::decode($data);
 
         $this->render('_previo',array(
             'model'=>$model,
             'id'=>$id,
             'autoriza'=>$autoriza,
+            //'model'=>$model,
+        ));
+    }
+    
+    public function actionExcel($id)
+    {
+        //$model=Apa1Ind1Hist::model()->findByPk($id);
+          Yii::import( "xupload.models.XUploadForm" );
+          $uploads = new XUploadForm;
+        
+        $this->render('_excel',array(
+            //'model'=>$model,
+            'id'=>$id,
+            'uploads'=>$uploads,
         ));
     }
     
     public function actionPreview($id) {
-        $registros= Ap1ind1::model()->findAll("id_periodo=:id_periodo", array(":id_periodo"=>$id));
+        $registros= Ap1ind82::model()->findAll("id_periodo=:id_periodo", array(":id_periodo"=>$id));
         /*$criteria= new CDbCriteria;
         $criteria->select="entidad";
         $criteria->group="entidad";
         $criteria->addCondition("id_periodo=".$id);
-        $entidades= Ap1ind1::model()->findAll($criteria);*/
+        $entidades= Ap1ind82::model()->findAll($criteria);*/
         $criteria= new CDbCriteria;
         $criteria->select="municipio";
         $criteria->group="municipio";
         $criteria->addCondition("id_periodo=".$id);
-        $municipios= Ap1ind1::model()->findAll($criteria);
+        $municipios= Ap1ind82::model()->findAll($criteria);
         $criteria= new CDbCriteria;
         $criteria->select="actividad";
         $criteria->group="actividad";
         $criteria->addCondition("id_periodo=".$id);
         $criteria->order="MIN(id)";
-        $actividades= Ap1ind1::model()->findAll($criteria);
+        $actividades= Ap1ind82::model()->findAll($criteria);
         $array= array();
         foreach($actividades as $actividad){
             foreach($registros as $registro){
@@ -144,13 +163,13 @@ class Ap1Ind8HistController extends Controller {
      */
     public function actionCreate() {
         $layout = '//layouts/column2';
-        $model = new Ap1Ind8Hist;
+        $model = new Ap1Ind82Hist;
 
         // Uncomment the following line if AJAX validation is needed
         // $this->performAjaxValidation($model);
 
-        if (isset($_POST['Ap1Ind8Hist'])) {
-            $model->attributes = $_POST['Ap1Ind8Hist'];
+        if (isset($_POST['Ap1Ind82Hist'])) {
+            $model->attributes = $_POST['Ap1Ind82Hist'];
             $model->_archivo = CUploadedFile::getInstance($model, '_archivo');
             $model->fecha_reg = date("Y-m-d");
             $model->user_reg = 1;
@@ -178,7 +197,7 @@ class Ap1Ind8HistController extends Controller {
                       echo max(count($data->sheets[$sheet_index]['cells']) - 1, 0);
                       die; */
                     for ($i = 1; $i <= $rows; $i++) {
-                        $registro = new Ap1ind1;
+                        $registro = new Ap1ind82;
                         $registro->entidad = $data->val($i, 1);
                         $registro->municipio = $data->val($i, 2);
                         $registro->actividad = $data->val($i, 3);
@@ -209,8 +228,8 @@ class Ap1Ind8HistController extends Controller {
         $model->periodo= utf8_encode($model->periodo);
         //$model->titulo= utf8_encode($model->titulo);
 
-        if (isset($_POST['Ap1Ind8Hist'])) {
-            $model->attributes = $_POST['Ap1Ind8Hist'];
+        if (isset($_POST['Ap1Ind82Hist'])) {
+            $model->attributes = $_POST['Ap1Ind82Hist'];
             $model->_archivo = CUploadedFile::getInstance($model, '_archivo');
             $model->fecha_reg = date("Y-m-d");
             $model->user_reg = 1;
@@ -239,7 +258,7 @@ class Ap1Ind8HistController extends Controller {
                           echo max(count($data->sheets[$sheet_index]['cells']) - 1, 0);
                           die; */
                         for ($i = 1; $i <= $rows; $i++) {
-                            $registro = new Ap1ind1;
+                            $registro = new Ap1ind82;
                             $registro->entidad = $data->val($i, 1);
                             $registro->municipio = $data->val($i, 2);
                             $registro->actividad = $data->val($i, 3);
@@ -277,13 +296,13 @@ class Ap1Ind8HistController extends Controller {
     public function actionIndex() {
         $criteria = new CDbCriteria();
 
-        $item_count = Ap1Ind8Hist::model()->count($criteria);
+        $item_count = Ap1Ind82Hist::model()->count($criteria);
 
         $pages = new CPagination($item_count);
         $pages->setPageSize(10);
         $pages->applyLimit($criteria);  // the trick is here!
 
-        $model= Ap1Ind8Hist::model()->findAll($criteria);
+        $model= Ap1Ind82Hist::model()->findAll($criteria);
         
         $this->render('index', array(
             'model' => $model,
@@ -298,10 +317,10 @@ class Ap1Ind8HistController extends Controller {
      * Manages all models.
      */
     public function actionAdmin() {
-        $model = new Ap1Ind8Hist('search');
+        $model = new Ap1Ind82Hist('search');
         $model->unsetAttributes();  // clear any default values
-        if (isset($_GET['Ap1Ind8Hist']))
-            $model->attributes = $_GET['Ap1Ind8Hist'];
+        if (isset($_GET['Ap1Ind82Hist']))
+            $model->attributes = $_GET['Ap1Ind82Hist'];
 
         $this->render('admin', array(
             'model' => $model,
@@ -312,11 +331,11 @@ class Ap1Ind8HistController extends Controller {
      * Returns the data model based on the primary key given in the GET variable.
      * If the data model is not found, an HTTP exception will be raised.
      * @param integer $id the ID of the model to be loaded
-     * @return Ap1Ind8Hist the loaded model
+     * @return Ap1Ind82Hist the loaded model
      * @throws CHttpException
      */
     public function loadModel($id) {
-        $model = Ap1Ind8Hist::model()->findByPk($id);
+        $model = Ap1Ind82Hist::model()->findByPk($id);
         if ($model === null)
             throw new CHttpException(404, 'The requested page does not exist.');
         return $model;
@@ -324,7 +343,7 @@ class Ap1Ind8HistController extends Controller {
 
     /**
      * Performs the AJAX validation.
-     * @param Ap1Ind8Hist $model the model to be validated
+     * @param Ap1Ind82Hist $model the model to be validated
      */
     protected function performAjaxValidation($model) {
         if (isset($_POST['ajax']) && $_POST['ajax'] === 'ap1ind1-hist-jorge-form') {

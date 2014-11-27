@@ -238,9 +238,253 @@ foreach ($resultado as $key => $row) {
             
 
             header('Content-type: application/json');  
+            echo print_r($json);  
+            Yii::app()->end(); 
+    }
+    
+    
+    
+    public function actionAp1Ind81($anios, $grafico){
+
+    $this->layout=false;
+
+            $result = Ap1Ind81::model()->findAll((array(
+            'condition'=>'anio in('.$anios.')',
+            'order'=>'entidad ASC'
+             )));
+            
+            
+            
+            $sql = "SELECT SUM(valor) as total from ap1Ind81"; 
+            $total = Yii::app()->db->createCommand($sql)->queryRow();
+            
+            foreach ($result as $res) {
+                if(!isset($json['informe'])){
+
+                    $json['informe']=array(
+                        'entidad'=>array(),
+                        'gran_total'=>$total['total'],
+                    );
+
+                }
+
+                if(!isset($json['informe']['entidad'][$res['entidad']])){
+
+                    $json['informe']['entidad'][$res['entidad']]=array(
+                        'anio'=>array(),
+                        'total'=>0,
+                        
+                    );
+
+                }
+                
+            
+                if(!isset($json['informe']['entidad'][$res['entidad']][$res['anio']])){
+
+                    $json['informe']['entidad'][$res['entidad']][$res['anio']]=array(
+                        'valor'=>$res['valor'],
+                        
+                        
+                    );
+                    $json['informe']['entidad'][$res['entidad']]['total']=$json['informe']['entidad'][$res['entidad']]['total']+$json['informe']['entidad'][$res['entidad']][$res['anio']]['valor'];
+                    
+                }
+                
+            }
+            
+
+            header('Content-type: application/json');  
             echo json_encode($json);  
             Yii::app()->end(); 
     }
+    
+    public function actionAp1Ind82($anios, $grafico){
+
+    $this->layout=false;
+
+            $result = Ap1Ind82::model()->findAll((array(
+            'condition'=>'anio in('.$anios.') and id > 1',
+            'order'=>'rubro ASC'
+             )));
+            //saco el total el >1 significa que no debe tomar el valor de la columna 1, porque es un total en si
+            $sql = "SELECT SUM(valor) as total from ap1Ind82 where id > 1"; 
+            $total = Yii::app()->db->createCommand($sql)->queryAll();
+            
+            foreach ($result as $res) {
+                if(!isset($json['informe'])){
+
+                    $json['informe']=array(
+                        'rubro'=>array(),
+                        'gran_total'=>$total[0]['total'],
+                    );
+
+                }
+
+                if(!isset($json['informe']['rubro'][$res['rubro']])){
+
+                    $json['informe']['rubro'][$res['rubro']]=array(
+                        'anio'=>array(),
+                        'total'=>  0,
+                        
+                    );
+
+                }
+                
+                if(!isset($json['informe']['rubro'][$res['rubro']][$res['anio']])){
+
+                    $json['informe']['rubro'][$res['rubro']][$res['anio']]=array(
+                        'valores'=>array(),
+                        
+                    );
+
+                }
+                if(!isset($json['informe']['rubro'][$res['rubro']][$res['anio']][$res['valor']])){
+
+                    $json['informe']['rubro'][$res['rubro']][$res['anio']][$res['valor']]=array(
+                        'valores'=>$res['valor'],
+                       
+                        
+                    );
+                    $json['informe']['rubro'][$res['rubro']]['total']=$json['informe']['rubro'][$res['rubro']]['total']+$json['informe']['rubro'][$res['rubro']][$res['anio']][$res['valor']]['valores'];
+                    
+                }
+                
+            }
+          
+            header('Content-type: application/json');  
+            echo json_encode($json);  
+            Yii::app()->end(); 
+    }
+    
+    public function actionAp1Ind83($anios, $grafico){
+
+    $this->layout=false;
+
+            $result = Ap1Ind83::model()->findAll((array(
+            'condition'=>'anio in('.$anios.') ',
+            'order'=>'rubro ASC'
+             )));
+            
+            $sql = "SELECT SUM(valor) as total from ap1Ind83"; 
+            $total = Yii::app()->db->createCommand($sql)->queryRow();
+            foreach ($result as $res) {
+                if(!isset($json['informe'])){
+
+                    $json['informe']=array(
+                        'rubro'=>array(),
+                        'gran_total'=>$total['total']
+                        
+                    );
+
+                }
+
+                
+                
+                if(!isset($json['informe']['rubro'][$res['rubro']][$res['anio']][$res['valor']])){
+
+                    $json['informe']['rubro'][$res['rubro']][$res['anio']]['valor']=$res['valor'];
+                    
+                }
+                
+                if(!isset($json['informe']['rubro'][$res['rubro']][$res['anio']][$res['datop']])){
+
+                    $json['informe']['rubro'][$res['rubro']][$res['anio']]['datop']=$res['datop'];
+                    
+                }
+                
+            }
+          
+            header('Content-type: application/json');  
+            echo json_encode($json);  
+            Yii::app()->end(); 
+    }
+    
+    
+    
+    public function actionAp1Ind9($anios, $grafico){
+
+    $this->layout=false;
+
+            $result = Ap1Ind9::model()->findAll((array(
+            'condition'=>'anio in('.$anios.') ',
+            'order'=>'rubro ASC'
+             )));
+            
+           
+            foreach ($result as $res) {
+                if(!isset($json['informe'])){
+
+                    $json['informe']=array(
+                        'rubro'=>array(),
+                        
+                    );
+
+                }
+
+                
+                
+                if(!isset($json['informe']['rubro'][$res['rubro']][$res['anio']][$res['valor']])){
+
+                    $json['informe']['rubro'][$res['rubro']][$res['anio']]['valor']=$res['valor'];
+                    
+                }
+                
+            }
+          
+            header('Content-type: application/json');  
+            echo json_encode($json);  
+            Yii::app()->end(); 
+    }
+    
+    public function actionAp1Ind10($anios, $grafico){
+
+    $this->layout=false;
+
+            $result = Ap1Ind10::model()->findAll((array(
+            'condition'=>'anio in('.$anios.') ',
+            'order'=>'rubro ASC'
+             )));
+            //saco el total el >1 significa que no debe tomar el valor de la columna 1, porque es un total en si
+            
+            foreach ($result as $res) {
+                if(!isset($json['informe'])){
+
+                    $json['informe']=array(
+                        'rubro'=>array(),
+                        
+                    );
+
+                }
+
+                if(!isset($json['informe']['rubro'][$res['rubro']])){
+
+                    $json['informe']['rubro'][$res['rubro']]=array(
+                        'anio'=>array(),
+                        
+                        
+                    );
+
+                }
+                
+                
+                if(!isset($json['informe']['rubro'][$res['rubro']][$res['anio']][$res['mes']][$res['valor']])){
+
+                    $json['informe']['rubro'][$res['rubro']][$res['anio']][$res['mes']]['valor']=$res['valor'];
+                       
+                        
+                   
+                    //$json['informe']['rubro'][$res['rubro']]['total']=$json['informe']['rubro'][$res['rubro']]['total']+$json['informe']['rubro'][$res['rubro']][$res['anio']][$res['valor']]['valores'];
+                    
+                }
+                
+            }
+          
+            header('Content-type: application/json');  
+            echo print_r($json);  
+            Yii::app()->end(); 
+    }
+    
+    
     
 
 
