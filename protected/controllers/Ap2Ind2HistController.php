@@ -76,16 +76,24 @@ class Ap2Ind2HistController extends Controller {
 
         return $html;
         }
-    public function actionPrevio($id)
+     public function actionPrevio($id)
     {
         $perfil = Yii::app()->user->perfil;
         $autoriza=$this->mostrarAutorizar($perfil,1,2,4);
-        $model=Ap2Ind2Hist::model()->findByPk($id);
+        $model=Ap1Ind9Hist::model()->findByPk($id);
+        
+        //variable
+        $anio="2014,2013";
+        $url = "http://localhost/recm/index.php/api/ap2Ind2?anios=2014,2013&grafico=0";
+        //$url = $baseUrl;
+        $data = file_get_contents($url);
+        $model= CJSON::decode($data);
 
         $this->render('_previo',array(
             'model'=>$model,
             'id'=>$id,
             'autoriza'=>$autoriza,
+            //'model'=>$model,
         ));
     }
     

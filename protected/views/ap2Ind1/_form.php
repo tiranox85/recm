@@ -25,6 +25,54 @@
 		<?php echo $form->error($model,'id'); ?>
 	</div>
 
+	<div class="row">
+		<?php echo $form->labelEx($model,'df'); ?>
+		<?php echo $form->textField($model,'df'); ?>
+		<?php echo $form->error($model,'df'); ?>
+	</div>
+
+	<div class="row">
+		<?php echo $form->labelEx($model,'nacional'); ?>
+		<?php echo $form->textField($model,'nacional'); ?>
+		<?php echo $form->error($model,'nacional'); ?>
+	</div>
+
+	<div class="row">
+		<?php echo $form->labelEx($model,'anio'); ?>
+		<?php echo $form->textField($model,'anio'); ?>
+		<?php echo $form->error($model,'anio'); ?>
+	</div>
+
+	<div class="row">
+		<?php echo $form->labelEx($model,'mes'); ?>
+		<?php echo $form->textField($model,'mes'); ?>
+		<?php echo $form->error($model,'mes'); ?>
+	</div>
+
+	<div class="row">
+		<?php echo $form->labelEx($model,'fecha_reg'); ?>
+		<?php echo $form->textField($model,'fecha_reg'); ?>
+		<?php echo $form->error($model,'fecha_reg'); ?>
+	</div>
+
+	<div class="row">
+		<?php echo $form->labelEx($model,'fecha_mod'); ?>
+		<?php echo $form->textField($model,'fecha_mod'); ?>
+		<?php echo $form->error($model,'fecha_mod'); ?>
+	</div>
+
+	<div class="row">
+		<?php echo $form->labelEx($model,'user_reg'); ?>
+		<?php echo $form->textField($model,'user_reg'); ?>
+		<?php echo $form->error($model,'user_reg'); ?>
+	</div>
+
+	<div class="row">
+		<?php echo $form->labelEx($model,'user_mod'); ?>
+		<?php echo $form->textField($model,'user_mod'); ?>
+		<?php echo $form->error($model,'user_mod'); ?>
+	</div>
+
 	<div class="row buttons">
 		<?php echo CHtml::submitButton($model->isNewRecord ? 'Create' : 'Save'); ?>
 	</div>

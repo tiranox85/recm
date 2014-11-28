@@ -46,7 +46,7 @@ class Ap1Ind62 extends CActiveRecord
 	public function relations()
 	{
 		return array(
-				'Relaciones' => array(self::BELONGS_TO, 'Relaciones', 'rubro'),
+				
 				
 			
 		);

@@ -22,5 +22,13 @@ $this->menu=array(
 	'data'=>$model,
 	'attributes'=>array(
 		'id',
+		'df',
+		'nacional',
+		'anio',
+		'mes',
+		'fecha_reg',
+		'fecha_mod',
+		'user_reg',
+		'user_mod',
 	),
 )); ?>

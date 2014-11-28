@@ -110,7 +110,7 @@ foreach ($resultado as $key => $row) {
 
             $result = Ap1Ind62::model()->findAll((array(
             'condition'=>'anio ='.$anio,
-            'order'=>'entidad'
+            'order'=>'rubro'
              )));
 
             foreach ($result as $res) {
@@ -238,7 +238,7 @@ foreach ($resultado as $key => $row) {
             
 
             header('Content-type: application/json');  
-            echo print_r($json);  
+            echo json_encode($json);  
             Yii::app()->end(); 
     }
     
@@ -436,12 +436,12 @@ foreach ($resultado as $key => $row) {
             Yii::app()->end(); 
     }
     
-    public function actionAp1Ind10($anios, $grafico){
+    public function actionAp1Ind10($anios, $trim_inicio, $trim_fin, $grafico){
 
     $this->layout=false;
 
             $result = Ap1Ind10::model()->findAll((array(
-            'condition'=>'anio in('.$anios.') ',
+            'condition'=>'anio in('.$anios.') and (mes between '.$trim_inicio.' and '.$trim_fin.') ',
             'order'=>'rubro ASC'
              )));
             //saco el total el >1 significa que no debe tomar el valor de la columna 1, porque es un total en si
@@ -480,12 +480,296 @@ foreach ($resultado as $key => $row) {
             }
           
             header('Content-type: application/json');  
-            echo print_r($json);  
+            echo json_encode($json);  
+            Yii::app()->end(); 
+    }
+    
+    public function actionAp2Ind1($anios, $trim_inicio, $trim_fin, $grafico){
+
+    $this->layout=false;
+
+            $result = Ap2Ind1::model()->findAll((array(
+            'condition'=>'anio in('.$anios.') and (mes between '.$trim_inicio.' and '.$trim_fin.') ',
+            'order'=>'id ASC'
+             )));
+            //saco el total el >1 significa que no debe tomar el valor de la columna 1, porque es un total en si
+            
+            //saco el promedio del periodo que solicitan para df
+            $sql = "SELECT AVG(df) as prom from ap2Ind1 where anio =".$anios." and (mes between ".$trim_inicio." and ".$trim_fin.")"; 
+            $promdf = Yii::app()->db->createCommand($sql)->queryRow();
+           
+            //saco el promedio del periodo que solicitan para nacional
+            $sql1 = "SELECT AVG(nacional) as prom from ap2Ind1 where anio =".$anios." and (mes between ".$trim_inicio." and ".$trim_fin.")"; 
+            $promnal = Yii::app()->db->createCommand($sql1)->queryRow();
+            
+            
+            foreach ($result as $res) {
+                if(!isset($json['informe'])){
+
+                    $json['informe']=array(
+                        'anio'=>array(),
+                        
+                        
+                    );
+
+                }
+                if(!isset($json['informe']['anio'][$res['anio']])){
+
+                    $json['informe']['anio'][$res['anio']]=array(
+                        'mes'=>array(),
+                        'promedios'=>array(
+                        'promediodf'=>$promdf['prom'],
+                        'promnal'=>$promnal['prom'],
+                            ),
+                        
+                        
+                    );
+
+                }
+                if(!isset($json['informe']['anio'][$res['anio']]['mes'][$res['mes']])){
+
+                    $json['informe']['anio'][$res['anio']]['mes'][$res['mes']]=array(
+                        'df'=>$res['df'],
+                        'nacional'=>$res['nacional'],
+                        
+                        
+                    );
+
+                }
+                
+               
+                
+                
+                
+                
+                
+            }
+          
+            header('Content-type: application/json');  
+            echo json_encode($json);  
+            Yii::app()->end(); 
+    }
+    
+    public function actionAp2Ind2($anios, $grafico){
+
+    $this->layout=false;
+
+            $result = Ap2Ind1::model()->findAll((array(
+            'condition'=>'anio in('.$anios.')',
+            'order'=>'id ASC'
+             )));
+            //saco el total el >1 significa que no debe tomar el valor de la columna 1, porque es un total en si
+            
+            
+            foreach ($result as $res) {
+                if(!isset($json['informe'])){
+
+                    $json['informe']=array(
+                        'anio'=>array(),
+                        
+                        
+                    );
+
+            }
+            if(!isset($json['informe']['anio'][$res['anio']])){
+
+                $json['informe']['anio'][$res['anio']]=array(
+                    'mes'=>array(),
+
+
+
+                );
+
+            }
+            if(!isset($json['informe']['anio'][$res['anio']]['mes'][$res['mes']])){
+
+                $json['informe']['anio'][$res['anio']]['mes'][$res['mes']]=array(
+                    'df'=>$res['df'],
+                    'nacional'=>$res['nacional'],
+
+
+                );
+
+            }
+                  
+                
+            }
+          
+            header('Content-type: application/json');  
+            echo json_encode($json);  
+            Yii::app()->end(); 
+    }
+    
+    public function actionAp2Ind3($anios, $trim_inicio, $trim_fin, $grafico){
+
+    $this->layout=false;
+
+            $result = Ap2Ind3::model()->findAll((array(
+            'condition'=>'anio in('.$anios.') and (mes between '.$trim_inicio.' and '.$trim_fin.') ',
+            'order'=>'id ASC'
+             )));
+            //saco el total el >1 significa que no debe tomar el valor de la columna 1, porque es un total en si
+            
+            //saco el promedio del periodo que solicitan para df
+            $sql = "SELECT AVG(df) as prom from ap2Ind3 where anio =".$anios." and (mes between ".$trim_inicio." and ".$trim_fin.")"; 
+            $promdf = Yii::app()->db->createCommand($sql)->queryRow();
+           
+            //saco el promedio del periodo que solicitan para nacional
+            $sql1 = "SELECT AVG(nacional) as prom from ap2Ind3 where anio =".$anios." and (mes between ".$trim_inicio." and ".$trim_fin.")"; 
+            $promnal = Yii::app()->db->createCommand($sql1)->queryRow();
+            
+            
+            foreach ($result as $res) {
+                if(!isset($json['informe'])){
+
+                    $json['informe']=array(
+                        'anio'=>array(),
+                        
+                        
+                    );
+
+                }
+                if(!isset($json['informe']['anio'][$res['anio']])){
+
+                    $json['informe']['anio'][$res['anio']]=array(
+                        'mes'=>array(),
+                        'promedios'=>array(
+                        'promediodf'=>$promdf['prom'],
+                        'promnal'=>$promnal['prom'],
+                            ),
+                        
+                        
+                    );
+
+                }
+                if(!isset($json['informe']['anio'][$res['anio']]['mes'][$res['mes']])){
+
+                    $json['informe']['anio'][$res['anio']]['mes'][$res['mes']]=array(
+                        'df'=>$res['df'],
+                        'nacional'=>$res['nacional'],
+                        
+                        
+                    );
+
+                }
+         
+            }
+          
+            header('Content-type: application/json');  
+            echo json_encode($json);  
             Yii::app()->end(); 
     }
     
     
-    
+    public function actionAp2Ind4($anios, $grafico){
 
+    $this->layout=false;
+
+            $result = Ap2Ind3::model()->findAll((array(
+            'condition'=>'anio in('.$anios.')',
+            'order'=>'id ASC'
+             )));
+            //saco el total el >1 significa que no debe tomar el valor de la columna 1, porque es un total en si
+            
+            
+            foreach ($result as $res) {
+                if(!isset($json['informe'])){
+
+                    $json['informe']=array(
+                        'anio'=>array(),
+                        
+                        
+                    );
+
+            }
+            if(!isset($json['informe']['anio'][$res['anio']])){
+
+                $json['informe']['anio'][$res['anio']]=array(
+                    'mes'=>array(),
+
+
+
+                );
+
+            }
+            if(!isset($json['informe']['anio'][$res['anio']]['mes'][$res['mes']])){
+
+                $json['informe']['anio'][$res['anio']]['mes'][$res['mes']]=array(
+                    'df'=>$res['df'],
+                    'nacional'=>$res['nacional'],
+
+
+                );
+
+            }
+                  
+                
+            }
+          
+            header('Content-type: application/json');  
+            echo json_encode($json);  
+            Yii::app()->end(); 
+    }
+    
+    public function actionAp3Ind4($anios, $grafico){
+
+    $this->layout=false;
+
+            $result = Ap3Ind4::model()->findAll((array(
+            'condition'=>'anio in('.$anios.')',
+            'order'=>'rubro ASC'
+             )));
+            //saco el total el >1 significa que no debe tomar el valor de la columna 1, porque es un total en si
+            
+            foreach ($result as $res) {
+                
+                
+                if(!isset($json['informe'][$res['anio']][$res['rubro']][$res['mes']])){
+
+                   $json['informe'][$res['anio']][$res['rubro']][$res['mes']]['df']=$res['df'];
+                   $json['informe'][$res['anio']][$res['rubro']][$res['mes']]['nacional']=$res['nacional'];
+                
+
+                }
+                
+                
+                
+            }
+          
+            header('Content-type: application/json');  
+            echo json_encode($json);  
+            Yii::app()->end(); 
+    }
+    
+    public function actionAp3Ind5($anios, $grafico){
+
+    $this->layout=false;
+
+            $result = Ap3Ind5::model()->findAll((array(
+            'condition'=>'anio in('.$anios.')',
+            'order'=>'rubro ASC'
+             )));
+            //saco el total el >1 significa que no debe tomar el valor de la columna 1, porque es un total en si
+            
+            foreach ($result as $res) {
+                
+                
+                if(!isset($json['informe'][$res['anio']][$res['rubro']][$res['mes']])){
+
+                   $json['informe'][$res['anio']][$res['rubro']][$res['mes']]['valor']=$res['valor'];
+                   
+                
+
+                }
+                
+                
+                
+            }
+          
+            header('Content-type: application/json');  
+            echo json_encode($json);  
+            Yii::app()->end(); 
+    }
+    
 
 }

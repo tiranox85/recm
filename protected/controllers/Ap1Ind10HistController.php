@@ -80,12 +80,18 @@ class Ap1Ind10HistController extends Controller {
     {
         $perfil = Yii::app()->user->perfil;
         $autoriza=$this->mostrarAutorizar($perfil,1,2,4);
-        $model=Ap1Ind10Hist::model()->findByPk($id);
+        $model=Ap1Ind9Hist::model()->findByPk($id);
+
+        $url = "http://localhost/recm/index.php/api/ap1Ind10?anios=2013,2014&trim_inicio=1&trim_fin=5&grafico=0";
+        //$url = $baseUrl;
+        $data = file_get_contents($url);
+        $model= CJSON::decode($data);
 
         $this->render('_previo',array(
             'model'=>$model,
             'id'=>$id,
             'autoriza'=>$autoriza,
+            //'model'=>$model,
         ));
     }
     
