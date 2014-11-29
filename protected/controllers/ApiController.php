@@ -771,5 +771,162 @@ foreach ($resultado as $key => $row) {
             Yii::app()->end(); 
     }
     
+    public function actionAp4Ind2($anios, $grafico){
+
+    $this->layout=false;
+
+            $result = Ap4Ind2::model()->findAll((array(
+            'condition'=>'anio in('.$anios.')',
+            'order'=>'id ASC'
+             )));
+            //saco el total el >1 significa que no debe tomar el valor de la columna 1, porque es un total en si
+            
+            foreach ($result as $res) {
+                
+                
+                if(!isset($json['informe'][$res['anio']][$res['mes']])){
+
+                   $json['informe'][$res['anio']][$res['mes']]['df']=$res['df'];
+                   $json['informe'][$res['anio']][$res['mes']]['nacional']=$res['nacional'];
+                
+
+                }
+                
+                
+                
+            }
+          
+            header('Content-type: application/json');  
+            echo json_encode($json);  
+            Yii::app()->end(); 
+    }
+    
+    public function actionAp4Ind31($anios, $trim_inicio, $trim_fin, $entidades, $grafico){
+
+    $this->layout=false;
+
+            $result = Ap4Ind31::model()->findAll((array(
+            'condition'=>'anio in('.$anios.') and  (mes between '.$trim_inicio.' and '.$trim_fin.') and entidad in ('.$entidades.') ',
+            'order'=>'entidad ASC'
+             )));
+            
+            
+            
+            foreach ($result as $res) {
+                
+                
+                
+                if(!isset($json['informe'][$res['anio']][$res['entidad']])){
+
+                    $json['informe'][$res['anio']][$res['entidad']]=array(
+                       
+                        'mes'=>array(),
+                        'promedio'=>0,
+                        
+                        
+                    );
+
+                }
+                if(!isset($json['informe'][$res['anio']][$res['entidad']]['mes'][$res['mes']])){
+
+                    $json['informe'][$res['anio']][$res['entidad']]['mes'][$res['mes']]=array(
+                        'valor'=>array(),
+                        
+                    );
+
+                }
+                
+                if(!isset($json['informe'][$res['anio']][$res['entidad']]['mes'][$res['mes']][$res['valor']])){
+
+                    $json['informe'][$res['anio']][$res['entidad']]['mes'][$res['mes']]['valor']=$res['valor'];
+                    
+                    $json['informe'][$res['anio']][$res['entidad']]['promedio']=$json['informe'][$res['anio']][$res['entidad']]['promedio']+$json['informe'][$res['anio']][$res['entidad']]['mes'][$res['mes']]['valor'];
+
+                }
+                
+               
+                
+                
+                
+                
+                
+            }
+          
+            header('Content-type: application/json');  
+            echo json_encode($json);  
+            Yii::app()->end(); 
+    }
+    
+    public function actionAp4Ind4($anios, $grafico){
+
+    $this->layout=false;
+
+            $result = Ap4Ind4::model()->findAll((array(
+            'condition'=>'anio in('.$anios.')',
+            'order'=>'entidad ASC'
+             )));
+            
+            foreach ($result as $res) {
+                
+                
+               if(!isset($json['informe'][$res['entidad']][$res['anio']]['mes'][$res['mes']])){
+
+                   $json['informe'][$res['entidad']][$res['anio']]['mes'][$res['mes']]['valor']=$res['valor'];
+                   
+                
+
+                }
+                
+                
+                
+            }
+          
+            header('Content-type: application/json');  
+            echo json_encode($json);  
+            Yii::app()->end(); 
+    }
+    
+    public function actionAp5Ind3($entidades,$grafico){
+
+    $this->layout=false;
+
+            $result = Ap5Ind3::model()->findAll((array(
+            'condition'=>'entidad in('.$entidades.')',
+            'order'=>'entidad ASC'
+             )));
+            
+            foreach ($result as $res) {
+                
+                
+               if(!isset($json['informe'][$res['entidad']])){
+
+                   $json['informe'][$res['entidad']]=array(
+                       'columna'=>array(),
+                   );
+                
+                }
+                
+                if(!isset($json['informe'][$res['entidad']]['columna']['x'])){
+
+                   $json['informe'][$res['entidad']]['columna']=array(
+                       'columna1'=>[$res['facilidad']],
+                       'columna2'=>[$res['apertura']],
+                       'columna3'=>[$res['manejo']],
+                       'columna4'=>[$res['registro']],
+                       'columna5'=>[$res['cumplimiento']],
+                   );
+                 
+                }
+                
+                
+                
+            }
+          
+            header('Content-type: application/json');  
+            echo json_encode($json);  
+            Yii::app()->end(); 
+    }
+    
+    
 
 }

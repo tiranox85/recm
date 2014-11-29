@@ -80,14 +80,21 @@ class Ap4Ind4HistController extends Controller {
     {
         $perfil = Yii::app()->user->perfil;
         $autoriza=$this->mostrarAutorizar($perfil,1,2,4);
-        $model=Ap4Ind4Hist::model()->findByPk($id);
+        $model=Ap1Ind9Hist::model()->findByPk($id);
+        $anios="2013,2014";
+        $url = "http://localhost/recm/index.php/api/ap4Ind4?anios=2014,2013,2012&grafico=0";
+        //$url = $baseUrl;
+        $data = file_get_contents($url);
+        $model= CJSON::decode($data);
 
         $this->render('_previo',array(
             'model'=>$model,
             'id'=>$id,
             'autoriza'=>$autoriza,
+            //'model'=>$model,
         ));
     }
+    
     
     public function actionPreview($id) {
         $registros= Ap1ind1::model()->findAll("id_periodo=:id_periodo", array(":id_periodo"=>$id));
