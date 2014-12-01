@@ -259,42 +259,61 @@ foreach ($resultado as $key => $row) {
             $total = Yii::app()->db->createCommand($sql)->queryRow();
             
             foreach ($result as $res) {
-                if(!isset($json['informe'])){
-
-                    $json['informe']=array(
-                        'entidad'=>array(),
-                        'gran_total'=>$total['total'],
-                    );
-
-                }
-
-                if(!isset($json['informe']['entidad'][$res['entidad']])){
-
-                    $json['informe']['entidad'][$res['entidad']]=array(
-                        'anio'=>array(),
-                        'total'=>0,
-                        
-                    );
-
-                }
                 
-            
-                if(!isset($json['informe']['entidad'][$res['entidad']][$res['anio']])){
+                if($grafico==0){
+                    if(!isset($json['informe'])){
 
-                    $json['informe']['entidad'][$res['entidad']][$res['anio']]=array(
-                        'valor'=>$res['valor'],
-                        
-                        
-                    );
-                    $json['informe']['entidad'][$res['entidad']]['total']=$json['informe']['entidad'][$res['entidad']]['total']+$json['informe']['entidad'][$res['entidad']][$res['anio']]['valor'];
-                    
+                        $json['informe']=array(
+                            'entidad'=>array(),
+                            'gran_total'=>$total['total'],
+                        );
+
+                    }
+
+                    if(!isset($json['informe']['entidad'][$res['entidad']])){
+
+                        $json['informe']['entidad'][$res['entidad']]=array(
+                            'anio'=>array(),
+                            'total'=>0,
+
+                        );
+
+                    }
+
+
+                    if(!isset($json['informe']['entidad'][$res['entidad']][$res['anio']])){
+
+                        $json['informe']['entidad'][$res['entidad']][$res['anio']]=array(
+                            'valor'=>$res['valor'],
+
+
+                        );
+                        $json['informe']['entidad'][$res['entidad']]['total']=$json['informe']['entidad'][$res['entidad']]['total']+$json['informe']['entidad'][$res['entidad']][$res['anio']]['valor'];
+
+                    }
+
+                }else{
+                
+                
+                
+                    if(!isset($json[$res['entidad']][$res['anio']])){
+                        $json[$res['entidad']][$res['anio']]=array(
+                            'valor'=>$res['valor'],
+
+
+                        );
+
+                        $json[$res['entidad']]=$json[$res['entidad']]['total']+$json[$res['entidad']][$res['anio']]['valor'];
+
+                    }
+
                 }
                 
             }
             
 
             header('Content-type: application/json');  
-            echo json_encode($json);  
+            echo print_r($json);  
             Yii::app()->end(); 
     }
     
@@ -1103,8 +1122,7 @@ foreach ($resultado as $key => $row) {
                     $json['informe']=array(
                         'anio'=>array(),
                         'promedios'=>array(
-                        'sumdf'=>$sumdf['prom'],
-                        'sumnal'=>$sumnal['prom'],   
+                          
                         'promdf'=>$promdf['prom'],
                         'promnal'=>$promnal['prom'],
                             ),

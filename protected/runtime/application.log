@@ -8372,3 +8372,226 @@ Stack trace:
 #12 {main}
 REQUEST_URI=/recm/index.php/api/ap6Ind2?anios=2007,2008,2009,2010&grafico=0
 ---
+2014/12/01 10:48:05 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'El sistema no ha podido encontrar la acción "grafico" solicitada.' in /var/www/html/recm/yii/framework/web/CController.php:483
+Stack trace:
+#0 /var/www/html/recm/yii/framework/web/CController.php(270): CController->missingAction('grafico')
+#1 /var/www/html/recm/yii/framework/web/CWebApplication.php(282): CController->run('grafico')
+#2 /var/www/html/recm/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('ap1Ind83Hist/gr...')
+#3 /var/www/html/recm/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#4 /var/www/html/recm/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/recm/index.php/ap1Ind83Hist/grafico
+---
+2014/12/01 10:48:11 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'El sistema no ha podido encontrar la acción "grafico" solicitada.' in /var/www/html/recm/yii/framework/web/CController.php:483
+Stack trace:
+#0 /var/www/html/recm/yii/framework/web/CController.php(270): CController->missingAction('grafico')
+#1 /var/www/html/recm/yii/framework/web/CWebApplication.php(282): CController->run('grafico')
+#2 /var/www/html/recm/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('ap1Ind83Hist/gr...')
+#3 /var/www/html/recm/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#4 /var/www/html/recm/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/recm/index.php/ap1Ind83Hist/grafico/1
+---
+2014/12/01 10:50:04 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'Usted no se encuentra autorizado a realizar esta acción.' in /var/www/html/recm/yii/framework/web/auth/CAccessControlFilter.php:182
+Stack trace:
+#0 /var/www/html/recm/yii/framework/web/auth/CAccessControlFilter.php(145): CAccessControlFilter->accessDenied(Object(CWebUser), 'Usted no se enc...')
+#1 /var/www/html/recm/yii/framework/web/filters/CFilter.php(38): CAccessControlFilter->preFilter(Object(CFilterChain))
+#2 /var/www/html/recm/yii/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#3 /var/www/html/recm/yii/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#4 /var/www/html/recm/yii/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#5 /var/www/html/recm/yii/framework/web/CController.php(291): CFilterChain->run()
+#6 /var/www/html/recm/yii/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 /var/www/html/recm/yii/framework/web/CWebApplication.php(282): CController->run('grafico')
+#8 /var/www/html/recm/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('ap1Ind83Hist/gr...')
+#9 /var/www/html/recm/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#10 /var/www/html/recm/index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/recm/index.php/ap1Ind83Hist/grafico
+---
+2014/12/01 10:50:16 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'Usted no se encuentra autorizado a realizar esta acción.' in /var/www/html/recm/yii/framework/web/auth/CAccessControlFilter.php:182
+Stack trace:
+#0 /var/www/html/recm/yii/framework/web/auth/CAccessControlFilter.php(145): CAccessControlFilter->accessDenied(Object(CWebUser), 'Usted no se enc...')
+#1 /var/www/html/recm/yii/framework/web/filters/CFilter.php(38): CAccessControlFilter->preFilter(Object(CFilterChain))
+#2 /var/www/html/recm/yii/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#3 /var/www/html/recm/yii/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#4 /var/www/html/recm/yii/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#5 /var/www/html/recm/yii/framework/web/CController.php(291): CFilterChain->run()
+#6 /var/www/html/recm/yii/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 /var/www/html/recm/yii/framework/web/CWebApplication.php(282): CController->run('grafico')
+#8 /var/www/html/recm/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('ap1Ind83Hist/gr...')
+#9 /var/www/html/recm/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#10 /var/www/html/recm/index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/recm/index.php/ap1Ind83Hist/grafico
+---
+2014/12/01 10:50:52 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'Usted no se encuentra autorizado a realizar esta acción.' in /var/www/html/recm/yii/framework/web/auth/CAccessControlFilter.php:182
+Stack trace:
+#0 /var/www/html/recm/yii/framework/web/auth/CAccessControlFilter.php(145): CAccessControlFilter->accessDenied(Object(CWebUser), 'Usted no se enc...')
+#1 /var/www/html/recm/yii/framework/web/filters/CFilter.php(38): CAccessControlFilter->preFilter(Object(CFilterChain))
+#2 /var/www/html/recm/yii/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#3 /var/www/html/recm/yii/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#4 /var/www/html/recm/yii/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#5 /var/www/html/recm/yii/framework/web/CController.php(291): CFilterChain->run()
+#6 /var/www/html/recm/yii/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 /var/www/html/recm/yii/framework/web/CWebApplication.php(282): CController->run('grafico')
+#8 /var/www/html/recm/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('ap1Ind83Hist/gr...')
+#9 /var/www/html/recm/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#10 /var/www/html/recm/index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/recm/index.php/ap1Ind83Hist/grafico
+---
+2014/12/01 10:51:07 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'Usted no se encuentra autorizado a realizar esta acción.' in /var/www/html/recm/yii/framework/web/auth/CAccessControlFilter.php:182
+Stack trace:
+#0 /var/www/html/recm/yii/framework/web/auth/CAccessControlFilter.php(145): CAccessControlFilter->accessDenied(Object(CWebUser), 'Usted no se enc...')
+#1 /var/www/html/recm/yii/framework/web/filters/CFilter.php(38): CAccessControlFilter->preFilter(Object(CFilterChain))
+#2 /var/www/html/recm/yii/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#3 /var/www/html/recm/yii/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#4 /var/www/html/recm/yii/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#5 /var/www/html/recm/yii/framework/web/CController.php(291): CFilterChain->run()
+#6 /var/www/html/recm/yii/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 /var/www/html/recm/yii/framework/web/CWebApplication.php(282): CController->run('grafico')
+#8 /var/www/html/recm/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('ap1Ind83Hist/gr...')
+#9 /var/www/html/recm/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#10 /var/www/html/recm/index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/recm/index.php/ap1Ind83Hist/grafico
+---
+2014/12/01 10:51:12 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'Usted no se encuentra autorizado a realizar esta acción.' in /var/www/html/recm/yii/framework/web/auth/CAccessControlFilter.php:182
+Stack trace:
+#0 /var/www/html/recm/yii/framework/web/auth/CAccessControlFilter.php(145): CAccessControlFilter->accessDenied(Object(CWebUser), 'Usted no se enc...')
+#1 /var/www/html/recm/yii/framework/web/filters/CFilter.php(38): CAccessControlFilter->preFilter(Object(CFilterChain))
+#2 /var/www/html/recm/yii/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#3 /var/www/html/recm/yii/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#4 /var/www/html/recm/yii/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#5 /var/www/html/recm/yii/framework/web/CController.php(291): CFilterChain->run()
+#6 /var/www/html/recm/yii/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 /var/www/html/recm/yii/framework/web/CWebApplication.php(282): CController->run('grafico')
+#8 /var/www/html/recm/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('ap1Ind83Hist/gr...')
+#9 /var/www/html/recm/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#10 /var/www/html/recm/index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/recm/index.php/ap1Ind83Hist/grafico/id
+---
+2014/12/01 10:51:37 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'Usted no se encuentra autorizado a realizar esta acción.' in /var/www/html/recm/yii/framework/web/auth/CAccessControlFilter.php:182
+Stack trace:
+#0 /var/www/html/recm/yii/framework/web/auth/CAccessControlFilter.php(145): CAccessControlFilter->accessDenied(Object(CWebUser), 'Usted no se enc...')
+#1 /var/www/html/recm/yii/framework/web/filters/CFilter.php(38): CAccessControlFilter->preFilter(Object(CFilterChain))
+#2 /var/www/html/recm/yii/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#3 /var/www/html/recm/yii/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#4 /var/www/html/recm/yii/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#5 /var/www/html/recm/yii/framework/web/CController.php(291): CFilterChain->run()
+#6 /var/www/html/recm/yii/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 /var/www/html/recm/yii/framework/web/CWebApplication.php(282): CController->run('grafico')
+#8 /var/www/html/recm/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('ap1Ind83Hist/gr...')
+#9 /var/www/html/recm/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#10 /var/www/html/recm/index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/recm/index.php/ap1Ind83Hist/grafico/id
+---
+2014/12/01 10:51:39 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'Usted no se encuentra autorizado a realizar esta acción.' in /var/www/html/recm/yii/framework/web/auth/CAccessControlFilter.php:182
+Stack trace:
+#0 /var/www/html/recm/yii/framework/web/auth/CAccessControlFilter.php(145): CAccessControlFilter->accessDenied(Object(CWebUser), 'Usted no se enc...')
+#1 /var/www/html/recm/yii/framework/web/filters/CFilter.php(38): CAccessControlFilter->preFilter(Object(CFilterChain))
+#2 /var/www/html/recm/yii/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#3 /var/www/html/recm/yii/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#4 /var/www/html/recm/yii/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#5 /var/www/html/recm/yii/framework/web/CController.php(291): CFilterChain->run()
+#6 /var/www/html/recm/yii/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 /var/www/html/recm/yii/framework/web/CWebApplication.php(282): CController->run('grafico')
+#8 /var/www/html/recm/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('ap1Ind83Hist/gr...')
+#9 /var/www/html/recm/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#10 /var/www/html/recm/index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/recm/index.php/ap1Ind83Hist/grafico/id
+---
+2014/12/01 10:51:42 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'Usted no se encuentra autorizado a realizar esta acción.' in /var/www/html/recm/yii/framework/web/auth/CAccessControlFilter.php:182
+Stack trace:
+#0 /var/www/html/recm/yii/framework/web/auth/CAccessControlFilter.php(145): CAccessControlFilter->accessDenied(Object(CWebUser), 'Usted no se enc...')
+#1 /var/www/html/recm/yii/framework/web/filters/CFilter.php(38): CAccessControlFilter->preFilter(Object(CFilterChain))
+#2 /var/www/html/recm/yii/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#3 /var/www/html/recm/yii/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#4 /var/www/html/recm/yii/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#5 /var/www/html/recm/yii/framework/web/CController.php(291): CFilterChain->run()
+#6 /var/www/html/recm/yii/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 /var/www/html/recm/yii/framework/web/CWebApplication.php(282): CController->run('grafico')
+#8 /var/www/html/recm/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('ap1Ind83Hist/gr...')
+#9 /var/www/html/recm/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#10 /var/www/html/recm/index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/recm/index.php/ap1Ind83Hist/grafico
+---
+2014/12/01 10:52:17 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'Usted no se encuentra autorizado a realizar esta acción.' in /var/www/html/recm/yii/framework/web/auth/CAccessControlFilter.php:182
+Stack trace:
+#0 /var/www/html/recm/yii/framework/web/auth/CAccessControlFilter.php(145): CAccessControlFilter->accessDenied(Object(CWebUser), 'Usted no se enc...')
+#1 /var/www/html/recm/yii/framework/web/filters/CFilter.php(38): CAccessControlFilter->preFilter(Object(CFilterChain))
+#2 /var/www/html/recm/yii/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#3 /var/www/html/recm/yii/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#4 /var/www/html/recm/yii/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#5 /var/www/html/recm/yii/framework/web/CController.php(291): CFilterChain->run()
+#6 /var/www/html/recm/yii/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 /var/www/html/recm/yii/framework/web/CWebApplication.php(282): CController->run('grafico')
+#8 /var/www/html/recm/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('ap1Ind83Hist/gr...')
+#9 /var/www/html/recm/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#10 /var/www/html/recm/index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/recm/index.php/ap1Ind83Hist/grafico
+---
+2014/12/01 10:56:49 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'Usted no se encuentra autorizado a realizar esta acción.' in /var/www/html/recm/yii/framework/web/auth/CAccessControlFilter.php:182
+Stack trace:
+#0 /var/www/html/recm/yii/framework/web/auth/CAccessControlFilter.php(145): CAccessControlFilter->accessDenied(Object(CWebUser), 'Usted no se enc...')
+#1 /var/www/html/recm/yii/framework/web/filters/CFilter.php(38): CAccessControlFilter->preFilter(Object(CFilterChain))
+#2 /var/www/html/recm/yii/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#3 /var/www/html/recm/yii/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#4 /var/www/html/recm/yii/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#5 /var/www/html/recm/yii/framework/web/CController.php(291): CFilterChain->run()
+#6 /var/www/html/recm/yii/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 /var/www/html/recm/yii/framework/web/CWebApplication.php(282): CController->run('grafico')
+#8 /var/www/html/recm/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('ap1Ind83Hist/gr...')
+#9 /var/www/html/recm/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#10 /var/www/html/recm/index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/recm/index.php/ap1Ind83Hist/grafico/1
+---
+2014/12/01 10:58:18 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'Usted no se encuentra autorizado a realizar esta acción.' in /var/www/html/recm/yii/framework/web/auth/CAccessControlFilter.php:182
+Stack trace:
+#0 /var/www/html/recm/yii/framework/web/auth/CAccessControlFilter.php(145): CAccessControlFilter->accessDenied(Object(CWebUser), 'Usted no se enc...')
+#1 /var/www/html/recm/yii/framework/web/filters/CFilter.php(38): CAccessControlFilter->preFilter(Object(CFilterChain))
+#2 /var/www/html/recm/yii/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#3 /var/www/html/recm/yii/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#4 /var/www/html/recm/yii/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#5 /var/www/html/recm/yii/framework/web/CController.php(291): CFilterChain->run()
+#6 /var/www/html/recm/yii/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 /var/www/html/recm/yii/framework/web/CWebApplication.php(282): CController->run('grafico')
+#8 /var/www/html/recm/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('ap1Ind83Hist/gr...')
+#9 /var/www/html/recm/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#10 /var/www/html/recm/index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/recm/index.php/ap1Ind83Hist/grafico/1
+---
+2014/12/01 10:58:20 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'Usted no se encuentra autorizado a realizar esta acción.' in /var/www/html/recm/yii/framework/web/auth/CAccessControlFilter.php:182
+Stack trace:
+#0 /var/www/html/recm/yii/framework/web/auth/CAccessControlFilter.php(145): CAccessControlFilter->accessDenied(Object(CWebUser), 'Usted no se enc...')
+#1 /var/www/html/recm/yii/framework/web/filters/CFilter.php(38): CAccessControlFilter->preFilter(Object(CFilterChain))
+#2 /var/www/html/recm/yii/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#3 /var/www/html/recm/yii/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#4 /var/www/html/recm/yii/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#5 /var/www/html/recm/yii/framework/web/CController.php(291): CFilterChain->run()
+#6 /var/www/html/recm/yii/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 /var/www/html/recm/yii/framework/web/CWebApplication.php(282): CController->run('grafico')
+#8 /var/www/html/recm/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('ap1Ind83Hist/gr...')
+#9 /var/www/html/recm/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#10 /var/www/html/recm/index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/recm/index.php/ap1Ind83Hist/grafico/1
+---
+2014/12/01 10:58:50 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'El sistema no ha podido encontrar la acción "ap1Ind1Grafico" solicitada.' in /var/www/html/recm/yii/framework/web/CController.php:483
+Stack trace:
+#0 /var/www/html/recm/yii/framework/web/CController.php(270): CController->missingAction('ap1Ind1Grafico')
+#1 /var/www/html/recm/yii/framework/web/CWebApplication.php(282): CController->run('ap1Ind1Grafico')
+#2 /var/www/html/recm/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('api/ap1Ind1Graf...')
+#3 /var/www/html/recm/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#4 /var/www/html/recm/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/recm/index.php/api/ap1Ind1Grafico/1
+HTTP_REFERER=http://localhost/recm/index.php/ap1Ind83Hist/grafico/1
+---

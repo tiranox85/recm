@@ -94,6 +94,13 @@ class Ap1Ind81HistController extends Controller {
             //'model'=>$model,
         ));
     }
+    public function actionGrafico($id)
+    {
+            $this->render('_grafico',array(
+                    'model'=>$this->loadModel($id),
+            ));
+    }
+    
     
     public function actionExcel($id)
     {
