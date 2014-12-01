@@ -1,6 +1,6 @@
 <?php
 
-class Ap4Ind32HistController extends Controller {
+class Ap6Ind13HistController extends Controller {
 
     /**
      * @var string the default layout for the views. Defaults to '//layouts/column2', meaning
@@ -81,11 +81,8 @@ class Ap4Ind32HistController extends Controller {
         $perfil = Yii::app()->user->perfil;
         $autoriza=$this->mostrarAutorizar($perfil,1,2,4);
         $model=Ap1Ind9Hist::model()->findByPk($id);
-        
-        //variable
-        $anio="2014,2013,2012";
-        $entidades="40,9,8";
-        $url = "http://localhost/recm/index.php/api/ap4Ind31?anios=".$anio."&trim_inicio=1&trim_fin=6&entidades=".$entidades."&grafico=0";
+        $anio="2014";
+        $url = "http://localhost/recm/index.php/api/ap6Ind13?anio=".$anio."&grafico=0";
         //$url = $baseUrl;
         $data = file_get_contents($url);
         $model= CJSON::decode($data);
@@ -97,8 +94,6 @@ class Ap4Ind32HistController extends Controller {
             //'model'=>$model,
         ));
     }
-    
-    
     
     public function actionPreview($id) {
         $registros= Ap1ind1::model()->findAll("id_periodo=:id_periodo", array(":id_periodo"=>$id));
@@ -155,13 +150,13 @@ class Ap4Ind32HistController extends Controller {
      */
     public function actionCreate() {
         $layout = '//layouts/column2';
-        $model = new Ap4Ind32Hist;
+        $model = new Ap6Ind13Hist;
 
         // Uncomment the following line if AJAX validation is needed
         // $this->performAjaxValidation($model);
 
-        if (isset($_POST['Ap4Ind32Hist'])) {
-            $model->attributes = $_POST['Ap4Ind32Hist'];
+        if (isset($_POST['Ap6Ind13Hist'])) {
+            $model->attributes = $_POST['Ap6Ind13Hist'];
             $model->_archivo = CUploadedFile::getInstance($model, '_archivo');
             $model->fecha_reg = date("Y-m-d");
             $model->user_reg = 1;
@@ -220,8 +215,8 @@ class Ap4Ind32HistController extends Controller {
         $model->periodo= utf8_encode($model->periodo);
         //$model->titulo= utf8_encode($model->titulo);
 
-        if (isset($_POST['Ap4Ind32Hist'])) {
-            $model->attributes = $_POST['Ap4Ind32Hist'];
+        if (isset($_POST['Ap6Ind13Hist'])) {
+            $model->attributes = $_POST['Ap6Ind13Hist'];
             $model->_archivo = CUploadedFile::getInstance($model, '_archivo');
             $model->fecha_reg = date("Y-m-d");
             $model->user_reg = 1;
@@ -288,13 +283,13 @@ class Ap4Ind32HistController extends Controller {
     public function actionIndex() {
         $criteria = new CDbCriteria();
 
-        $item_count = Ap4Ind32Hist::model()->count($criteria);
+        $item_count = Ap6Ind13Hist::model()->count($criteria);
 
         $pages = new CPagination($item_count);
         $pages->setPageSize(10);
         $pages->applyLimit($criteria);  // the trick is here!
 
-        $model= Ap4Ind32Hist::model()->findAll($criteria);
+        $model= Ap6Ind13Hist::model()->findAll($criteria);
         
         $this->render('index', array(
             'model' => $model,
@@ -309,10 +304,10 @@ class Ap4Ind32HistController extends Controller {
      * Manages all models.
      */
     public function actionAdmin() {
-        $model = new Ap4Ind32Hist('search');
+        $model = new Ap6Ind13Hist('search');
         $model->unsetAttributes();  // clear any default values
-        if (isset($_GET['Ap4Ind32Hist']))
-            $model->attributes = $_GET['Ap4Ind32Hist'];
+        if (isset($_GET['Ap6Ind13Hist']))
+            $model->attributes = $_GET['Ap6Ind13Hist'];
 
         $this->render('admin', array(
             'model' => $model,
@@ -323,11 +318,11 @@ class Ap4Ind32HistController extends Controller {
      * Returns the data model based on the primary key given in the GET variable.
      * If the data model is not found, an HTTP exception will be raised.
      * @param integer $id the ID of the model to be loaded
-     * @return Ap4Ind32Hist the loaded model
+     * @return Ap6Ind13Hist the loaded model
      * @throws CHttpException
      */
     public function loadModel($id) {
-        $model = Ap4Ind32Hist::model()->findByPk($id);
+        $model = Ap6Ind13Hist::model()->findByPk($id);
         if ($model === null)
             throw new CHttpException(404, 'The requested page does not exist.');
         return $model;
@@ -335,7 +330,7 @@ class Ap4Ind32HistController extends Controller {
 
     /**
      * Performs the AJAX validation.
-     * @param Ap4Ind32Hist $model the model to be validated
+     * @param Ap6Ind13Hist $model the model to be validated
      */
     protected function performAjaxValidation($model) {
         if (isset($_POST['ajax']) && $_POST['ajax'] === 'ap1ind1-hist-jorge-form') {

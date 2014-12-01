@@ -96,7 +96,7 @@
         	
 		        
 <p class="table_title default">
-        Índice de la tendencia laboral de la pobreza
+        Tasa de Ocupación en condiciones criticas.
 </p>
 
 
@@ -153,123 +153,42 @@ foreach ($model as $indice => $valor) {
 
 
 
+$anio=2014;
 
-
- 
 
 ?>
-   <tr class="rEven"><td></td>
-    <?php 
-        foreach($datos[1] as $an=>$dat){
-        $cols1=count($datos[1][$an]['mes']);
-       
-        ?> 
-        <td colspan="<?php echo $cols1; ?>"><?php echo $an;?></td>
-    <?php } ?>
-   <tr>
-    <?php 
-    $x=0;
-    foreach($datos as $col => $v){  
-    $x++;    
-        ?>  
-    <tr class="rEven">
-        <?php 
-        $i=0;
-        foreach($datos[$col] as $key => $value){ 
-        $i++;     
-        ?>  
-    
-        
-            <?php if($col==1 and $i==1){
-                echo "<td></td>";
-            }
-            ?>
-            <?php foreach ($value as $r=>$valor){ ?>
-        
-        
-        
-                <?php foreach($valor as $ind=>$val){
-                    
-                    //***********verificar si se van a comsultar todos los estados
-                    if($x==1){
-                    
-                        switch ($ind){
-                            case 1:
-                                $trimestre_romano="I";
-                                break;
-                            case 2:
-                                $trimestre_romano="II";
-                                break;
-                            case 3:
-                                $trimestre_romano="III";
-                                break;
-                            case 0:
-                                $trimestre_romano="IV";
-                                break;
-                                
-                        }
-                    
-                    ?>
-                    <td ><?php echo $trimestre_romano;?></td> 
-                <?php } } ?>
-            <?php } ?>
-       
-        
-        <?php } ?>
-      </tr>
-    
-    <?php } ?>
-            
-    <?php foreach($datos as $col => $v){  ?>  
-    <tr class="rEven">
-        <?php 
-        $i=0;
-        foreach($datos[$col] as $key => $value){ 
-        $i++;     
-        ?>  
-        
-            <?php if($i==1){
-                $sql1 = "SELECT nombre from entidades where id=".$col; 
-                $nombre = Yii::app()->db->createCommand($sql1)->queryRow();
-                
-                if($col<35){
-                echo "<td>".$nombre['nombre']."</td>";
-                }else{
-                    if($col==40){ echo "<td>Nacional</td>"; }
-                    if($col==41){ echo "<td>Urbano</td>"; }
-                    if($col==42){ echo "<td>Rural</td>"; }
-                    
-                }
-            }
-            ?>
-            <?php foreach ($value as $valor){ ?>
-           
-            
-          
-                <?php 
-                
-                
-                foreach($valor as $ind=>$val){ 
-                
-                    
-                    
-                    ?>
-                    
-                    <td class="data"><?php echo round($val['valor'],2); ?></td> 
-                <?php } ?>
-            
-            
-          
-            
-            <?php } ?>
-       
-        
-        <?php } ?>
-      </tr>
-    
-    <?php } ?>
-        
    
+            
+    <tr class="rEven">
+        <td>Tasa de ocupación en condiciones críticas</td>
+        <?php foreach($datos[$anio][1] as $k=>$d){ 
+        echo "<td>";    
+        if($k==5){ echo "Total"; }else{ echo "Trimestre ".$k; }
+        echo "</td>";
+        ?>
+        
+       
+        
+        <?php } ?>
+    </tr>        
+    <?php foreach($datos[$anio] as $rubro=>$dat){ ?>
+    <tr class="rEven">
+        
+        <?php foreach($datos[$anio][$rubro] as $key=>$valor){ 
+           if($key==1){ 
+            $sql1 = "SELECT titulo from relaciones where indicador= 'ap6Ind13' and columna=".$rubro; 
+            $nombre = Yii::app()->db->createCommand($sql1)->queryRow();
+            
+            echo "<td>".utf8_encode($nombre['titulo'])."</td>";
+            ?>
+        
+           <?php } ?>
+            <td class="data"><?php echo round($valor['valor'],2); ?></td>
+        <?php }?>
+            
+    </tr>
+    <?php }?>
+  
     
 
                                
@@ -283,4 +202,5 @@ foreach ($model as $indice => $valor) {
 
 
         </div>
-       
+
+

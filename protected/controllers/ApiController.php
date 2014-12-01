@@ -857,6 +857,10 @@ foreach ($resultado as $key => $row) {
             Yii::app()->end(); 
     }
     
+    
+    
+    
+    
     public function actionAp4Ind4($anios, $grafico){
 
     $this->layout=false;
@@ -926,6 +930,216 @@ foreach ($resultado as $key => $row) {
             echo json_encode($json);  
             Yii::app()->end(); 
     }
+    
+    
+    public function actionAp5Ind4($grafico){
+
+    $this->layout=false;
+
+            $result = Ap5Ind4::model()->findAll((array(
+            //'condition'=>'entidad in('.$entidades.')',
+            'order'=>'rubro ASC'
+             )));
+            
+            foreach ($result as $res) {
+                
+                
+               if(!isset($json['informe'][$res['rubro']])){
+
+                   $json['informe'][$res['rubro']]=array(
+                       'columna'=>array(),
+                   );
+                
+                }
+                
+                if(!isset($json['informe'][$res['rubro']]['columna']['x'])){
+
+                   $json['informe'][$res['rubro']]['columna']=array(
+                       'valor'=>[$res['valor']],
+                       
+                   );
+                 
+                }
+                
+                
+                
+            }
+          
+            header('Content-type: application/json');  
+            echo json_encode($json);  
+            Yii::app()->end(); 
+    }
+    
+    public function actionAp6Ind11($anios, $meses, $grafico){
+
+    $this->layout=false;
+
+            $result = Ap6Ind11::model()->findAll((array(
+            'condition'=>'anio in('.$anios.') and mes in('.$meses.')',
+            'order'=>'rubro ASC'
+             )));
+            $anio_ref=$anios-1;
+            //saco sumatoria del periodo actual que solicitan para df
+            $sql1 = "SELECT SUM(df) as prom from ap6Ind11 where anio in('.$anios.') and mes =0"; 
+            $df_total = Yii::app()->db->createCommand($sql1)->queryRow();
+            
+            //saco sumatoria del periodo actual que solicitan para nacional
+            $sql1 = "SELECT SUM(nacional) as prom from ap6Ind11 where anio in('.$anios.') and mes =0"; 
+            $nal_total = Yii::app()->db->createCommand($sql1)->queryRow();
+            
+            
+            //saco sumatoria del periodo pasado que solicitan para df
+            $sql1 = "SELECT SUM(df) as prom from ap6Ind11 where anio in('.$anio_ref.') and mes =0"; 
+            $df_total_pasado = Yii::app()->db->createCommand($sql1)->queryRow();
+            
+            //saco sumatoria del periodo pasado que solicitan para nacional
+            $sql1 = "SELECT SUM(nacional) as prom from ap6Ind11 where anio in('.$anio_ref.') and mes =0"; 
+            $nal_total_pasado = Yii::app()->db->createCommand($sql1)->queryRow();
+            
+            $total_df=(($df_total/$df_total_pasado)-1)*100;
+            $total_nal=(($nal_total/$df_total_pasado)-1)*100;
+            
+            
+            
+            foreach ($result as $res) {
+                
+                
+                if(!isset($json['informe'][$res['anio']][$res['rubro']])){
+
+                   $json['informe']['df_total']=$total_df;
+                   $json['informe']['nacional_total']=$total_nal;
+                
+
+                }
+                 
+            }
+            
+            
+            foreach ($result as $res) {
+                
+                
+                if(!isset($json['informe'][$res['anio']][$res['rubro']][$res['mes']])){
+
+                   $json['informe'][$res['anio']][$res['rubro']][$res['mes']]['df']=$res['df'];
+                   $json['informe'][$res['anio']][$res['rubro']][$res['mes']]['nacional']=$res['nacional'];
+                
+
+                }
+                
+            }
+          
+            header('Content-type: application/json');  
+            echo json_encode($json);  
+            Yii::app()->end(); 
+    }
+    
+    
+    public function actionAp6Ind13($anio, $grafico){
+
+    $this->layout=false;
+
+            $result = Ap6Ind13::model()->findAll((array(
+            'condition'=>'anio in('.$anio.')',
+            'order'=>'rubro ASC'
+             )));
+            
+            
+            
+            foreach ($result as $res) {
+                
+                
+            
+                if(!isset($json['informe'][$res['anio']][$res['rubro']][$res['mes']])){
+
+                   $json['informe'][$res['anio']][$res['rubro']][$res['mes']]['valor']=$res['valor'];
+                   
+                
+
+                }
+                
+                
+                
+                
+                
+            }
+          
+            header('Content-type: application/json');  
+            echo json_encode($json);  
+            Yii::app()->end(); 
+    }
+    
+    
+    public function actionAp6Ind2($anios, $grafico){
+
+    $this->layout=false;
+
+            $result = Ap6Ind2::model()->findAll((array(
+            'condition'=>'anio in('.$anios.')  ',
+            'order'=>'id ASC'
+             )));
+            //saco el total el >1 significa que no debe tomar el valor de la columna 1, porque es un total en si
+            
+            //saco el sumatoria del periodo que solicitan para df
+            $sql = "SELECT SUM(df) as prom from ap6Ind2 "; 
+            $sumdf = Yii::app()->db->createCommand($sql)->queryRow();
+           
+            //saco el sumatoria del periodo que solicitan para nacional
+            $sql1 = "SELECT SUM(nacional) as prom from ap6Ind2"; 
+            $sumnal = Yii::app()->db->createCommand($sql1)->queryRow();
+            
+            
+            //saco el promedio del periodo que solicitan para df
+            $sql = "SELECT AVG(df) as prom from ap6Ind2 "; 
+            $promdf = Yii::app()->db->createCommand($sql)->queryRow();
+           
+            //saco el promedio del periodo que solicitan para nacional
+            $sql1 = "SELECT AVG(nacional) as prom from ap6Ind2"; 
+            $promnal = Yii::app()->db->createCommand($sql1)->queryRow();
+            
+            
+            foreach ($result as $res) {
+                if(!isset($json['informe'])){
+
+                    $json['informe']=array(
+                        'anio'=>array(),
+                        'promedios'=>array(
+                        'sumdf'=>$sumdf['prom'],
+                        'sumnal'=>$sumnal['prom'],   
+                        'promdf'=>$promdf['prom'],
+                        'promnal'=>$promnal['prom'],
+                            ),
+                        
+                    );
+
+                }
+                if(!isset($json['informe']['anio'][$res['anio']])){
+
+                    $json['informe']['anio'][$res['anio']]=array(
+                        
+                        
+                            'df'=>$res['df'],
+                        'nacional'=>$res['nacional'],
+                            
+                        
+                        
+                    );
+
+                }
+               
+                
+               
+                
+                
+                
+                
+                
+            }
+          
+            header('Content-type: application/json');  
+            echo json_encode($json);  
+            Yii::app()->end(); 
+    }
+    
     
     
 

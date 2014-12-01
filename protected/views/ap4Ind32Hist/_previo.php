@@ -135,15 +135,11 @@ foreach ($model as $indice => $valor) {
 
     if (is_array($valor)){ 
             foreach ($valor as $indice2 => $valor2) {
+              
+                        $datos[$indice2]= $valor2;
+                      
                     
 
-                if (is_array($valor2)){ 
-                    foreach ($valor2 as $indice3 => $valor3) {
-                        $datos[$indice3]= $valor3;
-                      
-                    }
-
-                }
 
             }
 
@@ -151,13 +147,15 @@ foreach ($model as $indice => $valor) {
                 
 
 }
-
+echo"<pre>";
+           print_r($datos[2014]);
+           echo "</pre>";
            
 
 ?>
    <tr class="cell_label"> 
             <td>Periodo</td>
-            <?php foreach($datos as $key=>$dat){ 
+            <?php foreach($datos[2014] as $key=>$dat){ 
                 //saco el nombre de la entidad
                 $sql1 = "SELECT nombre from entidades where id=".$key; 
                 $nombre = Yii::app()->db->createCommand($sql1)->queryRow();
@@ -175,14 +173,14 @@ foreach ($model as $indice => $valor) {
    
         <?php 
         
-        $ent=array(8,9,40);
-        for($i=$trim_inicio;$i<=$trim_fin;$i++){ 
+        
+        foreach($datos[2014][40]['mes'] as $mes=>$dato){ 
         ?>
            
             <tr class="rOdd"> 
                     <td><?php 
                 
-                switch ($i){
+                switch ($mes){
                     
                     case 1:
                        $mesd='Ene';
@@ -221,15 +219,9 @@ foreach ($model as $indice => $valor) {
                        $mesd='Dic';
                        break;
                 }  echo $mesd; ?></td>
-                    <?php foreach ($ent as $e){ 
-                        
-                        
-                        
-                        ?>
+                    <?php foreach ($datos[2014] as $e=>$dato){ ?>
                     
-                
-                    
-                        <td class="data"><?php echo $datos[$e]['mes'][$i]['valor']; ?></td> 
+                        <td class="data"><?php echo $dato['mes'][$mes]['valor']; ?></td> 
                     
                     <?php } ?>
             </tr>
@@ -237,14 +229,7 @@ foreach ($model as $indice => $valor) {
             
         <?php } ?>
    
-            <tr class="rOdd"> 
-                    <td>Promedio</td>
-                    <?php foreach ($ent as $e){ ?>
-                    
-                        <td class="data"><?php echo round($datos[$e]['promedio']/$trim_fin, 2); ?></td>
-                        
-                    <?php } ?>
-            </tr>
+           
         
    
     

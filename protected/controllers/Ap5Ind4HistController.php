@@ -80,12 +80,18 @@ class Ap5Ind4HistController extends Controller {
     {
         $perfil = Yii::app()->user->perfil;
         $autoriza=$this->mostrarAutorizar($perfil,1,2,4);
-        $model=Ap5Ind4Hist::model()->findByPk($id);
+        $model=Ap1Ind9Hist::model()->findByPk($id);
+        $entidades="1,2,3,4";
+        $url = "http://localhost/recm/index.php/api/ap5Ind4?entidades=".$entidades."&grafico=0";
+        //$url = $baseUrl;
+        $data = file_get_contents($url);
+        $model= CJSON::decode($data);
 
         $this->render('_previo',array(
             'model'=>$model,
             'id'=>$id,
             'autoriza'=>$autoriza,
+            //'model'=>$model,
         ));
     }
     
