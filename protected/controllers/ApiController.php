@@ -261,60 +261,90 @@ foreach ($resultado as $key => $row) {
             foreach ($result as $res) {
                 
                 if($grafico==0){
-                    if(!isset($json['informe'])){
+                if(!isset($json['informe'])){
 
-                        $json['informe']=array(
-                            'entidad'=>array(),
-                            'gran_total'=>$total['total'],
-                        );
+                    $json['informe']=array(
+                        'entidad'=>array(),
+                        'gran_total'=>$total['total'],
+                    );
 
-                    }
+                }
 
-                    if(!isset($json['informe']['entidad'][$res['entidad']])){
+                if(!isset($json['informe']['entidad'][$res['entidad']])){
 
-                        $json['informe']['entidad'][$res['entidad']]=array(
-                            'anio'=>array(),
-                            'total'=>0,
-
-                        );
-
-                    }
-
-
-                    if(!isset($json['informe']['entidad'][$res['entidad']][$res['anio']])){
-
-                        $json['informe']['entidad'][$res['entidad']][$res['anio']]=array(
-                            'valor'=>$res['valor'],
-
-
-                        );
-                        $json['informe']['entidad'][$res['entidad']]['total']=$json['informe']['entidad'][$res['entidad']]['total']+$json['informe']['entidad'][$res['entidad']][$res['anio']]['valor'];
-
-                    }
-
-                }else{
-                
-                
-                
-                    if(!isset($json[$res['entidad']][$res['anio']])){
-                        $json[$res['entidad']][$res['anio']]=array(
-                            'valor'=>$res['valor'],
-
-
-                        );
-
-                        $json[$res['entidad']]=$json[$res['entidad']]['total']+$json[$res['entidad']][$res['anio']]['valor'];
-
-                    }
+                    $json['informe']['entidad'][$res['entidad']]=array(
+                        'anio'=>array(),
+                        'total'=>0,
+                        
+                    );
 
                 }
                 
+            
+                if(!isset($json['informe']['entidad'][$res['entidad']][$res['anio']])){
+
+                    $json['informe']['entidad'][$res['entidad']][$res['anio']]=array(
+                        'valor'=>$res['valor'],
+                        
+                        
+                    );
+                    $json['informe']['entidad'][$res['entidad']]['total']=$json['informe']['entidad'][$res['entidad']]['total']+$json['informe']['entidad'][$res['entidad']][$res['anio']]['valor'];
+                    
+                }
+                
+            }else{
+                
+               $json1 = array(
+                                192154113,
+                                181720414,
+                                134201203,
+                                129601044,
+                                126480909,
+                                98081909,
+                                72003017,
+                                71708241,
+                                54916781,
+                                45799876,
+                                30539251,
+                                28974574,
+                                28908451,
+                                23604278,
+                                16686122,
+                                14852416,
+                                10138902,
+                                8787403,
+                                7123627,
+                                7024982,
+                                5878865,
+                                5668922,
+                                5644526,
+                                5280296,
+                                3395422,
+                                1823910,
+                                1241214,
+                                865914,
+                                393632,
+                                319453,
+                                218939,
+                                36515
+
+
+                                                                        ); 
             }
             
-
-            header('Content-type: application/json');  
-            echo print_r($json);  
-            Yii::app()->end(); 
+            
+            
+            }
+            
+             if($grafico==0){
+                header('Content-type: application/json');  
+                echo json_encode($json);  
+                Yii::app()->end(); 
+             }else{
+                header('Content-type: application/json');  
+                echo json_encode($json1);  
+                Yii::app()->end(); 
+             }
     }
     
     public function actionAp1Ind82($anios, $grafico){
