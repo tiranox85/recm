@@ -9053,3 +9053,87 @@ Stack trace:
 #13 {main}
 REQUEST_URI=/recm/index.php/api/ap8Ind3?anios=2014&grafico=0
 ---
+2014/12/02 11:55:53 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'El sistema no ha podido encontrar la acción "ap9Ind1" solicitada.' in /var/www/html/recm/yii/framework/web/CController.php:483
+Stack trace:
+#0 /var/www/html/recm/yii/framework/web/CController.php(270): CController->missingAction('ap9Ind1')
+#1 /var/www/html/recm/yii/framework/web/CWebApplication.php(282): CController->run('ap9Ind1')
+#2 /var/www/html/recm/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('api/ap9Ind1')
+#3 /var/www/html/recm/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#4 /var/www/html/recm/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/recm/index.php/api/ap9Ind1?anios=2014&grafico=0
+---
+2014/12/02 11:56:48 [error] [system.db.CDbCommand] CDbCommand::fetchAll() falló: SQLSTATE[HY000]: General error: 207 General SQL Server error: Check messages from the SQL Server [207] (severity 16) [(null)]. La sentencia SQL ejecutada fue: SELECT * FROM [dbo].[ap9Ind1] [t] WHERE anio in(2014) ORDER BY mes ASC.
+in /var/www/html/recm/protected/controllers/ApiController.php (1651)
+in /var/www/html/recm/index.php (13)
+2014/12/02 11:56:48 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand falló al ejecutar la sentencia SQL: SQLSTATE[HY000]: General error: 207 General SQL Server error: Check messages from the SQL Server [207] (severity 16) [(null)]. The SQL statement executed was: SELECT * FROM [dbo].[ap9Ind1] [t] WHERE anio in(2014) ORDER BY mes ASC' in /var/www/html/recm/yii/framework/db/CDbCommand.php:543
+Stack trace:
+#0 /var/www/html/recm/yii/framework/db/CDbCommand.php(396): CDbCommand->queryInternal('fetchAll', Array, Array)
+#1 /var/www/html/recm/yii/framework/db/ar/CActiveRecord.php(1351): CDbCommand->queryAll()
+#2 /var/www/html/recm/yii/framework/db/ar/CActiveRecord.php(1470): CActiveRecord->query(Object(CDbCriteria), true)
+#3 /var/www/html/recm/protected/controllers/ApiController.php(1651): CActiveRecord->findAll(Array)
+#4 [internal function]: ApiController->actionAp9Ind1('2014', '0')
+#5 /var/www/html/recm/yii/framework/web/actions/CAction.php(108): ReflectionMethod->invokeArgs(Object(ApiController), Array)
+#6 /var/www/html/recm/yii/framework/web/actions/CInlineAction.php(47): CAction->runWithParamsInternal(Object(ApiController), Object(ReflectionMethod), Array)
+#7 /var/www/html/recm/yii/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#8 /var/www/html/recm/yii/framework/web/CController.php(286): CController->runAction(Object(CInlineAction))
+#9 /var/www/html/recm/yii/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#10 /var/www/html/recm/yii/framework/web/CWebApplication.php(282): CController->run('ap9Ind1')
+#11 /var/www/html/recm/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('api/ap9Ind1')
+#12 /var/www/html/recm/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#13 /var/www/html/recm/index.php(13): CApplication->run()
+#14 {main}
+REQUEST_URI=/recm/index.php/api/ap9Ind1?anios=2014&grafico=0
+---
+2014/12/02 11:56:57 [error] [exception.CException] exception 'CException' with message 'La propiedad "Ap9Ind1"."mes" no se encuentra definida.' in /var/www/html/recm/yii/framework/base/CComponent.php:130
+Stack trace:
+#0 /var/www/html/recm/yii/framework/db/ar/CActiveRecord.php(145): CComponent->__get('mes')
+#1 /var/www/html/recm/yii/framework/base/CModel.php(596): CActiveRecord->__get('mes')
+#2 /var/www/html/recm/protected/controllers/ApiController.php(1658): CModel->offsetGet('mes')
+#3 [internal function]: ApiController->actionAp9Ind1('2014', '0')
+#4 /var/www/html/recm/yii/framework/web/actions/CAction.php(108): ReflectionMethod->invokeArgs(Object(ApiController), Array)
+#5 /var/www/html/recm/yii/framework/web/actions/CInlineAction.php(47): CAction->runWithParamsInternal(Object(ApiController), Object(ReflectionMethod), Array)
+#6 /var/www/html/recm/yii/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#7 /var/www/html/recm/yii/framework/web/CController.php(286): CController->runAction(Object(CInlineAction))
+#8 /var/www/html/recm/yii/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#9 /var/www/html/recm/yii/framework/web/CWebApplication.php(282): CController->run('ap9Ind1')
+#10 /var/www/html/recm/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('api/ap9Ind1')
+#11 /var/www/html/recm/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#12 /var/www/html/recm/index.php(13): CApplication->run()
+#13 {main}
+REQUEST_URI=/recm/index.php/api/ap9Ind1?anios=2014&grafico=0
+---
+2014/12/02 13:49:41 [error] [exception.CHttpException.400] exception 'CHttpException' with message 'Su solicitud es inválida.' in /var/www/html/recm/yii/framework/web/CController.php:336
+Stack trace:
+#0 /var/www/html/recm/yii/framework/web/CController.php(309): CController->invalidActionParams(Object(CInlineAction))
+#1 /var/www/html/recm/yii/framework/web/CController.php(286): CController->runAction(Object(CInlineAction))
+#2 /var/www/html/recm/yii/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#3 /var/www/html/recm/yii/framework/web/CWebApplication.php(282): CController->run('ap9Ind2')
+#4 /var/www/html/recm/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('api/ap9Ind2')
+#5 /var/www/html/recm/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#6 /var/www/html/recm/index.php(13): CApplication->run()
+#7 {main}
+REQUEST_URI=/recm/index.php/api/ap9Ind2?anios=2014,2013,2012,2011,2010,2009&meses=1,2,3,4,15grafico=0
+---
+2014/12/02 13:49:53 [error] [system.db.CDbCommand] CDbCommand::fetchAll() falló: SQLSTATE[HY000]: General error: 207 General SQL Server error: Check messages from the SQL Server [207] (severity 16) [(null)]. La sentencia SQL ejecutada fue: SELECT * FROM [dbo].[ap9Ind2] [t] WHERE anio in(2014,2013,2012,2011,2010,2009) and meses in(1,2,3,4,15) ORDER BY anio ASC.
+in /var/www/html/recm/protected/controllers/ApiController.php (1682)
+in /var/www/html/recm/index.php (13)
+2014/12/02 13:49:53 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand falló al ejecutar la sentencia SQL: SQLSTATE[HY000]: General error: 207 General SQL Server error: Check messages from the SQL Server [207] (severity 16) [(null)]. The SQL statement executed was: SELECT * FROM [dbo].[ap9Ind2] [t] WHERE anio in(2014,2013,2012,2011,2010,2009) and meses in(1,2,3,4,15) ORDER BY anio ASC' in /var/www/html/recm/yii/framework/db/CDbCommand.php:543
+Stack trace:
+#0 /var/www/html/recm/yii/framework/db/CDbCommand.php(396): CDbCommand->queryInternal('fetchAll', Array, Array)
+#1 /var/www/html/recm/yii/framework/db/ar/CActiveRecord.php(1351): CDbCommand->queryAll()
+#2 /var/www/html/recm/yii/framework/db/ar/CActiveRecord.php(1470): CActiveRecord->query(Object(CDbCriteria), true)
+#3 /var/www/html/recm/protected/controllers/ApiController.php(1682): CActiveRecord->findAll(Array)
+#4 [internal function]: ApiController->actionAp9Ind2('2014,2013,2012,...', '1,2,3,4,15', '0')
+#5 /var/www/html/recm/yii/framework/web/actions/CAction.php(108): ReflectionMethod->invokeArgs(Object(ApiController), Array)
+#6 /var/www/html/recm/yii/framework/web/actions/CInlineAction.php(47): CAction->runWithParamsInternal(Object(ApiController), Object(ReflectionMethod), Array)
+#7 /var/www/html/recm/yii/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#8 /var/www/html/recm/yii/framework/web/CController.php(286): CController->runAction(Object(CInlineAction))
+#9 /var/www/html/recm/yii/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#10 /var/www/html/recm/yii/framework/web/CWebApplication.php(282): CController->run('ap9Ind2')
+#11 /var/www/html/recm/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('api/ap9Ind2')
+#12 /var/www/html/recm/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#13 /var/www/html/recm/index.php(13): CApplication->run()
+#14 {main}
+REQUEST_URI=/recm/index.php/api/ap9Ind2?anios=2014,2013,2012,2011,2010,2009&meses=1,2,3,4,15&grafico=0
+---

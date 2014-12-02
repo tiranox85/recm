@@ -81,11 +81,19 @@ class Ap9Ind2HistController extends Controller {
         $perfil = Yii::app()->user->perfil;
         $autoriza=$this->mostrarAutorizar($perfil,1,2,4);
         $model=Ap9Ind2Hist::model()->findByPk($id);
+        
+        //variable
+        $anio=2014;
+        $url = "http://localhost/recm/index.php/api/ap9Ind2?anios=2014,2013,2012,2011,2010,2009&meses=1,2,3,4,13&grafico=0";
+        //$url = $baseUrl;
+        $data = file_get_contents($url);
+        $model= CJSON::decode($data);
 
         $this->render('_previo',array(
             'model'=>$model,
             'id'=>$id,
             'autoriza'=>$autoriza,
+            //'model'=>$model,
         ));
     }
     

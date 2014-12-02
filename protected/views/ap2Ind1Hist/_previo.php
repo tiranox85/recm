@@ -172,7 +172,47 @@ foreach ($model as $indice => $valor) {
            
            if($mes!='promediodf' or $mes!='promnal') {
            //estos son los meses
-            echo "<tr class='rEven'><td>".$mes."</td>";
+               switch ($mes){
+                    
+                    case 1:
+                       $mesd='Enero';
+                       break;
+                   case 2:
+                       $mesd='Febrero';
+                       break;
+                   case 3:
+                       $mesd='Marzo';
+                       break;
+                   case 4:
+                       $mesd='Abril';
+                       break;
+                   case 5:
+                       $mesd='Mayo';
+                       break;
+                   case 6:
+                       $mesd='Junio';
+                       break;
+                   case 7:
+                       $mesd='Julio';
+                       break;
+                   case 8:
+                       $mesd='Agosto';
+                       break;
+                   case 9:
+                       $mesd='Septiembre';
+                       break;
+                   case 10:
+                       $mesd='Octubre';
+                       break;
+                   case 11:
+                       $mesd='Noviembre';
+                       break;
+                   case 12:
+                       $mesd='Diciembre';
+                       break;
+                } 
+               
+            echo "<tr class='rEven'><td>".$mesd."</td>";
                 echo "<td class='data'>".round($valor['df'],2)."</td><td class='data'>".round($valor['nacional'],2)."</td>";
             echo "</tr>";
            }

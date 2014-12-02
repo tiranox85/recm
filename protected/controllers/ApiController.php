@@ -1641,6 +1641,87 @@ foreach ($resultado as $key => $row) {
             Yii::app()->end(); 
     }
     
+    public function actionAp9Ind1($anios,$grafico){
+
+    $this->layout=false;
+
+            $result = Ap9Ind1::model()->findAll((array(
+            'condition'=>'anio in('.$anios.')',
+            'order'=>'anio ASC'
+             )));
+            
+            
+            
+            
+            foreach ($result as $res) {
+                
+                if(!isset($json['u_comercio'][$res['anio']])){
+
+                    $json['informe'][$res['anio']]['habitaciones']=$res['habitaciones'];
+                    $json['informe'][$res['anio']]['ocupacion']=$res['ocupacion'];
+                    
+                    
+                }
+            }
+            
+            
+          
+            header('Content-type: application/json');  
+            echo json_encode($json);  
+            Yii::app()->end(); 
+    }
+    
+    
+    public function actionAp9Ind2($anios,$meses,$grafico){
+
+    $this->layout=false;
+
+            $result = Ap9Ind2::model()->findAll((array(
+            'condition'=>'anio in('.$anios.') and mes in('.$meses.')',
+            'order'=>'anio ASC'
+             )));
+            
+            
+            
+            
+            foreach ($result as $res) {
+                
+                if(!isset($json['informe'][$res['mes']])){
+
+                    $json['informe'][$res['mes']]=array(
+                       
+                        'anio'=>array(),
+                        
+                        
+                        
+                    );
+
+                }
+                if(!isset($json['informe'][$res['mes']]['anio'][$res['anio']])){
+
+                    $json['informe'][$res['mes']]['anio'][$res['anio']]=array(
+                        'rubro'=>array(),
+                        'total'=>0,
+                    );
+
+                }
+                
+                if(!isset($json['informe'][$res['mes']]['anio'][$res['anio']]['rubro'][$res['rubro']])){
+
+                    $json['informe'][$res['mes']]['anio'][$res['anio']]['rubro'][$res['rubro']]['valor']=$res['valor'];
+                    $json['informe'][$res['mes']]['anio'][$res['anio']]['total']=$json['informe'][$res['mes']]['anio'][$res['anio']]['total']+$res['valor'];
+                    
+                    
+                }
+            }
+            
+            
+          
+            header('Content-type: application/json');  
+            echo json_encode($json);  
+            Yii::app()->end(); 
+    }
+    
     
     
     
