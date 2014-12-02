@@ -294,6 +294,19 @@ foreach ($resultado as $key => $row) {
                 
             }else{
                 
+                //esta serie ya funciona en $json['data']
+               /*if(!isset($json1['data'][$res['entidad']][$res['anio']])){
+                    $json1[$res['entidad']][$res['anio']]=array(
+                        'valor'=>$res['valor'],
+                        
+                        
+                    );
+                  
+                    $json1['data'][$res['entidad']]=$json1['data'][$res['entidad']]['total']+$json1[$res['entidad']][$res['anio']]['valor'];
+                    
+                }
+                
+                */ 
                $json1 = array(
                                 192154113,
                                 181720414,
@@ -1187,6 +1200,447 @@ foreach ($resultado as $key => $row) {
             echo json_encode($json);  
             Yii::app()->end(); 
     }
+    
+    public function actionAp7Ind11($anios, $grafico){
+
+    $this->layout=false;
+
+            $result = Ap7Ind11::model()->findAll((array(
+            'condition'=>'anio in('.$anios.')  ',
+            'order'=>'rubro ASC'
+             )));
+            
+            
+            
+            foreach ($result as $res) {
+                
+                
+                
+                if(!isset($json['informe'][$res['anio']])){
+
+                    $json['informe'][$res['anio']]=array(
+                       
+                        'rubro'=>array(),
+                        
+                        
+                        
+                    );
+
+                }
+                if(!isset($json['informe'][$res['anio']]['rubro'][$res['rubro']])){
+
+                    $json['informe'][$res['anio']]['rubro'][$res['rubro']]=array(
+                        
+                        
+                    );
+
+                }
+                
+                if(!isset($json['informe'][$res['anio']][$res['rubro']]['valores'])){
+
+                    $json['informe'][$res['anio']]['rubro'][$res['rubro']]['estimado']=$res['estimado'];
+                    $json['informe'][$res['anio']]['rubro'][$res['rubro']]['registrado']=$res['registrado'];
+                    
+                    
+                    
+                }
+                
+               
+                
+                
+                
+                
+                
+            }
+          
+            header('Content-type: application/json');  
+            echo json_encode($json);  
+            Yii::app()->end(); 
+    }
+    public function actionAp7Ind2($anios, $grafico){
+
+    $this->layout=false;
+
+            $result = Ap7Ind2::model()->findAll((array(
+            'condition'=>'anio in('.$anios.')  ',
+            'order'=>'rubro ASC'
+             )));
+            
+            
+            
+            foreach ($result as $res) {
+                
+                
+                
+                if(!isset($json['informe'][$res['anio']])){
+
+                    $json['informe'][$res['anio']]=array(
+                       
+                        'rubro'=>array(),
+                        
+                        
+                        
+                    );
+
+                }
+                if(!isset($json['informe'][$res['anio']]['rubro'][$res['rubro']])){
+
+                    $json['informe'][$res['anio']]['rubro'][$res['rubro']]=array(
+                        
+                        
+                    );
+
+                }
+                
+                if(!isset($json['informe'][$res['anio']][$res['rubro']]['valores'])){
+
+                    $json['informe'][$res['anio']]['rubro'][$res['rubro']]['ejercicio']=$res['ejercicio'];
+                    $json['informe'][$res['anio']]['rubro'][$res['rubro']]['estructura']=$res['estructura'];
+                    
+                    
+                    
+                }
+                
+               
+                
+                
+                
+                
+                
+            }
+          
+            header('Content-type: application/json');  
+            echo json_encode($json);  
+            Yii::app()->end(); 
+    }
+    
+    
+    public function actionAp8Ind11($anios, $meses, $grafico){
+
+    $this->layout=false;
+
+            $result = Ap8Ind11::model()->findAll((array(
+            'condition'=>'anio in('.$anios.') and mes in('.$meses.')  ',
+            'order'=>'id ASC'
+             )));
+            
+            
+            
+            foreach ($result as $res) {
+                
+                //al por mayor por año y columna
+                if(!isset($json['informe']['pormayor'][$res['anio']])){
+
+                    $json['informe']['pormayor'][$res['anio']]=array(
+                        
+                        //personas ocupadas nacional y df mayoreo
+                        'p_ocupadas_n_ma'=>array(),
+                        'p_ocupadas_df_ma'=>array(),
+                        
+                        //remunaeraciones ocupadas nacional y df mayoreo
+                        'remuneraciones_n_ma'=>array(),
+                        'remuneraciones_df_ma'=>array(),
+                        
+                        //remuneracione spor persona  nacional y df mayoreo
+                        'remuneraciones_pp_n_ma'=>array(),
+                        'remuneraciones_pp_df_ma'=>array(),
+                        
+                        //ingresos nacional y df mayoreo
+                        'ingreso_n_ma'=>array(),
+                        'ingreso_df_ma'=>array(),
+                        
+                        //compras nacional y df mayoreo
+                        'compras_n_ma'=>array(),
+                        'compras_df_ma'=>array(),
+                        
+                        
+                        
+                    );
+                    
+                }
+                
+                //personas ocupadas nacional y df mayoreo
+                if(!isset($json['informe']['pormayor'][$res['anio']]['p_ocupadas_n_ma']['mes'][$res['mes']])){
+                    
+                    $json['informe']['pormayor'][$res['anio']]['p_ocupadas_n_ma']['total']=$json['informe']['pormayor'][$res['anio']]['p_ocupadas_n_ma']['total']+$res['p_ocupadas_n_ma'];
+                    
+                }
+                
+                if(!isset($json['informe']['pormayor'][$res['anio']]['p_ocupadas_df_ma']['mes'][$res['mes']])){
+
+                    $json['informe']['pormayor'][$res['anio']]['p_ocupadas_df_ma']['total']=$json['informe']['pormayor'][$res['anio']]['p_ocupadas_df_ma']['total']+$res['p_ocupadas_df_ma'];;
+                    
+                }
+                
+                //remunaeraciones ocupadas nacional y df mayoreo
+                if(!isset($json['informe']['pormayor'][$res['anio']]['remuneraciones_n_ma']['mes'][$res['mes']])){
+
+                    $json['informe']['pormayor'][$res['anio']]['remuneraciones_n_ma']['total']=$json['informe']['pormayor'][$res['anio']]['remuneraciones_n_ma']['total']+$res['remuneraciones_n_ma'];;
+                    
+                }
+                if(!isset($json['informe']['pormayor'][$res['anio']]['remuneraciones_df_ma']['mes'][$res['mes']])){
+
+                    $json['informe']['pormayor'][$res['anio']]['remuneraciones_df_ma']['total']=$json['informe']['pormayor'][$res['anio']]['remuneraciones_df_ma']['total']+$res['remuneraciones_df_ma'];;
+                    
+                }
+                
+                //remuneracione spor persona  nacional y df mayoreo
+                if(!isset($json['informe']['pormayor'][$res['anio']]['remuneraciones_pp_n_ma']['mes'][$res['mes']])){
+
+                    $json['informe']['pormayor'][$res['anio']]['remuneraciones_pp_n_ma']['total']=$json['informe']['pormayor'][$res['anio']]['remuneraciones_pp_n_ma']['total']+$res['remuneraciones_pp_n_ma'];;
+                    
+                }
+                if(!isset($json['informe']['pormayor'][$res['anio']]['remuneraciones_pp_df_ma']['mes'][$res['mes']])){
+
+                    $json['informe']['pormayor'][$res['anio']]['remuneraciones_pp_df_ma']['total']=$json['informe']['pormayor'][$res['anio']]['remuneraciones_df_ma']['total']+$res['remuneraciones_pp_df_ma'];;
+                    
+                }
+                
+                //ingresos nacional y df mayoreo
+                if(!isset($json['informe']['pormayor'][$res['anio']]['ingreso_n_ma']['mes'][$res['mes']])){
+
+                    $json['informe']['pormayor'][$res['anio']]['ingreso_n_ma']['total']=$json['informe']['pormayor'][$res['anio']]['ingreso_n_ma']['total']+$res['ingreso_n_ma'];;
+                    
+                }
+                if(!isset($json['informe']['pormayor'][$res['anio']]['ingreso_df_ma']['mes'][$res['mes']])){
+
+                    $json['informe']['pormayor'][$res['anio']]['ingreso_df_ma']['total']=$json['informe']['pormayor'][$res['anio']]['ingreso_df_ma']['total']+$res['ingreso_df_ma'];;
+                    
+                }
+                
+                //compras nacional y df mayoreo
+                if(!isset($json['informe']['pormayor'][$res['anio']]['compras_n_ma']['mes'][$res['mes']])){
+
+                    $json['informe']['pormayor'][$res['anio']]['compras_n_ma']['total']=$json['informe']['pormayor'][$res['anio']]['compras_n_ma']['total']+$res['compras_n_ma'];;
+                    
+                }
+                if(!isset($json['informe']['pormayor'][$res['anio']]['compras_df_ma']['mes'][$res['mes']])){
+
+                    $json['informe']['pormayor'][$res['anio']]['compras_df_ma']['total']=$json['informe']['pormayor'][$res['anio']]['compras_df_ma']['total']+$res['compras_df_ma'];;
+                    
+                }
+                
+                
+                
+                
+                
+                
+                
+                //al por menor por año y por columna
+                
+                if(!isset($json['informe']['pormenor'][$res['anio']])){
+
+                    $json['informe']['pormenor'][$res['anio']]=array(
+                        
+                        //personas ocupadas nacional y df menudeo
+                        'p_ocupadas_n_me'=>array(),
+                        'p_ocupadas_df_me'=>array(),
+                        
+                        //remunaeraciones ocupadas nacional y df menudeo
+                        'remuneraciones_n_me'=>array(),
+                        'remuneraciones_df_me'=>array(),
+                        
+                        //remuneracione spor persona  nacional y df menudeo
+                        'remuneraciones_pp_n_me'=>array(),
+                        'remuneraciones_pp_df_me'=>array(),
+                        
+                        //ingresos nacional y df menudeo
+                        'ingreso_n_me'=>array(),
+                        'ingreso_df_me'=>array(),
+                        
+                        //compras nacional y df menudeo
+                        'compras_n_me'=>array(),
+                        'compras_df_me'=>array(),
+                        
+                        
+                        
+                    );
+                    
+                }
+                
+                //personas ocupadas nacional y df mayoreo
+                if(!isset($json['informe']['pormenor'][$res['anio']]['p_ocupadas_n_me']['mes'][$res['mes']])){
+                    
+                    $json['informe']['pormenor'][$res['anio']]['p_ocupadas_n_me']['total']=$json['informe']['pormenor'][$res['anio']]['p_ocupadas_n_me']['total']+$res['p_ocupadas_n_me'];
+                    
+                }
+                
+                if(!isset($json['informe']['pormenor'][$res['anio']]['p_ocupadas_df_me']['mes'][$res['mes']])){
+
+                    $json['informe']['pormenor'][$res['anio']]['p_ocupadas_df_me']['total']=$json['informe']['pormenor'][$res['anio']]['p_ocupadas_df_me']['total']+$res['p_ocupadas_df_me'];;
+                    
+                }
+                
+                //remunaeraciones ocupadas nacional y df mayoreo
+                if(!isset($json['informe']['pormenor'][$res['anio']]['remuneraciones_n_me']['mes'][$res['mes']])){
+
+                    $json['informe']['pormenor'][$res['anio']]['remuneraciones_n_me']['total']=$json['informe']['pormenor'][$res['anio']]['remuneraciones_n_me']['total']+$res['remuneraciones_n_me'];;
+                    
+                }
+                if(!isset($json['informe']['pormenor'][$res['anio']]['remuneraciones_df_me']['mes'][$res['mes']])){
+
+                    $json['informe']['pormenor'][$res['anio']]['remuneraciones_df_me']['total']=$json['informe']['pormenor'][$res['anio']]['remuneraciones_df_me']['total']+$res['remuneraciones_df_me'];;
+                    
+                }
+                
+                //remuneracione spor persona  nacional y df mayoreo
+                if(!isset($json['informe']['pormenor'][$res['anio']]['remuneraciones_pp_n_me']['mes'][$res['mes']])){
+
+                    $json['informe']['pormenor'][$res['anio']]['remuneraciones_pp_n_me']['total']=$json['informe']['pormenor'][$res['anio']]['remuneraciones_pp_n_me']['total']+$res['remuneraciones_pp_n_me'];;
+                    
+                }
+                if(!isset($json['informe']['pormenor'][$res['anio']]['remuneraciones_pp_df_me']['mes'][$res['mes']])){
+
+                    $json['informe']['pormenor'][$res['anio']]['remuneraciones_pp_df_me']['total']=$json['informe']['pormenor'][$res['anio']]['remuneraciones_df_me']['total']+$res['remuneraciones_pp_df_me'];;
+                    
+                }
+                
+                //ingresos nacional y df mayoreo
+                if(!isset($json['informe']['pormenor'][$res['anio']]['ingreso_n_me']['mes'][$res['mes']])){
+
+                    $json['informe']['pormenor'][$res['anio']]['ingreso_n_me']['total']=$json['informe']['pormenor'][$res['anio']]['ingreso_n_me']['total']+$res['ingreso_n_me'];;
+                    
+                }
+                if(!isset($json['informe']['pormenor'][$res['anio']]['ingreso_df_me']['mes'][$res['mes']])){
+
+                    $json['informe']['pormenor'][$res['anio']]['ingreso_df_me']['total']=$json['informe']['pormenor'][$res['anio']]['ingreso_df_me']['total']+$res['ingreso_df_me'];;
+                    
+                }
+                
+                //compras nacional y df mayoreo
+                if(!isset($json['informe']['pormenor'][$res['anio']]['compras_n_me']['mes'][$res['mes']])){
+
+                    $json['informe']['pormenor'][$res['anio']]['compras_n_me']['total']=$json['informe']['pormenor'][$res['anio']]['compras_n_me']['total']+$res['compras_n_me'];;
+                    
+                }
+                if(!isset($json['informe']['pormenor'][$res['anio']]['compras_df_me']['mes'][$res['mes']])){
+
+                    $json['informe']['pormenor'][$res['anio']]['compras_df_me']['total']=$json['informe']['pormenor'][$res['anio']]['compras_df_me']['total']+$res['compras_df_me'];;
+                    
+                }
+                
+                
+                
+                
+            }
+          
+            header('Content-type: application/json');  
+            echo json_encode($json);  
+            Yii::app()->end(); 
+    }
+    
+    public function actionAp8Ind12($anios, $grafico){
+
+    $this->layout=false;
+
+            $result = Ap8Ind12::model()->findAll((array(
+            'condition'=>'anio in('.$anios.') ',
+            'order'=>'id ASC'
+             )));
+            
+            
+            
+            foreach ($result as $res) {
+                
+                //al por mayor por año y columna
+                if(!isset($json['informe'][$res['anio']][$res['mes']])){
+
+                   
+                        
+                        //compras nacional y df mayoreo
+                        $json['informe'][$res['anio']][$res['mes']]['compras_n_ma']=$res['compras_n_ma'];
+                        $json['informe'][$res['anio']][$res['mes']]['compras_df_ma']=$res['compras_df_ma'];
+                        
+                        //compras nacional y df menudeo
+                        $json['informe'][$res['anio']][$res['mes']]['compras_n_me']=$res['compras_n_me'];
+                        $json['informe'][$res['anio']][$res['mes']]['compras_df_me']=$res['compras_df_me'];
+                        
+                    
+                }
+            }
+            
+        header('Content-type: application/json');  
+        echo json_encode($json);  
+        Yii::app()->end(); 
+    } 
+    
+    
+     public function actionAp8Ind21($anios,$anio_tiendas,$grafico){
+
+    $this->layout=false;
+
+            $result = Ap8Ind21::model()->findAll((array(
+            'condition'=>'anio in('.$anios.')',
+            'order'=>'rubro ASC'
+             )));
+            
+             $result_tiendas = Ap8Ind21a::model()->findAll((array(
+            'condition'=>'anio in('.$anio_tiendas.')',
+            'order'=>'rubro ASC'
+             )));
+            
+            
+            
+            foreach ($result as $res) {
+                
+                if(!isset($json['u_comercio'][$res['anio']][$res['rubro']])){
+
+                    $json['u_comercio'][$res['anio']][$res['rubro']]['unidades']=$res['unidades'];
+                    $json['u_comercio'][$res['anio']][$res['rubro']]['personal']=$res['personal'];
+                    
+                    
+                }
+            }
+            
+            foreach ($result_tiendas as $res) {
+                
+                if(!isset($json['tiendas'][$res['anio']][$res['rubro']])){
+
+                    $json['tiendas'][$res['anio']][$res['rubro']]['valor']=$res['valor'];
+                    
+                    
+                    
+                }
+                   
+            }
+          
+            header('Content-type: application/json');  
+            echo json_encode($json);  
+            Yii::app()->end(); 
+    }
+    
+    
+    
+    public function actionAp8Ind3($anios,$grafico){
+
+    $this->layout=false;
+
+            $result = Ap8Ind3::model()->findAll((array(
+            'condition'=>'anio in('.$anios.')',
+            'order'=>'mes ASC'
+             )));
+            
+            
+            
+            
+            foreach ($result as $res) {
+                
+                if(!isset($json['u_comercio'][$res['anio']][$res['mes']])){
+
+                    $json['informe'][$res['anio']][$res['mes']]['df']=$res['df'];
+                    $json['informe'][$res['anio']][$res['mes']]['nacional']=$res['nacional'];
+                    
+                    
+                }
+            }
+            
+            
+          
+            header('Content-type: application/json');  
+            echo json_encode($json);  
+            Yii::app()->end(); 
+    }
+    
     
     
     

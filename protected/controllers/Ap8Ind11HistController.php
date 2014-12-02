@@ -80,12 +80,18 @@ class Ap8Ind11HistController extends Controller {
     {
         $perfil = Yii::app()->user->perfil;
         $autoriza=$this->mostrarAutorizar($perfil,1,2,4);
-        $model=Ap8Ind11Hist::model()->findByPk($id);
+        $model=Ap7Ind11Hist::model()->findByPk($id);
+
+        $url = "http://localhost/recm/index.php/api/ap8Ind11?anios=2014,2013&meses=7,8,9&grafico=0";
+        //$url = $baseUrl;
+        $data = file_get_contents($url);
+        $model= CJSON::decode($data);
 
         $this->render('_previo',array(
             'model'=>$model,
             'id'=>$id,
             'autoriza'=>$autoriza,
+            //'model'=>$model,
         ));
     }
     
