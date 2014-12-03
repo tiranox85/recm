@@ -952,6 +952,83 @@ foreach ($resultado as $key => $row) {
             Yii::app()->end(); 
     }
     
+    public function actionAp5Ind1($anios, $grafico){
+
+    $this->layout=false;
+
+            $result = Ap5Ind1::model()->findAll((array(
+            'condition'=>'anio in('.$anios.')  ',
+            'order'=>'rubro ASC'
+             )));
+            
+            
+            
+            foreach ($result as $res) {
+                
+                
+                
+                if(!isset($json['informe'][$res['anio']])){
+
+                    $json['informe'][$res['anio']]=array(
+                       
+                        'entidad'=>array(),
+                        
+                        
+                        
+                    );
+
+                }
+                if(!isset($json['informe'][$res['anio']]['entidad'][$res['entidad']])){
+
+                    $json['informe'][$res['anio']]['entidad'][$res['entidad']]=array(
+                        'rubro'=>array(),
+                        
+                    );
+
+                }
+                
+                if(!isset($json['informe'][$res['anio']]['entidad'][$res['entidad']]['rubro'][$res['rubro']])){
+                    
+                    $json['informe'][$res['anio']]['entidad'][$res['entidad']]['rubro'][$res['rubro']]=array(
+                        'mes'=>array(),
+                    );
+                   
+                    
+                    
+                }
+                
+                if(!isset($json['informe'][$res['anio']]['entidad'][$res['entidad']]['rubro'][$res['rubro']]['mes'][$res['mes']])){
+                    
+                    $json['informe'][$res['anio']]['entidad'][$res['entidad']]['rubro'][$res['rubro']]['mes'][$res['mes']]=array(
+                        'valor'=>array(),
+                    );
+                   
+                    
+                    
+                }
+                
+                if(!isset($json['informe'][$res['anio']]['entidad'][$res['entidad']]['rubro'][$res['rubro']]['mes'][$res['mes']]['valor'][$res['valor']])){
+                    
+                    $json['informe'][$res['anio']]['entidad'][$res['entidad']]['rubro'][$res['rubro']]['mes'][$res['mes']]['valor']=$res['valor'];
+                   
+                    
+                    
+                }
+                
+               
+                
+                
+                
+                
+                
+            }
+          
+            header('Content-type: application/json');  
+            echo json_encode($json);  
+            Yii::app()->end(); 
+    }
+    
+    
     public function actionAp5Ind3($entidades,$grafico){
 
     $this->layout=false;
@@ -1315,6 +1392,57 @@ foreach ($resultado as $key => $row) {
     }
     
     
+    public function actionAp7Ind3($anios, $grafico){
+
+    $this->layout=false;
+
+            $result = Ap7Ind3::model()->findAll((array(
+            'condition'=>'anio in('.$anios.')  ',
+            'order'=>'rubro ASC'
+             )));
+            
+            
+            
+            foreach ($result as $res) {
+                
+                
+                
+                if(!isset($json['informe'])){
+
+                    $json['informe']=array(
+                       
+                        'rubro'=>array(),
+                        
+                        
+                        
+                    );
+
+                }
+                if(!isset($json['informe']['rubro'][$res['rubro']])){
+
+       
+                        $json['informe']['rubro'][$res['rubro']]['saldo1']=$res['saldo1'];
+                        $json['informe']['rubro'][$res['rubro']]['colocacion1']=$res['colocacion1'];
+                        $json['informe']['rubro'][$res['rubro']]['amortizacion1']=$res['amortizacion1'];
+                        $json['informe']['rubro'][$res['rubro']]['colocacion2']=$res['colocacion2'];
+                        $json['informe']['rubro'][$res['rubro']]['amortizacion2']=$res['amortizacion2'];
+                        $json['informe']['rubro'][$res['rubro']]['actualizacion2']=$res['actualizacion2'];
+                        $json['informe']['rubro'][$res['rubro']]['saldo2']=$res['saldo2'];
+                        $json['informe']['rubro'][$res['rubro']]['endeudamiento']=$res['endeudamiento'];
+                        
+                        
+
+                }
+               
+                
+            }
+          
+            header('Content-type: application/json');  
+            echo json_encode($json);  
+            Yii::app()->end(); 
+    }
+    
+    
     public function actionAp8Ind11($anios, $meses, $grafico){
 
     $this->layout=false;
@@ -1525,7 +1653,7 @@ foreach ($resultado as $key => $row) {
             }
           
             header('Content-type: application/json');  
-            echo json_encode($json);  
+            echo print_r($json);  
             Yii::app()->end(); 
     }
     

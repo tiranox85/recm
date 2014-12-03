@@ -144,9 +144,10 @@ foreach ($model as $indice => $valor) {
 
 
  
-echo "<pre>";
-print_r($datos);
-echo "</pre>";
+//echo "<pre>";
+//print_r($datos[1]);
+//echo "</pre>";
+
 
 ?>
 
@@ -154,9 +155,28 @@ echo "</pre>";
         Cuartos y establecimientos de hospedaje.
     </p>
     <table class="table_stats">
+        
+         
+            <tr class="rEven"> 
+                <td rowspan="2">Mes</td>
+                    <?php foreach($datos[1]['anio'] as $anio=>$dat){  ?>
+                        <td colspan="2"><?php echo $anio;?></td>
+
+                    <?php } ?>  
+            </tr>
+            <tr class="rEven"> 
+                    <?php foreach($datos[1]['anio'] as $anio=>$dat){  ?>
+                        <td>Nacionales</td>
+                        <td>Internacionales</td>
+
+                    <?php } ?> 
+            </tr>
+            
+            
+            
             <?php foreach($datos as $mes=>$dato){ ?>
             <tr class="rEven"> 
-                
+                <?php if($mes!=13){ ?>
                 <td><?php 
                 
                 switch ($mes){
@@ -197,15 +217,39 @@ echo "</pre>";
                    case 12:
                        $mesd='Diciembre';
                        break;
+                   case 13:
+                       $mesd='Total';
+                       break;
                 } 
                 echo $mesd;
                 ?></td>
                 
-                <td></td>
-                <td></td>
+                <?php foreach($dato['anio'] as $anio=>$dat){ ?>
+                <td class="data"><?php echo number_format($dat['rubro'][1]['valor'],0); ?></td>
+                <td class="data"><?php echo number_format($dat['rubro'][2]['valor'],0); ?></td>
+                <?php } ?>
             </tr>
-            <?php } ?>
+           
+            <?php } 
             
+            }?>
+             <tr class="rEven">
+                 <td rowspan="2">Total</td>
+                    <?php foreach($datos[1]['anio'] as $anio=>$dat){  ?>
+                        <td><?php echo number_format($datos[13]['anio'][$anio]['rubro'][1]['valor'],0); ?></td>
+                        <td><?php echo number_format($datos[13]['anio'][$anio]['rubro'][2]['valor'],0); ?></td>
+
+                    <?php } ?> 
+            </tr>
+            <tr class="rEven"> 
+                
+                    <?php foreach($datos[1]['anio'] as $anio=>$dat){  ?>
+                        <td colspan="2"><?php echo number_format($datos[13]['anio'][$anio]['total'],0); ?></td>
+
+                    <?php } ?>  
+            </tr>
+           
+             
             
     </table>
     

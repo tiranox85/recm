@@ -155,7 +155,7 @@ $anio_ref=$anio-1;
 $maximo = count($datos[2014]);
  
 //echo "<pre>";
-//print_r($datos[$anio]['rubro']);
+//print_r($datos);
 //echo "</pre>";
 ?>
     <tr  class="rEven">
@@ -175,39 +175,35 @@ $maximo = count($datos[2014]);
         <td>Actualizacion</td>
         
     </tr>
+    <?php foreach ($datos['rubro'] as $rubro=>$dato){ ?>
     <tr class="rEven">
-        <td>Gobierno del Distrito federal</td>
-        <td class="data">65592.80</td>
-        <td class="data">0/td>
-        <td class="data">875</td>
-        <td class="data">0</td>
-        <td class="data">684.7</td>
-        <td class="data">0</td>
-        <td class="data">64033.10</td>
-        <td class="data">-1559.70</td>
+        
+        
+        <td><?php 
+            switch ($rubro){
+                case 1:
+                    echo "Gobierno del Distrito federal";
+                    break;
+                case 2:
+                    echo "Sector gobierno";
+                    break;
+                case 3:
+                    echo "Sector paraestatal no financiero";
+                    break;
+            }
+        
+        ?></td>
+        <td class="data"><?php echo number_format($dato['saldo1'],2); ?></td>
+        <td class="data"><?php echo number_format($dato['colocacion1'],2); ?></td>
+        <td class="data"><?php echo number_format($dato['amortizacion1'],2); ?></td>
+        <td class="data"><?php echo number_format($dato['colocacion2'],2); ?></td>
+        <td class="data"><?php echo number_format($dato['amortizacion2'],2); ?></td>
+        <td class="data"><?php echo number_format($dato['actualizacion2'],2); ?></td>
+        <td class="data"><?php echo number_format($dato['saldo2'],2); ?></td>
+        <td class="data"><?php echo number_format($dato['endeudamiento'],2); ?></td>
     </tr>
-    <tr class="rEven">
-        <td>Sector gobierno</td>
-        <td class="data">64498.80</td>
-        <td class="data">0</td>
-        <td class="data">678.2</td>
-        <td class="data">0</td>
-        <td class="data">684.7</td>
-        <td class="data">0</td>
-        <td class="data">63135.90</td>
-        <td class="data">-1362.90</td>
-    </tr>
-    <tr class="rEven">
-        <td>Sector paraestatal no financiero</td>
-        <td class="data">1094.00</td>
-        <td class="data">0</td>
-        <td class="data">196.8</td>
-        <td class="data">0</td>
-        <td class="data">0</td>
-        <td class="data">0</td>
-        <td class="data">897.2</td>
-        <td class="data">-196.8</td>
-    </tr>
+    <?php } ?>
+   
     
         
     
