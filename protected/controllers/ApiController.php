@@ -773,6 +773,93 @@ foreach ($resultado as $key => $row) {
             Yii::app()->end(); 
     }
     
+    public function actionAp3Ind11($anios, $grafico){
+
+    $this->layout=false;
+
+            $result = Ap3Ind11::model()->findAll((array(
+            'condition'=>'anio in('.$anios.')',
+            'order'=>'id ASC'
+             )));
+            //saco el total el >1 significa que no debe tomar el valor de la columna 1, porque es un total en si
+            
+            foreach ($result as $res) {
+                
+                
+                if(!isset($json['informe'][$res['anio']][$res['delegacion']][$res['trimestre']])){
+
+                   $json['informe'][$res['anio']][$res['delegacion']][$res['trimestre']]['pea']=$res['pea'];
+                   $json['informe'][$res['anio']][$res['delegacion']][$res['trimestre']]['po']=$res['po'];
+                
+
+                }
+                
+                
+                
+            }
+          
+            header('Content-type: application/json');  
+            echo json_encode($json);  
+            Yii::app()->end(); 
+    }
+    
+    
+    
+    
+    public function actionAp3Ind12($anios, $grafico){
+
+    $this->layout=false;
+
+            $result = Ap3Ind12::model()->findAll((array(
+            'condition'=>'anio in('.$anios.')',
+            'order'=>'id ASC'
+             )));
+            //saco el total el >1 significa que no debe tomar el valor de la columna 1, porque es un total en si
+            
+            foreach ($result as $res) {
+                
+                
+                if(!isset($json['informe'][$res['anio']][$res['delegacion']][$res['trimestre']][$res['rubro']])){
+
+                   $json['informe'][$res['anio']][$res['delegacion']][$res['trimestre']][$res['rubro']]['valor']=$res['valor'];
+                 
+                }
+                
+            }
+          
+            header('Content-type: application/json');  
+            echo json_encode($json);  
+            Yii::app()->end(); 
+    }
+    
+     public function actionAp3Ind2($anios, $grafico){
+
+    $this->layout=false;
+
+            $result = Ap3Ind2::model()->findAll((array(
+            'condition'=>'anio in('.$anios.')',
+            'order'=>'id ASC'
+             )));
+            //saco el total el >1 significa que no debe tomar el valor de la columna 1, porque es un total en si
+            
+            foreach ($result as $res) {
+                
+                
+                if(!isset($json['informe'][$res['anio']][$res['delegacion']][$res['trimestre']][$res['rubro']])){
+
+                   $json['informe'][$res['anio']][$res['delegacion']][$res['trimestre']][$res['rubro']]['valor']=$res['valor'];
+                 
+                }
+                
+            }
+          
+            header('Content-type: application/json');  
+            echo json_encode($json);  
+            Yii::app()->end(); 
+    }
+    
+    
+    
     public function actionAp3Ind4($anios, $grafico){
 
     $this->layout=false;
@@ -833,6 +920,167 @@ foreach ($resultado as $key => $row) {
             Yii::app()->end(); 
     }
     
+    
+    public function actionAp4Ind11($anios, $grafico){
+
+    $this->layout=false;
+
+            $result = Ap4Ind11::model()->findAll((array(
+            'condition'=>'anio in('.$anios.')',
+            'order'=>'delegacion ASC'
+             )));
+            
+            foreach ($result as $res) {
+                
+               
+               if(!isset($json['informe'][$res['anio']])){
+                   $json['informe'][$res['anio']]=array(
+                       'delegacion'=>array(),
+                       
+                   );
+                   
+                   
+                } 
+                
+               if(!isset($json['informe'][$res['anio']]['delegacion'][$res['delegacion']])){
+                   $json['informe'][$res['anio']]['delegacion'][$res['delegacion']]=array(
+                       
+                       'rubro'=>array(),
+                       'total'=>0
+                       
+                   );
+                   
+                   
+                }
+                
+                 if(!isset($json['informe'][$res['anio']]['delegacion'][$res['delegacion']]['rubro'][$res['rubro']])){
+                   $json['informe'][$res['anio']]['delegacion'][$res['delegacion']]['rubro'][$res['rubro']]['valor']=$res['valor'];
+                   $json['informe'][$res['anio']]['delegacion'][$res['delegacion']]['total']=$json['informe'][$res['anio']]['delegacion'][$res['delegacion']]['total']+$res['valor'];
+                   
+                }
+                
+                
+                
+                
+                
+            }
+          
+            header('Content-type: application/json');  
+            echo json_encode($json);  
+            Yii::app()->end(); 
+    }
+    
+    
+    public function actionAp4Ind12($anios, $grafico){
+
+    $this->layout=false;
+    
+    
+            //esta es la consulta del primer arreglo
+            $result = Ap4Ind12::model()->findAll((array(
+            'condition'=>'anio in('.$anios.')',
+            'order'=>'rubro ASC'
+             )));
+            
+           
+            
+            
+            
+            foreach ($result as $res) {
+                
+               
+               if(!isset($json['informe'][$res['trimestre']][$res['anio']])){
+                   $json['informe'][$res['trimestre']][$res['anio']]=array(
+                       'rubro'=>array(),
+                       
+                   );
+                   
+                   
+                } 
+                
+               if(!isset($json['informe'][$res['trimestre']][$res['anio']]['rubro'][$res['rubro']])){
+                   $json['informe'][$res['trimestre']][$res['anio']]['rubro'][$res['rubro']]=array(
+                       
+                       'columna'=>array(),
+                       'suma'=>0
+                       
+                       
+                       
+                   );
+                   
+                   
+                }
+                
+                 if(!isset($json['informe'][$res['trimestre']][$res['anio']]['rubro'][$res['rubro']]['columna'][$res['rubro2']])){
+                     
+                     
+                   $json['informe'][$res['trimestre']][$res['anio']]['rubro'][$res['rubro']]['columna'][$res['rubro2']]['valor']=$res['valor'];
+                   $json['informe'][$res['trimestre']][$res['anio']]['rubro'][$res['rubro']]['suma'] = $json['informe'][$res['trimestre']][$res['anio']]['rubro'][$res['rubro']]['suma'] + $res['valor'];
+                           
+                }
+                
+              
+            }
+            
+            //termina el primer arreglo
+            
+            //esta es la consulta del segundo arreglo
+            $result2 = Ap4Ind12a::model()->findAll((array(
+            'condition'=>'anio in('.$anios.')',
+            'order'=>'rubro ASC'
+             )));
+            
+    
+            //---> inicia el segundo
+            
+            
+            foreach ($result2 as $res) {
+                
+               
+               if(!isset($json['informe2'][$res['apartado']][$res['trimestre']][$res['anio']])){
+                   $json['informe2'][$res['apartado']][$res['trimestre']][$res['anio']]=array(
+                       'rubro'=>array(),
+                       
+                   );
+                   
+                   
+                } 
+                
+               if(!isset($json['informe2'][$res['apartado']][$res['trimestre']][$res['anio']]['rubro'][$res['rubro']])){
+                   $json['informe2'][$res['apartado']][$res['trimestre']][$res['anio']]['rubro'][$res['rubro']]=array(
+                       
+                       'columna'=>array(),
+                       'suma'=>0
+                       
+                       
+                       
+                   );
+                   
+                   
+                }
+                
+                 if(!isset($json['informe2'][$res['apartado']][$res['trimestre']][$res['anio']]['rubro'][$res['rubro']]['columna'][$res['rubro2']])){
+                     
+                     
+                   $json['informe2'][$res['apartado']][$res['trimestre']][$res['anio']]['rubro'][$res['rubro']]['columna'][$res['rubro2']]['valor']=$res['valor'];
+                   $json['informe2'][$res['apartado']][$res['trimestre']][$res['anio']]['rubro'][$res['rubro']]['suma'] = $json['informe2'][$res['apartado']][$res['trimestre']][$res['anio']]['rubro'][$res['rubro']]['suma'] + $res['valor'];
+                           
+                }
+                
+              
+            }
+            
+            
+            
+            
+          
+            header('Content-type: application/json');  
+            echo json_encode($json);  
+            Yii::app()->end(); 
+    }
+    
+    
+   
     public function actionAp4Ind2($anios, $grafico){
 
     $this->layout=false;
@@ -1027,6 +1275,149 @@ foreach ($resultado as $key => $row) {
             echo json_encode($json);  
             Yii::app()->end(); 
     }
+    
+    
+    public function actionAp5Ind21($anios, $grafico){
+
+    $this->layout=false;
+
+            $result = Ap5Ind21::model()->findAll((array(
+            'condition'=>'anio in('.$anios.')',
+            'order'=>'rubro ASC'
+             )));
+            
+            foreach ($result as $res) {
+                
+                
+               if(!isset($json['informe'])){
+
+                   $json['informe'][$res['rubro']]['valor']=$res['valor'];
+                   
+                
+
+                }
+                
+                
+                
+            }
+          
+            header('Content-type: application/json');  
+            echo json_encode($json);  
+            Yii::app()->end(); 
+    }
+    
+    public function actionAp5Ind22($anios, $grafico){
+
+    $this->layout=false;
+
+            $result = Ap5Ind22::model()->findAll((array(
+            'condition'=>'anio in('.$anios.')',
+            'order'=>'rubro ASC'
+             )));
+            
+            foreach ($result as $res) {
+                
+               
+               if(!isset($json['informe'][$res['anio']])){
+                   $json['informe'][$res['anio']]=array(
+                       'rubro'=>array(),
+                       'suma'=>0,
+                   );
+                   
+                   
+                } 
+                
+               if(!isset($json['informe'][$res['anio']]['rubro'][$res['rubro']])){
+                   $json['informe'][$res['anio']]['rubro'][$res['rubro']]=array(
+                       
+                       'df'=>array(),
+                       'total'=>array(),
+                   );
+                   
+                   
+                }
+                
+                if(!isset($json['informe'][$res['anio']]['rubro'][$res['rubro']]['x'])){
+
+                   $json['informe'][$res['anio']]['rubro'][$res['rubro']]['df']['valor']=$res['df'];
+                   $json['informe'][$res['anio']]['rubro'][$res['rubro']]['total']['valor']=$res['total'];
+                   
+                   $json['informe'][$res['anio']]['suma']=$json['informe'][$res['anio']]['suma']+$res['total'];
+                   
+                }
+                
+                
+                
+            }
+          
+            header('Content-type: application/json');  
+            echo json_encode($json);  
+            Yii::app()->end(); 
+    }
+    
+    
+    
+    
+    public function actionAp5Ind23($anios, $grafico){
+
+    $this->layout=false;
+
+            $result = Ap5Ind23::model()->findAll((array(
+            'condition'=>'anio in('.$anios.')',
+            'order'=>'id ASC'
+             )));
+            
+            foreach ($result as $res) {
+                
+               
+               if(!isset($json['informe'][$res['anio']])){
+                   $json['informe'][$res['anio']]=array(
+                       'rubro'=>array(),
+                       
+                   );
+                   
+                   
+                } 
+                
+               if(!isset($json['informe'][$res['anio']]['rubro'][$res['rubro']])){
+                   $json['informe'][$res['anio']]['rubro'][$res['rubro']]=array(
+                       
+                       'delegacion'=>array(),
+                       
+                   );
+                   
+                   
+                }
+                
+                 if(!isset($json['informe'][$res['anio']]['rubro'][$res['rubro']]['delegacion'][$res['delegacion']])){
+                   $json['informe'][$res['anio']]['rubro'][$res['rubro']]['delegacion'][$res['delegacion']]=array(
+                       
+                       'unidades'=>array(),
+                       'porcentual'=>array(),
+                   );
+                   
+                   
+                }
+                
+                if(!isset($json['informe'][$res['anio']]['rubro'][$res['rubro']]['delegacion'][$res['delegacion']]['x'])){
+
+                   $json['informe'][$res['anio']]['rubro'][$res['rubro']]['delegacion'][$res['delegacion']]['unidades']=$res['unidades'];
+                   $json['informe'][$res['anio']]['rubro'][$res['rubro']]['delegacion'][$res['delegacion']]['porcentual']=$res['porcentual'];
+                   
+                   
+                }
+                
+                
+                
+            }
+          
+            header('Content-type: application/json');  
+            echo json_encode($json);  
+            Yii::app()->end(); 
+    }
+    
+    
+    
     
     
     public function actionAp5Ind3($entidades,$grafico){
@@ -1653,7 +2044,7 @@ foreach ($resultado as $key => $row) {
             }
           
             header('Content-type: application/json');  
-            echo print_r($json);  
+            echo json_encode($json);  
             Yii::app()->end(); 
     }
     

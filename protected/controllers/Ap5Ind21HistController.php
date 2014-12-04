@@ -80,12 +80,18 @@ class Ap5Ind21HistController extends Controller {
     {
         $perfil = Yii::app()->user->perfil;
         $autoriza=$this->mostrarAutorizar($perfil,1,2,4);
-        $model=Ap5Ind21Hist::model()->findByPk($id);
+        $model=Ap5Ind1Hist::model()->findByPk($id);
+        $anios="2013";
+        $url = "http://localhost/recm/index.php/api/ap5Ind21?anios=".$anios."&grafico=0";
+        //$url = $baseUrl;
+        $data = file_get_contents($url);
+        $model= CJSON::decode($data);
 
         $this->render('_previo',array(
             'model'=>$model,
             'id'=>$id,
             'autoriza'=>$autoriza,
+            //'model'=>$model,
         ));
     }
     

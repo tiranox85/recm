@@ -9175,3 +9175,264 @@ Stack trace:
 #7 {main}
 REQUEST_URI=/recm/index.php/api/ap8Ind11?anios=2014&grafico=0
 ---
+2014/12/03 10:52:14 [error] [system.db.CDbCommand] CDbCommand::fetchAll() falló: SQLSTATE[HY000]: General error: 207 General SQL Server error: Check messages from the SQL Server [207] (severity 16) [(null)]. La sentencia SQL ejecutada fue: SELECT * FROM [dbo].[ap5Ind21] [t] WHERE anio in(2014) ORDER BY entidad ASC.
+in /var/www/html/recm/protected/controllers/ApiController.php (1039)
+in /var/www/html/recm/index.php (13)
+2014/12/03 10:52:14 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand falló al ejecutar la sentencia SQL: SQLSTATE[HY000]: General error: 207 General SQL Server error: Check messages from the SQL Server [207] (severity 16) [(null)]. The SQL statement executed was: SELECT * FROM [dbo].[ap5Ind21] [t] WHERE anio in(2014) ORDER BY entidad ASC' in /var/www/html/recm/yii/framework/db/CDbCommand.php:543
+Stack trace:
+#0 /var/www/html/recm/yii/framework/db/CDbCommand.php(396): CDbCommand->queryInternal('fetchAll', Array, Array)
+#1 /var/www/html/recm/yii/framework/db/ar/CActiveRecord.php(1351): CDbCommand->queryAll()
+#2 /var/www/html/recm/yii/framework/db/ar/CActiveRecord.php(1470): CActiveRecord->query(Object(CDbCriteria), true)
+#3 /var/www/html/recm/protected/controllers/ApiController.php(1039): CActiveRecord->findAll(Array)
+#4 [internal function]: ApiController->actionAp5Ind21('2014', '0')
+#5 /var/www/html/recm/yii/framework/web/actions/CAction.php(108): ReflectionMethod->invokeArgs(Object(ApiController), Array)
+#6 /var/www/html/recm/yii/framework/web/actions/CInlineAction.php(47): CAction->runWithParamsInternal(Object(ApiController), Object(ReflectionMethod), Array)
+#7 /var/www/html/recm/yii/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#8 /var/www/html/recm/yii/framework/web/CController.php(286): CController->runAction(Object(CInlineAction))
+#9 /var/www/html/recm/yii/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#10 /var/www/html/recm/yii/framework/web/CWebApplication.php(282): CController->run('ap5Ind21')
+#11 /var/www/html/recm/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('api/ap5Ind21')
+#12 /var/www/html/recm/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#13 /var/www/html/recm/index.php(13): CApplication->run()
+#14 {main}
+REQUEST_URI=/recm/index.php/api/ap5Ind21?anios=2014&grafico=0
+---
+2014/12/03 11:04:57 [error] [exception.CException] exception 'CException' with message 'La propiedad "Ap5Ind21"."df" no se encuentra definida.' in /var/www/html/recm/yii/framework/base/CComponent.php:130
+Stack trace:
+#0 /var/www/html/recm/yii/framework/db/ar/CActiveRecord.php(145): CComponent->__get('df')
+#1 /var/www/html/recm/yii/framework/base/CModel.php(596): CActiveRecord->__get('df')
+#2 /var/www/html/recm/protected/controllers/ApiController.php(1075): CModel->offsetGet('df')
+#3 [internal function]: ApiController->actionAp5Ind22('2013', '0')
+#4 /var/www/html/recm/yii/framework/web/actions/CAction.php(108): ReflectionMethod->invokeArgs(Object(ApiController), Array)
+#5 /var/www/html/recm/yii/framework/web/actions/CInlineAction.php(47): CAction->runWithParamsInternal(Object(ApiController), Object(ReflectionMethod), Array)
+#6 /var/www/html/recm/yii/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#7 /var/www/html/recm/yii/framework/web/CController.php(286): CController->runAction(Object(CInlineAction))
+#8 /var/www/html/recm/yii/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#9 /var/www/html/recm/yii/framework/web/CWebApplication.php(282): CController->run('ap5Ind22')
+#10 /var/www/html/recm/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('api/ap5Ind22')
+#11 /var/www/html/recm/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#12 /var/www/html/recm/index.php(13): CApplication->run()
+#13 {main}
+REQUEST_URI=/recm/index.php/api/ap5Ind22?anios=2013&grafico=0
+---
+2014/12/03 11:06:51 [error] [exception.CException] exception 'CException' with message 'La propiedad "Ap5Ind21"."df" no se encuentra definida.' in /var/www/html/recm/yii/framework/base/CComponent.php:130
+Stack trace:
+#0 /var/www/html/recm/yii/framework/db/ar/CActiveRecord.php(145): CComponent->__get('df')
+#1 /var/www/html/recm/yii/framework/base/CModel.php(596): CActiveRecord->__get('df')
+#2 /var/www/html/recm/protected/controllers/ApiController.php(1075): CModel->offsetGet('df')
+#3 [internal function]: ApiController->actionAp5Ind22('2013', '0')
+#4 /var/www/html/recm/yii/framework/web/actions/CAction.php(108): ReflectionMethod->invokeArgs(Object(ApiController), Array)
+#5 /var/www/html/recm/yii/framework/web/actions/CInlineAction.php(47): CAction->runWithParamsInternal(Object(ApiController), Object(ReflectionMethod), Array)
+#6 /var/www/html/recm/yii/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#7 /var/www/html/recm/yii/framework/web/CController.php(286): CController->runAction(Object(CInlineAction))
+#8 /var/www/html/recm/yii/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#9 /var/www/html/recm/yii/framework/web/CWebApplication.php(282): CController->run('ap5Ind22')
+#10 /var/www/html/recm/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('api/ap5Ind22')
+#11 /var/www/html/recm/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#12 /var/www/html/recm/index.php(13): CApplication->run()
+#13 {main}
+REQUEST_URI=/recm/index.php/api/ap5Ind22?anios=2013&grafico=0
+---
+2014/12/03 13:48:26 [error] [exception.CException] exception 'CException' with message 'La propiedad "Ap5Ind23"."valor" no se encuentra definida.' in /var/www/html/recm/yii/framework/base/CComponent.php:130
+Stack trace:
+#0 /var/www/html/recm/yii/framework/db/ar/CActiveRecord.php(145): CComponent->__get('valor')
+#1 /var/www/html/recm/yii/framework/base/CModel.php(596): CActiveRecord->__get('valor')
+#2 /var/www/html/recm/protected/controllers/ApiController.php(869): CModel->offsetGet('valor')
+#3 [internal function]: ApiController->actionAp4Ind11('2014', '0')
+#4 /var/www/html/recm/yii/framework/web/actions/CAction.php(108): ReflectionMethod->invokeArgs(Object(ApiController), Array)
+#5 /var/www/html/recm/yii/framework/web/actions/CInlineAction.php(47): CAction->runWithParamsInternal(Object(ApiController), Object(ReflectionMethod), Array)
+#6 /var/www/html/recm/yii/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#7 /var/www/html/recm/yii/framework/web/CController.php(286): CController->runAction(Object(CInlineAction))
+#8 /var/www/html/recm/yii/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#9 /var/www/html/recm/yii/framework/web/CWebApplication.php(282): CController->run('ap4Ind11')
+#10 /var/www/html/recm/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('api/ap4Ind11')
+#11 /var/www/html/recm/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#12 /var/www/html/recm/index.php(13): CApplication->run()
+#13 {main}
+REQUEST_URI=/recm/index.php/api/ap4Ind11?anios=2014&grafico=0
+---
+2014/12/03 14:49:57 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'El sistema no ha podido encontrar la acción "ap4Ind12" solicitada.' in /var/www/html/recm/yii/framework/web/CController.php:483
+Stack trace:
+#0 /var/www/html/recm/yii/framework/web/CController.php(270): CController->missingAction('ap4Ind12')
+#1 /var/www/html/recm/yii/framework/web/CWebApplication.php(282): CController->run('ap4Ind12')
+#2 /var/www/html/recm/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('api/ap4Ind12')
+#3 /var/www/html/recm/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#4 /var/www/html/recm/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/recm/index.php/api/ap4Ind12?anios=2014&grafico=0
+---
+2014/12/03 14:52:13 [error] [system.db.CDbCommand] CDbCommand::fetchAll() falló: SQLSTATE[HY000]: General error: 207 General SQL Server error: Check messages from the SQL Server [207] (severity 16) [(null)]. La sentencia SQL ejecutada fue: SELECT * FROM [dbo].[ap4Ind12] [t] WHERE anio in(2014) ORDER BY delegacion ASC.
+in /var/www/html/recm/protected/controllers/ApiController.php (894)
+in /var/www/html/recm/index.php (13)
+2014/12/03 14:52:13 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand falló al ejecutar la sentencia SQL: SQLSTATE[HY000]: General error: 207 General SQL Server error: Check messages from the SQL Server [207] (severity 16) [(null)]. The SQL statement executed was: SELECT * FROM [dbo].[ap4Ind12] [t] WHERE anio in(2014) ORDER BY delegacion ASC' in /var/www/html/recm/yii/framework/db/CDbCommand.php:543
+Stack trace:
+#0 /var/www/html/recm/yii/framework/db/CDbCommand.php(396): CDbCommand->queryInternal('fetchAll', Array, Array)
+#1 /var/www/html/recm/yii/framework/db/ar/CActiveRecord.php(1351): CDbCommand->queryAll()
+#2 /var/www/html/recm/yii/framework/db/ar/CActiveRecord.php(1470): CActiveRecord->query(Object(CDbCriteria), true)
+#3 /var/www/html/recm/protected/controllers/ApiController.php(894): CActiveRecord->findAll(Array)
+#4 [internal function]: ApiController->actionAp4Ind12('2014', '0')
+#5 /var/www/html/recm/yii/framework/web/actions/CAction.php(108): ReflectionMethod->invokeArgs(Object(ApiController), Array)
+#6 /var/www/html/recm/yii/framework/web/actions/CInlineAction.php(47): CAction->runWithParamsInternal(Object(ApiController), Object(ReflectionMethod), Array)
+#7 /var/www/html/recm/yii/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#8 /var/www/html/recm/yii/framework/web/CController.php(286): CController->runAction(Object(CInlineAction))
+#9 /var/www/html/recm/yii/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#10 /var/www/html/recm/yii/framework/web/CWebApplication.php(282): CController->run('ap4Ind12')
+#11 /var/www/html/recm/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('api/ap4Ind12')
+#12 /var/www/html/recm/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#13 /var/www/html/recm/index.php(13): CApplication->run()
+#14 {main}
+REQUEST_URI=/recm/index.php/api/ap4Ind12?anios=2014&grafico=0
+---
+2014/12/03 16:47:41 [error] [system.db.CDbCommand] CDbCommand::fetch() falló: SQLSTATE[HY000]: General error: 102 General SQL Server error: Check messages from the SQL Server [102] (severity 15) [(null)]. La sentencia SQL ejecutada fue: SELECT titulo from relaciones where indicador = 'ap4Ind12' columna =1.
+in /var/www/html/recm/protected/views/ap4Ind12Hist/_previo.php (186)
+in /var/www/html/recm/protected/controllers/Ap4Ind12HistController.php (95)
+in /var/www/html/recm/index.php (13)
+2014/12/03 16:47:41 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand falló al ejecutar la sentencia SQL: SQLSTATE[HY000]: General error: 102 General SQL Server error: Check messages from the SQL Server [102] (severity 15) [(null)]. The SQL statement executed was: SELECT titulo from relaciones where indicador = 'ap4Ind12' columna =1' in /var/www/html/recm/yii/framework/db/CDbCommand.php:543
+Stack trace:
+#0 /var/www/html/recm/yii/framework/db/CDbCommand.php(415): CDbCommand->queryInternal('fetch', Array, Array)
+#1 /var/www/html/recm/protected/views/ap4Ind12Hist/_previo.php(186): CDbCommand->queryRow()
+#2 /var/www/html/recm/yii/framework/web/CBaseController.php(126): require('/var/www/html/r...')
+#3 /var/www/html/recm/yii/framework/web/CBaseController.php(95): CBaseController->renderInternal('/var/www/html/r...', Array, true)
+#4 /var/www/html/recm/yii/framework/web/CController.php(869): CBaseController->renderFile('/var/www/html/r...', Array, true)
+#5 /var/www/html/recm/yii/framework/web/CController.php(782): CController->renderPartial('_previo', Array, true)
+#6 /var/www/html/recm/protected/controllers/Ap4Ind12HistController.php(95): CController->render('_previo', Array)
+#7 [internal function]: Ap4Ind12HistController->actionPrevio('1')
+#8 /var/www/html/recm/yii/framework/web/actions/CAction.php(108): ReflectionMethod->invokeArgs(Object(Ap4Ind12HistController), Array)
+#9 /var/www/html/recm/yii/framework/web/actions/CInlineAction.php(47): CAction->runWithParamsInternal(Object(Ap4Ind12HistController), Object(ReflectionMethod), Array)
+#10 /var/www/html/recm/yii/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#11 /var/www/html/recm/yii/framework/web/filters/CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#12 /var/www/html/recm/yii/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#13 /var/www/html/recm/yii/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#14 /var/www/html/recm/yii/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#15 /var/www/html/recm/yii/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#16 /var/www/html/recm/yii/framework/web/CController.php(291): CFilterChain->run()
+#17 /var/www/html/recm/yii/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#18 /var/www/html/recm/yii/framework/web/CWebApplication.php(282): CController->run('previo')
+#19 /var/www/html/recm/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('ap4Ind12Hist/pr...')
+#20 /var/www/html/recm/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#21 /var/www/html/recm/index.php(13): CApplication->run()
+#22 {main}
+REQUEST_URI=/recm/index.php/ap4Ind12Hist/previo/1
+---
+2014/12/03 18:51:39 [error] [exception.CHttpException.400] exception 'CHttpException' with message 'Su solicitud es inválida.' in /var/www/html/recm/yii/framework/web/CController.php:336
+Stack trace:
+#0 /var/www/html/recm/yii/framework/web/CController.php(309): CController->invalidActionParams(Object(CInlineAction))
+#1 /var/www/html/recm/yii/framework/web/CController.php(286): CController->runAction(Object(CInlineAction))
+#2 /var/www/html/recm/yii/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#3 /var/www/html/recm/yii/framework/web/CWebApplication.php(282): CController->run('ap3Ind11')
+#4 /var/www/html/recm/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('api/ap3Ind11')
+#5 /var/www/html/recm/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#6 /var/www/html/recm/index.php(13): CApplication->run()
+#7 {main}
+REQUEST_URI=/recm/index.php/api/ap3Ind11?anios=
+---
+2014/12/03 18:52:45 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'El sistema no ha podido encontrar la acción "ap3Ind1" solicitada.' in /var/www/html/recm/yii/framework/web/CController.php:483
+Stack trace:
+#0 /var/www/html/recm/yii/framework/web/CController.php(270): CController->missingAction('ap3Ind1')
+#1 /var/www/html/recm/yii/framework/web/CWebApplication.php(282): CController->run('ap3Ind1')
+#2 /var/www/html/recm/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('api/ap3Ind1')
+#3 /var/www/html/recm/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#4 /var/www/html/recm/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/recm/index.php/api/ap3Ind1?anios=2014&grafico=0
+---
+2014/12/03 19:00:18 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'El sistema no ha podido encontrar la acción "ap3Ind1" solicitada.' in /var/www/html/recm/yii/framework/web/CController.php:483
+Stack trace:
+#0 /var/www/html/recm/yii/framework/web/CController.php(270): CController->missingAction('ap3Ind1')
+#1 /var/www/html/recm/yii/framework/web/CWebApplication.php(282): CController->run('ap3Ind1')
+#2 /var/www/html/recm/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('api/ap3Ind1')
+#3 /var/www/html/recm/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#4 /var/www/html/recm/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/recm/index.php/api/ap3Ind1?anios=2014&grafico=0
+---
+2014/12/03 19:48:29 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'El sistema no ha podido encontrar la acción "ap3Ind12" solicitada.' in /var/www/html/recm/yii/framework/web/CController.php:483
+Stack trace:
+#0 /var/www/html/recm/yii/framework/web/CController.php(270): CController->missingAction('ap3Ind12')
+#1 /var/www/html/recm/yii/framework/web/CWebApplication.php(282): CController->run('ap3Ind12')
+#2 /var/www/html/recm/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('api/ap3Ind12')
+#3 /var/www/html/recm/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#4 /var/www/html/recm/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/recm/index.php/api/ap3Ind12?anios=2014&grafico=0
+---
+2014/12/03 19:51:14 [error] [system.db.CDbCommand] CDbCommand::fetchAll() falló: SQLSTATE[HY000]: General error: 207 General SQL Server error: Check messages from the SQL Server [207] (severity 16) [(null)]. La sentencia SQL ejecutada fue: SELECT * FROM [dbo].[ap3Ind12] [t] WHERE anio in(2014) ORDER BY id ASC.
+in /var/www/html/recm/protected/controllers/ApiController.php (816)
+in /var/www/html/recm/index.php (13)
+2014/12/03 19:51:14 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand falló al ejecutar la sentencia SQL: SQLSTATE[HY000]: General error: 207 General SQL Server error: Check messages from the SQL Server [207] (severity 16) [(null)]. The SQL statement executed was: SELECT * FROM [dbo].[ap3Ind12] [t] WHERE anio in(2014) ORDER BY id ASC' in /var/www/html/recm/yii/framework/db/CDbCommand.php:543
+Stack trace:
+#0 /var/www/html/recm/yii/framework/db/CDbCommand.php(396): CDbCommand->queryInternal('fetchAll', Array, Array)
+#1 /var/www/html/recm/yii/framework/db/ar/CActiveRecord.php(1351): CDbCommand->queryAll()
+#2 /var/www/html/recm/yii/framework/db/ar/CActiveRecord.php(1470): CActiveRecord->query(Object(CDbCriteria), true)
+#3 /var/www/html/recm/protected/controllers/ApiController.php(816): CActiveRecord->findAll(Array)
+#4 [internal function]: ApiController->actionAp3Ind12('2014', '0')
+#5 /var/www/html/recm/yii/framework/web/actions/CAction.php(108): ReflectionMethod->invokeArgs(Object(ApiController), Array)
+#6 /var/www/html/recm/yii/framework/web/actions/CInlineAction.php(47): CAction->runWithParamsInternal(Object(ApiController), Object(ReflectionMethod), Array)
+#7 /var/www/html/recm/yii/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#8 /var/www/html/recm/yii/framework/web/CController.php(286): CController->runAction(Object(CInlineAction))
+#9 /var/www/html/recm/yii/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#10 /var/www/html/recm/yii/framework/web/CWebApplication.php(282): CController->run('ap3Ind12')
+#11 /var/www/html/recm/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('api/ap3Ind12')
+#12 /var/www/html/recm/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#13 /var/www/html/recm/index.php(13): CApplication->run()
+#14 {main}
+REQUEST_URI=/recm/index.php/api/ap3Ind12?anios=2014&grafico=0
+---
+2014/12/03 19:52:04 [error] [system.db.CDbCommand] CDbCommand::fetchAll() falló: SQLSTATE[HY000]: General error: 207 General SQL Server error: Check messages from the SQL Server [207] (severity 16) [(null)]. La sentencia SQL ejecutada fue: SELECT * FROM [dbo].[ap3Ind12] [t] WHERE anio in(2014) ORDER BY id ASC.
+in /var/www/html/recm/protected/controllers/ApiController.php (816)
+in /var/www/html/recm/index.php (13)
+2014/12/03 19:52:04 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand falló al ejecutar la sentencia SQL: SQLSTATE[HY000]: General error: 207 General SQL Server error: Check messages from the SQL Server [207] (severity 16) [(null)]. The SQL statement executed was: SELECT * FROM [dbo].[ap3Ind12] [t] WHERE anio in(2014) ORDER BY id ASC' in /var/www/html/recm/yii/framework/db/CDbCommand.php:543
+Stack trace:
+#0 /var/www/html/recm/yii/framework/db/CDbCommand.php(396): CDbCommand->queryInternal('fetchAll', Array, Array)
+#1 /var/www/html/recm/yii/framework/db/ar/CActiveRecord.php(1351): CDbCommand->queryAll()
+#2 /var/www/html/recm/yii/framework/db/ar/CActiveRecord.php(1470): CActiveRecord->query(Object(CDbCriteria), true)
+#3 /var/www/html/recm/protected/controllers/ApiController.php(816): CActiveRecord->findAll(Array)
+#4 [internal function]: ApiController->actionAp3Ind12('2014', '0')
+#5 /var/www/html/recm/yii/framework/web/actions/CAction.php(108): ReflectionMethod->invokeArgs(Object(ApiController), Array)
+#6 /var/www/html/recm/yii/framework/web/actions/CInlineAction.php(47): CAction->runWithParamsInternal(Object(ApiController), Object(ReflectionMethod), Array)
+#7 /var/www/html/recm/yii/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#8 /var/www/html/recm/yii/framework/web/CController.php(286): CController->runAction(Object(CInlineAction))
+#9 /var/www/html/recm/yii/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#10 /var/www/html/recm/yii/framework/web/CWebApplication.php(282): CController->run('ap3Ind12')
+#11 /var/www/html/recm/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('api/ap3Ind12')
+#12 /var/www/html/recm/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#13 /var/www/html/recm/index.php(13): CApplication->run()
+#14 {main}
+REQUEST_URI=/recm/index.php/api/ap3Ind12?anios=2014&grafico=0
+---
+2014/12/03 19:57:23 [error] [exception.CException] exception 'CException' with message 'La propiedad "Ap3Ind12"."delegacion" no se encuentra definida.' in /var/www/html/recm/yii/framework/base/CComponent.php:130
+Stack trace:
+#0 /var/www/html/recm/yii/framework/db/ar/CActiveRecord.php(145): CComponent->__get('delegacion')
+#1 /var/www/html/recm/yii/framework/base/CModel.php(596): CActiveRecord->__get('delegacion')
+#2 /var/www/html/recm/protected/controllers/ApiController.php(822): CModel->offsetGet('delegacion')
+#3 [internal function]: ApiController->actionAp3Ind12('2014', '0')
+#4 /var/www/html/recm/yii/framework/web/actions/CAction.php(108): ReflectionMethod->invokeArgs(Object(ApiController), Array)
+#5 /var/www/html/recm/yii/framework/web/actions/CInlineAction.php(47): CAction->runWithParamsInternal(Object(ApiController), Object(ReflectionMethod), Array)
+#6 /var/www/html/recm/yii/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#7 /var/www/html/recm/yii/framework/web/CController.php(286): CController->runAction(Object(CInlineAction))
+#8 /var/www/html/recm/yii/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#9 /var/www/html/recm/yii/framework/web/CWebApplication.php(282): CController->run('ap3Ind12')
+#10 /var/www/html/recm/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('api/ap3Ind12')
+#11 /var/www/html/recm/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#12 /var/www/html/recm/index.php(13): CApplication->run()
+#13 {main}
+REQUEST_URI=/recm/index.php/api/ap3Ind12?anios=2014&grafico=0
+---
+2014/12/03 19:58:00 [error] [exception.CException] exception 'CException' with message 'La propiedad "Ap3Ind12"."trimestre" no se encuentra definida.' in /var/www/html/recm/yii/framework/base/CComponent.php:130
+Stack trace:
+#0 /var/www/html/recm/yii/framework/db/ar/CActiveRecord.php(145): CComponent->__get('trimestre')
+#1 /var/www/html/recm/yii/framework/base/CModel.php(596): CActiveRecord->__get('trimestre')
+#2 /var/www/html/recm/protected/controllers/ApiController.php(822): CModel->offsetGet('trimestre')
+#3 [internal function]: ApiController->actionAp3Ind12('2014', '0')
+#4 /var/www/html/recm/yii/framework/web/actions/CAction.php(108): ReflectionMethod->invokeArgs(Object(ApiController), Array)
+#5 /var/www/html/recm/yii/framework/web/actions/CInlineAction.php(47): CAction->runWithParamsInternal(Object(ApiController), Object(ReflectionMethod), Array)
+#6 /var/www/html/recm/yii/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#7 /var/www/html/recm/yii/framework/web/CController.php(286): CController->runAction(Object(CInlineAction))
+#8 /var/www/html/recm/yii/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#9 /var/www/html/recm/yii/framework/web/CWebApplication.php(282): CController->run('ap3Ind12')
+#10 /var/www/html/recm/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('api/ap3Ind12')
+#11 /var/www/html/recm/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#12 /var/www/html/recm/index.php(13): CApplication->run()
+#13 {main}
+REQUEST_URI=/recm/index.php/api/ap3Ind12?anios=2014&grafico=0
+---
