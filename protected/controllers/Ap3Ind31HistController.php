@@ -81,11 +81,19 @@ class Ap3Ind31HistController extends Controller {
         $perfil = Yii::app()->user->perfil;
         $autoriza=$this->mostrarAutorizar($perfil,1,2,4);
         $model=Ap3Ind31Hist::model()->findByPk($id);
+        
+        //variable
+        $anio=2014;
+        $url = "http://localhost/recm/index.php/api/ap3Ind31?anios=2014,2013&trim_inicio=1&trim_fin=2&entidades=9,14,3,4,5,6,7,9000&grafico=0";
+        //$url = $baseUrl;
+        $data = file_get_contents($url);
+        $model= CJSON::decode($data);
 
         $this->render('_previo',array(
             'model'=>$model,
             'id'=>$id,
             'autoriza'=>$autoriza,
+            //'model'=>$model,
         ));
     }
     

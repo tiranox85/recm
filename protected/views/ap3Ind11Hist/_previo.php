@@ -114,18 +114,14 @@
 $anio=2014;
 $anio_ref=$anio-1;
 //aqui paso el arreglo para la primera serie de datos
-foreach ($model as $indice => $valor) {
+foreach ($model['informe'] as $indice => $valor) {
 
     if (is_array($valor)){ 
         
         foreach ($valor as $indice2 => $valor2) {
             
-            foreach ($valor2 as $indice3 => $valor3) {
+                $datos[$indice2]= $valor2;
             
-                $datos[$indice3]= $valor3;
-            
-            }
-        
         }
                   
 
@@ -158,7 +154,30 @@ echo "</pre>";
 
 ?>  
 <table class="table_stats">
-    
+    <tr class="rEven">
+        <td rowspan="3">Delegacion</td>
+        
+        <?php foreach($datos[2] as $trimestre=>$valor){ ?>
+        <td colspan="3">Trimestre <?php echo $trimestre; ?></td>
+        <?php } ?>
+    </tr>
+    <tr class="rEven">
+        
+        
+        <?php foreach($datos[2] as $trimestre=>$valor){ ?>
+        <td >PEA</td>
+        <td colspan="2">Poblacion Ocupada</td>
+        <?php } ?>
+    </tr>
+    <tr class="rEven">
+        
+        
+        <?php foreach($datos[2] as $trimestre=>$valor){ ?>
+        <td>Absoluto</td>
+        <td>Absoluto</td>
+        <td>% Respecto a la PEA delegacional</td>
+        <?php } ?>
+    </tr>
     
     <?php foreach($datos as $delegacion=>$valores){ ?>
     
@@ -185,4 +204,75 @@ echo "</pre>";
     </tr>
     <?php } ?>
 </table>
+    
+<table class="table_stats">
+    
+    <tr class="rEven">
+        <td rowspan="2"></td>
+        <td colspan="2">Población económica activa</td>
+        <td colspan="2">Población ocupada</td>
+    </tr>
+    <tr class="rEven">
+        
+        <td>Total 1er Semestre <?php echo $anio; ?></td>
+        <td>Var. % respecto al mismo periodo de <?php echo $anio_ref; ?></td>
+        
+        <td>Total 1er Semestre <?php echo $anio; ?></td>
+        <td>Var. % respecto al mismo periodo de <?php echo $anio_ref; ?></td>
+        
+    </tr>
+    <?php 
+    
+    //checar si siempre son semestres********
+    
+    
+    //*****nacionales
+    //
+    //pea año actual
+    $pea_act_n=$model['informe2'][1][$anio][1]['pea'] + $model['informe2'][1][$anio][2]['pea'];
+    //pea año anterior
+    $pea_ant_n=$model['informe2'][1][$anio_ref][2]['pea'] + $model['informe2'][1][$anio_ref][2]['pea'];
+    
+    //po año actual
+    $po_act_n=$model['informe2'][1][$anio][1]['po'] + $model['informe2'][1][$anio][2]['po'];
+    //pea año anterior
+    $po_ant_n=$model['informe2'][1][$anio_ref][2]['po'] + $model['informe2'][1][$anio_ref][2]['po'];
+    
+    
+    
+    //*****df
+    //
+    //pea año actual
+    $pea_act_df=$model['informe2'][2][$anio][1]['pea'] + $model['informe2'][2][$anio][2]['pea'];
+    //pea año anterior
+    $pea_ant_df=$model['informe2'][2][$anio_ref][2]['pea'] + $model['informe2'][2][$anio_ref][2]['pea'];
+    
+    //po año actual
+    $po_act_df=$model['informe2'][2][$anio][1]['po'] + $model['informe2'][2][$anio][2]['po'];
+    //pea año anterior
+    $po_ant_df=$model['informe2'][2][$anio_ref][2]['po'] + $model['informe2'][2][$anio_ref][2]['po'];
+    
+    
+    
+    
+    
+    ?>
+    <tr class="rEven">
+        <td>Distrito Federal</td>
+        <td class="data"><?php echo number_format($pea_act_df,0); ?></td>
+        <td class="data"><?php echo number_format((($pea_act_df/$pea_ant_df)-1)*100,2); ?></td>
+        <td class="data"><?php echo number_format($po_act_df,0); ?></td>
+        <td class="data"><?php echo number_format((($po_act_df/$po_ant_df)-1)*100,2); ?></td>
+    </tr>
+    <tr class="rEven">
+        <td>Nacional</td>
+        <td class="data"><?php echo number_format($pea_act_n,0); ?></td>
+        <td class="data"><?php echo number_format((($pea_act_n/$pea_ant_n)-1)*100,2); ?></td>
+        <td class="data"><?php echo number_format($po_act_n,0); ?></td>
+        <td class="data"><?php echo number_format((($po_act_n/$po_ant_n)-1)*100,2); ?></td>
+    </tr>
+    
+</table>
+    
+</div>
    

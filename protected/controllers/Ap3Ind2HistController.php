@@ -84,7 +84,7 @@ class Ap3Ind2HistController extends Controller {
         
         //variable
         $anio=2014;
-        $url = "http://localhost/recm/index.php/api/ap3Ind2?anios=".$anio."&grafico=0";
+        $url = "http://localhost/recm/index.php/api/ap3Ind2?anios=2014&trimestres=1,2&grafico=0";
         //$url = $baseUrl;
         $data = file_get_contents($url);
         $model= CJSON::decode($data);

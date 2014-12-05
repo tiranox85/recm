@@ -96,7 +96,7 @@
         	
 		        
 <p class="table_title default">
-        Población ocupada por posición en la ocupación.
+        Tasa de Desempleo.
 </p>
 
 
@@ -109,19 +109,42 @@
 
 
 //aqui paso el arreglo para la primera serie de datos
-foreach ($model as $indice => $valor) {
+foreach ($model['informe'] as $indice => $valor) {
 
     if (is_array($valor)){ 
         
         foreach ($valor as $indice2 => $valor2) {
             
-            foreach ($valor2 as $indice3 => $valor3) {
             
-                $datos[$indice3]= $valor3;
             
-            }
+                $datos[$indice2]= $valor2;
+            
+            
         
         }
+                  
+
+    }
+                
+
+}
+
+
+
+//aqui paso el arreglo para la primera serie de datos
+foreach ($model['informe2'] as $indice => $valor) {
+
+    if (is_array($valor)){ 
+        
+       
+            
+            
+            
+                $datos2[$indice]= $valor;
+            
+            
+        
+        
                   
 
     }
@@ -140,7 +163,7 @@ function round_up ($value, $places=0) {
   return number_format(ceil($value * $mult) / $mult);
 }
 //echo "<pre>";
-//print_r($datos);
+//print_r($datos2);
 //echo "</pre>";
 
 
@@ -182,43 +205,154 @@ $anio_ref=$anio-1;
     </tr>
     
     
-    <?php foreach($datos as $delegacion=>$valores){ ?>
+    <?php foreach($datos as $delegacion=>$valores){ 
+    //esto es para hacer el promedio de promedios    
+    $num_delegaciones = count($datos); 
+    if($delegacion!=9000){
+    ?>
     
     <tr class="rEven">
         <td><?php 
         $sql = "SELECT nombre from delegaciones where id =".$delegacion; 
         $nombre = Yii::app()->db->createCommand($sql)->queryRow();
             
-        if($delegacion==9000){
-            echo "Total Distrito Federal";
-        }else{
-            echo $nombre['nombre'];
-        }
+        echo $nombre['nombre'];
+           
+       
         ?></td>
         
         <?php foreach($valores as $trimestre=>$valor){ ?>
         
-            <?php foreach($valor as $rubro=>$valores){ ?>
-                <td class="data"><?php echo number_format($valores['valor'],0); ?></td>
+            <?php 
+            
+            foreach($valor as $rubro=>$valores){ ?>
+        
+                <td class="data"><?php 
+                
+                
+                echo number_format($valores['valor'],0); ?></td>
                 <td class="data"><?php 
                 
                 
                 $sql1 = "SELECT pea from ap3Ind11 where anio =".$anio." and trimestre = ".$trimestre. " and delegacion = ".$delegacion; 
                 $pea = Yii::app()->db->createCommand($sql1)->queryRow();
-            
-                echo number_format(($valores['valor']/$pea['pea'])*100,2); ?></td>
+                
+                
+                echo number_format(($valores['valor']/$pea['pea'])*100,2); ?>%</td>
             <?php } ?>    
         
         <?php } ?>
     </tr>
-    <?php } ?>
+    <?php } } ?>
+    <!-- esta solo es para poner eun espacio en blanco -->
+    <tr class="rEven">
+        <td class="invisible"></td>
+      <?php foreach($datos[2] as $trimestre=>$valor){ ?>
+
+        <?php foreach($valor as $rubro=>$valores){ ?>
+            <td class="invisible"></td>
+            <td class="invisible"></td>
+
+        <?php } ?>    
+
+    <?php } ?>  
+    </tr>
     
+    <!-- aca van los totales -->
+    <tr class="rEven">
+        <td>Total Distrito Federal</td>
+        <?php foreach($datos[9000] as $trimestre=>$valor){ ?>
+
+        <?php foreach($valor as $rubro=>$valores){ ?>
+            <td><?php echo number_format($valores['valor'],0); ?></td>
+            <td><?php 
+                
+                
+                $sql1 = "SELECT pea from ap3Ind11 where anio =".$anio." and trimestre = ".$trimestre. " and delegacion = 9000"; 
+                $pea = Yii::app()->db->createCommand($sql1)->queryRow();
+                
+                
+                echo number_format(($valores['valor']/$pea['pea'])*100,2); ?>%</td>
+
+        <?php } ?>    
+
+    <?php } ?>  
+    </tr>
     
-    
-    
-    
-    
-</table>
    
     
+    
+    
+    </table>
+    
+    
+    <!-- aca esta la segunda tabla -->
+    <table class="table_stats">
+        
+        <tr class="rEven">
+            <td rowspan="2">Total de desempleo</td>
+        <?php foreach($datos2[1] as $anio=>$trimestres){ ?>
+        
+            
+            
+        
+            <td colspan="2"><?php echo $anio; ?></td>
+            
+            
+           
+        <?php } ?>
+        </tr> 
+        
+        <tr class="rEven">
+            
+        <?php foreach($datos2[1] as $anio=>$trimestres){ ?>
+        
+            
+            <?php foreach($trimestres as $trimestre=>$valores){ ?>
+        
+                <td >Trimestre <?php echo $trimestre; ?></td>
+            
+            <?php } ?>
+           
+        <?php } ?>
+        </tr>     
+    <?php foreach($datos2 as $rubro => $anios){ ?>
+    
+        
+        
+        
+        
+        <tr class="rEven">
+            <td><?php 
+            switch ($rubro){
+                case 3:
+                    echo "Total Distrito Federal";
+                    break;
+                case 1:
+                    echo "Nacional";
+                    break;
+                case 2:
+                    echo "Nacional(Áreas más urbanizadas)";
+                    break;
+            }
+            ?></td>
+        <?php foreach($anios as $anio=>$trimestres){ ?>
+        
+            
+            <?php foreach($trimestres as $trimestre=>$valores){ ?>
+        
+                <td class="data"><?php echo number_format(($valores['pdes']/$valores['pea'])*100,2); ?></td>
+            
+            <?php } ?>
+           
+        <?php } ?>
+        </tr> 
+    
+    
+    
+    <?php } ?>
+    </table>
+    
+</div>
+
 </div>

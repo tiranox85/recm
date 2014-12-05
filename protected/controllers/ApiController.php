@@ -774,6 +774,8 @@ foreach ($resultado as $key => $row) {
     }
     
     public function actionAp3Ind11($anios, $grafico){
+        
+    $anio_ref=$anios-1;    
 
     $this->layout=false;
 
@@ -781,7 +783,14 @@ foreach ($resultado as $key => $row) {
             'condition'=>'anio in('.$anios.')',
             'order'=>'id ASC'
              )));
-            //saco el total el >1 significa que no debe tomar el valor de la columna 1, porque es un total en si
+            
+            $result2 = Ap3Ind11a::model()->findAll((array(
+            'condition'=>'anio in('.$anios.', '.$anio_ref.')',
+            'order'=>'id ASC'
+             )));
+            
+            
+            
             
             foreach ($result as $res) {
                 
@@ -790,6 +799,23 @@ foreach ($resultado as $key => $row) {
 
                    $json['informe'][$res['anio']][$res['delegacion']][$res['trimestre']]['pea']=$res['pea'];
                    $json['informe'][$res['anio']][$res['delegacion']][$res['trimestre']]['po']=$res['po'];
+                
+
+                }
+                
+                
+                
+            }
+            
+            foreach ($result2 as $res) {
+                
+                //rubro1 == trimestre
+                
+                if(!isset($json['informe2'][$res['rubro']][$res['anio']][$res['rubro1']])){
+
+                   $json['informe2'][$res['rubro']][$res['anio']][$res['rubro1']]['pea']=$res['pea'];
+                   $json['informe2'][$res['rubro']][$res['anio']][$res['rubro1']]['po']=$res['po'];
+                   $json['informe2'][$res['rubro']][$res['anio']][$res['rubro1']]['pdes']=$res['pdes'];
                 
 
                 }
@@ -832,15 +858,23 @@ foreach ($resultado as $key => $row) {
             Yii::app()->end(); 
     }
     
-     public function actionAp3Ind2($anios, $grafico){
+     public function actionAp3Ind2($anios, $trimestres, $grafico){
 
     $this->layout=false;
 
             $result = Ap3Ind2::model()->findAll((array(
-            'condition'=>'anio in('.$anios.')',
+            'condition'=>'anio in('.$anios.') and trimestre in('.$trimestres.')',
             'order'=>'id ASC'
              )));
-            //saco el total el >1 significa que no debe tomar el valor de la columna 1, porque es un total en si
+            
+            
+            
+            //se necesita un anio anterior
+            $anio_ref=$anios-1;
+            $result2 = Ap3Ind2a::model()->findAll((array(
+            'condition'=>'anio in('.$anios.', '.$anio_ref.') and trimestre in('.$trimestres.')',
+            'order'=>'id ASC'
+             )));
             
             foreach ($result as $res) {
                 
@@ -852,12 +886,107 @@ foreach ($resultado as $key => $row) {
                 }
                 
             }
+            
+            
+            foreach ($result2 as $res) {
+                
+                
+                if(!isset($json['informe2'][$res['anio']][$res['rubro']][$res['trimestre']])){
+
+                   $json['informe2'][$res['rubro']][$res['anio']][$res['trimestre']]['pea']=$res['pea'];
+                   $json['informe2'][$res['rubro']][$res['anio']][$res['trimestre']]['po']=$res['po'];
+                   $json['informe2'][$res['rubro']][$res['anio']][$res['trimestre']]['pdes']=$res['pdes'];
+                 
+                }
+                
+            }
           
             header('Content-type: application/json');  
             echo json_encode($json);  
             Yii::app()->end(); 
     }
     
+    
+    public function actionAp3Ind31($anios,$trim_inicio, $trim_fin, $entidades, $grafico){
+
+    $this->layout=false;
+
+            $result = Ap3Ind31::model()->findAll((array(
+            'condition'=>'anio in('.$anios.') and  (mes between '.$trim_inicio.' and '.$trim_fin.') and entidad in ('.$entidades.')',
+            'order'=>'entidad ASC'
+             )));
+            //saco el total el >1 significa que no debe tomar el valor de la columna 1, porque es un total en si
+            
+            foreach ($result as $res) {
+                
+                if(!isset($json['informe'][$res['anio']][$res['entidad']])){
+
+                   $json['informe'][$res['anio']][$res['entidad']]=  array(
+                       
+                       'suma'=>0,
+                       'promedio' =>0,
+                       
+                       'resta' =>0
+                       
+                       
+                   );
+               
+                
+
+                }
+                
+                if(!isset($json['informe'][$res['anio']][$res['entidad']]['mes'][$res['mes']])){
+
+                   //VErificar la consistencia de estaos datos *****************************
+                    
+                    //aqui valido si el mes es 1, debe consultar el 12 del año anterior
+                   $anio_ref=$res['anio'];
+                   
+                   if($res['mes'] == 1){ 
+                       
+                       $mes_ant=12; $anio_ref= $res['anio']-1; 
+                       
+                   }else{
+                       
+                       $mes_ant=$res['mes']-1; $anio_ref= $res['anio']; 
+                       
+                   }
+                   
+                   //mes actual
+                   
+                   $sql = "SELECT valor from ap3Ind31 where mes = ".$mes_ant." and anio = ".$anio_ref." and mes < 9000 and entidad =".$res['entidad']; 
+                   
+                   $mes[$res['mes']] = Yii::app()->db->createCommand($sql)->queryRow();
+                   
+                                  
+                   
+                   
+                   $json['informe'][$res['anio']][$res['entidad']]['resta'] += $res['valor'] - $mes[$res['mes']]['valor'] ;
+                  
+                   //$json['informe'][$res['anio']][$res['entidad']]['resta_acumulada'] = $json['informe'][$res['anio']][$res['entidad']]['resta_acumulada'] + $json['informe'][$res['anio']][$res['entidad']][$res['mes']]['resta'] ;
+                   
+                   
+                   //esta es la sumatoria 
+                   $json['informe'][$res['anio']][$res['entidad']]['suma'] = $json['informe'][$res['anio']][$res['entidad']]['suma'] + $res['valor'];
+
+                }
+                
+                if(!isset($json['informe'][$res['anio']][$res['entidad']]['mes'][$res['mes']]['valor'][$res['valor']])){
+
+               
+               
+                   $json['informe'][$res['anio']][$res['entidad']]['promedio'] = $json['informe'][$res['anio']][$res['entidad']]['suma']/$trim_fin;
+
+                }
+                
+                
+                
+            }
+          
+            header('Content-type: application/json');  
+            echo json_encode($json);  
+            Yii::app()->end(); 
+    }
     
     
     public function actionAp3Ind4($anios, $grafico){

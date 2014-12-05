@@ -9436,3 +9436,218 @@ Stack trace:
 #13 {main}
 REQUEST_URI=/recm/index.php/api/ap3Ind12?anios=2014&grafico=0
 ---
+2014/12/04 12:46:11 [error] [exception.CException] exception 'CException' with message 'La propiedad "Ap3Ind2"."pea" no se encuentra definida.' in /var/www/html/recm/yii/framework/base/CComponent.php:130
+Stack trace:
+#0 /var/www/html/recm/yii/framework/db/ar/CActiveRecord.php(145): CComponent->__get('pea')
+#1 /var/www/html/recm/yii/framework/base/CModel.php(596): CActiveRecord->__get('pea')
+#2 /var/www/html/recm/protected/controllers/ApiController.php(866): CModel->offsetGet('pea')
+#3 [internal function]: ApiController->actionAp3Ind2('2014', '0')
+#4 /var/www/html/recm/yii/framework/web/actions/CAction.php(108): ReflectionMethod->invokeArgs(Object(ApiController), Array)
+#5 /var/www/html/recm/yii/framework/web/actions/CInlineAction.php(47): CAction->runWithParamsInternal(Object(ApiController), Object(ReflectionMethod), Array)
+#6 /var/www/html/recm/yii/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#7 /var/www/html/recm/yii/framework/web/CController.php(286): CController->runAction(Object(CInlineAction))
+#8 /var/www/html/recm/yii/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#9 /var/www/html/recm/yii/framework/web/CWebApplication.php(282): CController->run('ap3Ind2')
+#10 /var/www/html/recm/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('api/ap3Ind2')
+#11 /var/www/html/recm/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#12 /var/www/html/recm/index.php(13): CApplication->run()
+#13 {main}
+REQUEST_URI=/recm/index.php/api/ap3Ind2?anios=2014&grafico=0
+---
+2014/12/04 12:46:32 [error] [exception.CException] exception 'CException' with message 'La propiedad "Ap3Ind2a"."delegacion" no se encuentra definida.' in /var/www/html/recm/yii/framework/base/CComponent.php:130
+Stack trace:
+#0 /var/www/html/recm/yii/framework/db/ar/CActiveRecord.php(145): CComponent->__get('delegacion')
+#1 /var/www/html/recm/yii/framework/base/CModel.php(596): CActiveRecord->__get('delegacion')
+#2 /var/www/html/recm/protected/controllers/ApiController.php(864): CModel->offsetGet('delegacion')
+#3 [internal function]: ApiController->actionAp3Ind2('2014', '0')
+#4 /var/www/html/recm/yii/framework/web/actions/CAction.php(108): ReflectionMethod->invokeArgs(Object(ApiController), Array)
+#5 /var/www/html/recm/yii/framework/web/actions/CInlineAction.php(47): CAction->runWithParamsInternal(Object(ApiController), Object(ReflectionMethod), Array)
+#6 /var/www/html/recm/yii/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#7 /var/www/html/recm/yii/framework/web/CController.php(286): CController->runAction(Object(CInlineAction))
+#8 /var/www/html/recm/yii/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#9 /var/www/html/recm/yii/framework/web/CWebApplication.php(282): CController->run('ap3Ind2')
+#10 /var/www/html/recm/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('api/ap3Ind2')
+#11 /var/www/html/recm/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#12 /var/www/html/recm/index.php(13): CApplication->run()
+#13 {main}
+REQUEST_URI=/recm/index.php/api/ap3Ind2?anios=2014&grafico=0
+---
+2014/12/04 12:47:28 [error] [exception.CException] exception 'CException' with message 'La propiedad "Ap3Ind2a"."delegacion" no se encuentra definida.' in /var/www/html/recm/yii/framework/base/CComponent.php:130
+Stack trace:
+#0 /var/www/html/recm/yii/framework/db/ar/CActiveRecord.php(145): CComponent->__get('delegacion')
+#1 /var/www/html/recm/yii/framework/base/CModel.php(596): CActiveRecord->__get('delegacion')
+#2 /var/www/html/recm/protected/controllers/ApiController.php(864): CModel->offsetGet('delegacion')
+#3 [internal function]: ApiController->actionAp3Ind2('2014', '0')
+#4 /var/www/html/recm/yii/framework/web/actions/CAction.php(108): ReflectionMethod->invokeArgs(Object(ApiController), Array)
+#5 /var/www/html/recm/yii/framework/web/actions/CInlineAction.php(47): CAction->runWithParamsInternal(Object(ApiController), Object(ReflectionMethod), Array)
+#6 /var/www/html/recm/yii/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#7 /var/www/html/recm/yii/framework/web/CController.php(286): CController->runAction(Object(CInlineAction))
+#8 /var/www/html/recm/yii/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#9 /var/www/html/recm/yii/framework/web/CWebApplication.php(282): CController->run('ap3Ind2')
+#10 /var/www/html/recm/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('api/ap3Ind2')
+#11 /var/www/html/recm/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#12 /var/www/html/recm/index.php(13): CApplication->run()
+#13 {main}
+REQUEST_URI=/recm/index.php/api/ap3Ind2?anios=2014&grafico=0
+---
+2014/12/04 15:47:43 [error] [exception.CException] exception 'CException' with message 'La propiedad "Ap3Ind11a"."trimestre" no se encuentra definida.' in /var/www/html/recm/yii/framework/base/CComponent.php:130
+Stack trace:
+#0 /var/www/html/recm/yii/framework/db/ar/CActiveRecord.php(145): CComponent->__get('trimestre')
+#1 /var/www/html/recm/yii/framework/base/CModel.php(596): CActiveRecord->__get('trimestre')
+#2 /var/www/html/recm/protected/controllers/ApiController.php(813): CModel->offsetGet('trimestre')
+#3 [internal function]: ApiController->actionAp3Ind11('2014', '0')
+#4 /var/www/html/recm/yii/framework/web/actions/CAction.php(108): ReflectionMethod->invokeArgs(Object(ApiController), Array)
+#5 /var/www/html/recm/yii/framework/web/actions/CInlineAction.php(47): CAction->runWithParamsInternal(Object(ApiController), Object(ReflectionMethod), Array)
+#6 /var/www/html/recm/yii/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#7 /var/www/html/recm/yii/framework/web/CController.php(286): CController->runAction(Object(CInlineAction))
+#8 /var/www/html/recm/yii/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#9 /var/www/html/recm/yii/framework/web/CWebApplication.php(282): CController->run('ap3Ind11')
+#10 /var/www/html/recm/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('api/ap3Ind11')
+#11 /var/www/html/recm/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#12 /var/www/html/recm/index.php(13): CApplication->run()
+#13 {main}
+REQUEST_URI=/recm/index.php/api/ap3Ind11?anios=2014&grafico=0
+---
+2014/12/04 16:26:41 [error] [exception.CHttpException.400] exception 'CHttpException' with message 'Su solicitud es inválida.' in /var/www/html/recm/yii/framework/web/CController.php:336
+Stack trace:
+#0 /var/www/html/recm/yii/framework/web/CController.php(309): CController->invalidActionParams(Object(CInlineAction))
+#1 /var/www/html/recm/yii/framework/web/CController.php(286): CController->runAction(Object(CInlineAction))
+#2 /var/www/html/recm/yii/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#3 /var/www/html/recm/yii/framework/web/CWebApplication.php(282): CController->run('ap3Ind11')
+#4 /var/www/html/recm/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('api/ap3Ind11')
+#5 /var/www/html/recm/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#6 /var/www/html/recm/index.php(13): CApplication->run()
+#7 {main}
+REQUEST_URI=/recm/index.php/api/ap3Ind11?anios=2014&grafico=0
+---
+2014/12/04 16:33:55 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'No es posible resolver la solicitud "api2/ap1Ind1Grafico"' in /var/www/html/recm/yii/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/html/recm/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('api2/ap1Ind1Gra...')
+#1 /var/www/html/recm/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /var/www/html/recm/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/recm/index.php/api2/ap1Ind1Grafico/1
+HTTP_REFERER=http://132.248.152.124/siterecm/index.php/site/grafico/11
+---
+2014/12/04 16:54:33 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'No es posible resolver la solicitud "ap3Ind3Hist/previo"' in /var/www/html/recm/yii/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/html/recm/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('ap3Ind3Hist/pre...')
+#1 /var/www/html/recm/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /var/www/html/recm/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/recm/index.php/ap3Ind3Hist/previo/1
+---
+2014/12/04 17:08:28 [error] [exception.CException] exception 'CException' with message 'La propiedad "Ap3Ind31"."rubro" no se encuentra definida.' in /var/www/html/recm/yii/framework/base/CComponent.php:130
+Stack trace:
+#0 /var/www/html/recm/yii/framework/db/ar/CActiveRecord.php(145): CComponent->__get('rubro')
+#1 /var/www/html/recm/yii/framework/base/CModel.php(596): CActiveRecord->__get('rubro')
+#2 /var/www/html/recm/protected/controllers/ApiController.php(923): CModel->offsetGet('rubro')
+#3 [internal function]: ApiController->actionAp3Ind31('2014', '0')
+#4 /var/www/html/recm/yii/framework/web/actions/CAction.php(108): ReflectionMethod->invokeArgs(Object(ApiController), Array)
+#5 /var/www/html/recm/yii/framework/web/actions/CInlineAction.php(47): CAction->runWithParamsInternal(Object(ApiController), Object(ReflectionMethod), Array)
+#6 /var/www/html/recm/yii/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#7 /var/www/html/recm/yii/framework/web/CController.php(286): CController->runAction(Object(CInlineAction))
+#8 /var/www/html/recm/yii/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#9 /var/www/html/recm/yii/framework/web/CWebApplication.php(282): CController->run('ap3Ind31')
+#10 /var/www/html/recm/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('api/ap3Ind31')
+#11 /var/www/html/recm/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#12 /var/www/html/recm/index.php(13): CApplication->run()
+#13 {main}
+REQUEST_URI=/recm/index.php/api/ap3Ind31?anios=2014&grafico=0
+---
+2014/12/04 17:34:00 [error] [system.db.CDbCommand] CDbCommand::fetchAll() falló: SQLSTATE[HY000]: General error: 207 General SQL Server error: Check messages from the SQL Server [207] (severity 16) [(null)]. La sentencia SQL ejecutada fue: SELECT * FROM [dbo].[ap3Ind31] [t] WHERE anio in(2014,2013) and  (mes between 1 and 4) and entidades in (1,2,3,4,5,6,7) ORDER BY id ASC.
+in /var/www/html/recm/protected/controllers/ApiController.php (917)
+in /var/www/html/recm/index.php (13)
+2014/12/04 17:34:00 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand falló al ejecutar la sentencia SQL: SQLSTATE[HY000]: General error: 207 General SQL Server error: Check messages from the SQL Server [207] (severity 16) [(null)]. The SQL statement executed was: SELECT * FROM [dbo].[ap3Ind31] [t] WHERE anio in(2014,2013) and  (mes between 1 and 4) and entidades in (1,2,3,4,5,6,7) ORDER BY id ASC' in /var/www/html/recm/yii/framework/db/CDbCommand.php:543
+Stack trace:
+#0 /var/www/html/recm/yii/framework/db/CDbCommand.php(396): CDbCommand->queryInternal('fetchAll', Array, Array)
+#1 /var/www/html/recm/yii/framework/db/ar/CActiveRecord.php(1351): CDbCommand->queryAll()
+#2 /var/www/html/recm/yii/framework/db/ar/CActiveRecord.php(1470): CActiveRecord->query(Object(CDbCriteria), true)
+#3 /var/www/html/recm/protected/controllers/ApiController.php(917): CActiveRecord->findAll(Array)
+#4 [internal function]: ApiController->actionAp3Ind31('2014,2013', '1', '4', '1,2,3,4,5,6,7', '0')
+#5 /var/www/html/recm/yii/framework/web/actions/CAction.php(108): ReflectionMethod->invokeArgs(Object(ApiController), Array)
+#6 /var/www/html/recm/yii/framework/web/actions/CInlineAction.php(47): CAction->runWithParamsInternal(Object(ApiController), Object(ReflectionMethod), Array)
+#7 /var/www/html/recm/yii/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#8 /var/www/html/recm/yii/framework/web/CController.php(286): CController->runAction(Object(CInlineAction))
+#9 /var/www/html/recm/yii/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#10 /var/www/html/recm/yii/framework/web/CWebApplication.php(282): CController->run('ap3Ind31')
+#11 /var/www/html/recm/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('api/ap3Ind31')
+#12 /var/www/html/recm/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#13 /var/www/html/recm/index.php(13): CApplication->run()
+#14 {main}
+REQUEST_URI=/recm/index.php/api/ap3Ind31?anios=2014,2013&trim_inicio=1&trim_fin=4&entidades=1,2,3,4,5,6,7&grafico=0
+---
+2014/12/04 17:38:04 [error] [exception.CHttpException.400] exception 'CHttpException' with message 'Su solicitud es inválida.' in /var/www/html/recm/yii/framework/web/CController.php:336
+Stack trace:
+#0 /var/www/html/recm/yii/framework/web/CController.php(309): CController->invalidActionParams(Object(CInlineAction))
+#1 /var/www/html/recm/yii/framework/web/CController.php(286): CController->runAction(Object(CInlineAction))
+#2 /var/www/html/recm/yii/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#3 /var/www/html/recm/yii/framework/web/CWebApplication.php(282): CController->run('ap3Ind31')
+#4 /var/www/html/recm/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('api/ap3Ind31')
+#5 /var/www/html/recm/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#6 /var/www/html/recm/index.php(13): CApplication->run()
+#7 {main}
+REQUEST_URI=/recm/index.php/api/ap3Ind31?anios=2014,2013&trim_inicio=1&trim_fin=4&grafico=0
+---
+2014/12/04 18:51:54 [error] [system.db.CDbCommand] CDbCommand::fetch() falló: SQLSTATE[HY000]: General error: 102 General SQL Server error: Check messages from the SQL Server [102] (severity 15) [(null)]. La sentencia SQL ejecutada fue: SELECT valor from ap3Ind31 where mes = 12 and anio = 2012 and id =.
+in /var/www/html/recm/protected/controllers/ApiController.php (948)
+in /var/www/html/recm/index.php (13)
+2014/12/04 18:51:54 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand falló al ejecutar la sentencia SQL: SQLSTATE[HY000]: General error: 102 General SQL Server error: Check messages from the SQL Server [102] (severity 15) [(null)]. The SQL statement executed was: SELECT valor from ap3Ind31 where mes = 12 and anio = 2012 and id =' in /var/www/html/recm/yii/framework/db/CDbCommand.php:543
+Stack trace:
+#0 /var/www/html/recm/yii/framework/db/CDbCommand.php(415): CDbCommand->queryInternal('fetch', Array, Array)
+#1 /var/www/html/recm/protected/controllers/ApiController.php(948): CDbCommand->queryRow()
+#2 [internal function]: ApiController->actionAp3Ind31('2014,2013', '1', '4', '1', '0')
+#3 /var/www/html/recm/yii/framework/web/actions/CAction.php(108): ReflectionMethod->invokeArgs(Object(ApiController), Array)
+#4 /var/www/html/recm/yii/framework/web/actions/CInlineAction.php(47): CAction->runWithParamsInternal(Object(ApiController), Object(ReflectionMethod), Array)
+#5 /var/www/html/recm/yii/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#6 /var/www/html/recm/yii/framework/web/CController.php(286): CController->runAction(Object(CInlineAction))
+#7 /var/www/html/recm/yii/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#8 /var/www/html/recm/yii/framework/web/CWebApplication.php(282): CController->run('ap3Ind31')
+#9 /var/www/html/recm/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('api/ap3Ind31')
+#10 /var/www/html/recm/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#11 /var/www/html/recm/index.php(13): CApplication->run()
+#12 {main}
+REQUEST_URI=/recm/index.php/api/ap3Ind31?anios=2014,2013&trim_inicio=1&trim_fin=4&entidades=1&grafico=0
+---
+2014/12/05 10:49:43 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The requested page does not exist.' in /var/www/html/recm/protected/controllers/Ap2Ind5HistController.php:328
+Stack trace:
+#0 /var/www/html/recm/protected/controllers/Ap2Ind5HistController.php(95): Ap2Ind5HistController->loadModel('1')
+#1 [internal function]: Ap2Ind5HistController->actionGrafico('1')
+#2 /var/www/html/recm/yii/framework/web/actions/CAction.php(108): ReflectionMethod->invokeArgs(Object(Ap2Ind5HistController), Array)
+#3 /var/www/html/recm/yii/framework/web/actions/CInlineAction.php(47): CAction->runWithParamsInternal(Object(Ap2Ind5HistController), Object(ReflectionMethod), Array)
+#4 /var/www/html/recm/yii/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#5 /var/www/html/recm/yii/framework/web/filters/CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#6 /var/www/html/recm/yii/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#7 /var/www/html/recm/yii/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#8 /var/www/html/recm/yii/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#9 /var/www/html/recm/yii/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#10 /var/www/html/recm/yii/framework/web/CController.php(291): CFilterChain->run()
+#11 /var/www/html/recm/yii/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#12 /var/www/html/recm/yii/framework/web/CWebApplication.php(282): CController->run('grafico')
+#13 /var/www/html/recm/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('ap2Ind5Hist/gra...')
+#14 /var/www/html/recm/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#15 /var/www/html/recm/index.php(13): CApplication->run()
+#16 {main}
+REQUEST_URI=/recm/index.php/ap2Ind5Hist/grafico/1
+---
+2014/12/05 10:50:47 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The requested page does not exist.' in /var/www/html/recm/protected/controllers/Ap2Ind5HistController.php:328
+Stack trace:
+#0 /var/www/html/recm/protected/controllers/Ap2Ind5HistController.php(95): Ap2Ind5HistController->loadModel('1')
+#1 [internal function]: Ap2Ind5HistController->actionGrafico('1')
+#2 /var/www/html/recm/yii/framework/web/actions/CAction.php(108): ReflectionMethod->invokeArgs(Object(Ap2Ind5HistController), Array)
+#3 /var/www/html/recm/yii/framework/web/actions/CInlineAction.php(47): CAction->runWithParamsInternal(Object(Ap2Ind5HistController), Object(ReflectionMethod), Array)
+#4 /var/www/html/recm/yii/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#5 /var/www/html/recm/yii/framework/web/filters/CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#6 /var/www/html/recm/yii/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#7 /var/www/html/recm/yii/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#8 /var/www/html/recm/yii/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#9 /var/www/html/recm/yii/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#10 /var/www/html/recm/yii/framework/web/CController.php(291): CFilterChain->run()
+#11 /var/www/html/recm/yii/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#12 /var/www/html/recm/yii/framework/web/CWebApplication.php(282): CController->run('grafico')
+#13 /var/www/html/recm/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('ap2Ind5Hist/gra...')
+#14 /var/www/html/recm/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#15 /var/www/html/recm/index.php(13): CApplication->run()
+#16 {main}
+REQUEST_URI=/recm/index.php/ap2Ind5Hist/grafico/1
+---
