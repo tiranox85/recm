@@ -26,7 +26,7 @@ class Ap2Ind5HistController extends Controller {
     public function accessRules() {
         return array(
             array('allow', // allow all users to perform 'index' and 'view' actions
-                'actions' => array('index', 'view', 'preview','previo', 'grafico'),
+                'actions' => array('index', 'view', 'preview', 'previo', 'grafico'),
                 'users' => array('@'),
             ),
             array('allow', // allow authenticated user to perform 'create' and 'update' actions
@@ -91,9 +91,9 @@ class Ap2Ind5HistController extends Controller {
     
     public function actionGrafico($id)
     {
-            $this->render('_grafico',array(
-                    'model'=>$this->loadModel($id),
-            ));
+        $this->render('_grafico',array(
+                'model'=>$this->loadModel($id),
+        ));
     }
     
     public function actionPreview($id) {

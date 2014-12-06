@@ -31,7 +31,7 @@ $this->breadcrumbs=array(
 		credits: false,
 	    chart: {
 	        renderTo: 'valor_censal',
-	        type: 'spline'
+	        type: 'bar'
 	    },
 	    title: {
 	    	text: ''
@@ -44,11 +44,31 @@ $this->breadcrumbs=array(
                 rotation: -25,
                 y: 10
             },
-		    categories: [	]
+		    categories: [ 
+                        "Ene 2013",
+                        "Feb 2013",
+                        "Mar 2013",
+                        "Abr 2013",
+                        "May 2013",
+                        "Jun 2013",
+                        "Jul 2013",
+                        "Ago 2013",
+                        "Sep 2013",
+                        "Oct 2013",
+                        "Nov 2013",
+                        "Dic 2013",
+                        "Ene 2014",
+                        "Feb 2014",
+                        "Mar 2014",
+                        "Abr 2014",
+                        "May 2014",
+                        "Jun 2014"
+
+                    ]
 		},
 		yAxis: {
             title: 'Porcentaje',
-            tickInterval: .5,
+            tickInterval: 1,
             gridLineWidth: 1
         },
         scrollbar: {
@@ -62,13 +82,13 @@ $this->breadcrumbs=array(
 	    series: [
                         {
                         name: 'Ciudad de México',
-                        color: '#ffc000',
+                        color: '#0A64A4',
                         allowPointSelect: true,
                         data: []
                         },
                         {
                         name: 'Nacional',
-                        color: '#7A211D',
+                        color: '#000',
                         allowPointSelect: true,
                         data: []
                         }

@@ -773,6 +773,64 @@ foreach ($resultado as $key => $row) {
             Yii::app()->end(); 
     }
     
+    public function actionAp2Ind5($serie, $grafico){
+        
+     //esto es solo grafico
+     if($serie == 1){   
+         
+        $json = array(
+                0.33,
+                0.5,
+                0.97,
+                0.71,
+                0.16,
+                -0.19,
+                -0.04,
+                0.29,
+                0.41,
+                0.13,
+                0.54,
+                0.86,
+                0.65,
+                0.3,
+                0.29,
+                0.2,
+                0.24,
+                0.04
+        );
+        
+     }else{
+         
+         $json = array(
+                0.4,
+                0.49,
+                0.73,
+                0.07,
+                -0.33,
+                -0.06,
+                -0.03,
+                0.28,
+                0.38,
+                0.48,
+                0.93,
+                0.57,
+                0.89,
+                0.25,
+                0.27,
+                -0.19,
+                -0.32,
+                0.17
+
+        );
+         
+     }
+         
+         
+         header('Content-type: application/json');  
+        echo json_encode($json);  
+        Yii::app()->end(); 
+    }
+    
     public function actionAp3Ind11($anios, $grafico){
         
     $anio_ref=$anios-1;    
@@ -987,6 +1045,151 @@ foreach ($resultado as $key => $row) {
             echo json_encode($json);  
             Yii::app()->end(); 
     }
+    
+    
+    
+    public function actionAp3Ind31g1($serie, $grafico){
+        
+     //esto es solo grafico
+      
+         
+        if($serie == 1){   
+         
+        $json = array(
+                0.33,
+                0.5,
+                0.97,
+                0.71,
+                0.16,
+                
+                
+        );
+        
+     }else{
+         
+         $json = array(
+                0.4,
+                0.49,
+                0.73,
+                0.07,
+                0.17
+
+        );
+         
+     }
+         
+         header('Content-type: application/json');  
+        echo json_encode($json);  
+        Yii::app()->end(); 
+    }
+    
+    
+    
+    public function actionAp3Ind31g2($serie, $grafico){
+        
+     //esto es solo grafico
+      
+         
+        $json = array(
+               ['Distrito Federal',   19],
+               ['Jalisco',   6],
+               ['Estado de México',   8],
+               ['Nuevo León',   10],
+               ['Coahuila',   6],
+               ['Puebla',   2],
+               ['Resto de las entidades',   49],
+
+               
+        );   
+        
+         header('Content-type: application/json');  
+        echo json_encode($json);  
+        Yii::app()->end(); 
+    }
+    
+    public function actionAp3Ind31g3($serie, $grafico){
+        
+     //esto es solo grafico
+      
+         
+        $json = array(
+                80502,
+                41042,
+                33119,
+                26372,
+                23546,
+                8470,
+                -10590
+
+
+               
+        );   
+         
+         header('Content-type: application/json');  
+        echo json_encode($json);  
+        Yii::app()->end(); 
+    }
+    
+    
+    public function actionAp3Ind32($serie, $grafico){
+        
+     //esto es solo grafico
+     if($serie == 1){   
+         
+        $json = array(
+                0.33,
+                0.5,
+                0.97,
+                0.71,
+                0.16,
+                -0.19,
+                -0.04,
+                0.29,
+                0.41,
+                0.13,
+                0.54,
+                0.86,
+                0.65,
+                0.3,
+                0.29,
+                0.2,
+                0.24,
+                0.04
+        );
+        
+     }else{
+         
+         $json = array(
+                0.4,
+                0.49,
+                0.73,
+                0.07,
+                -0.33,
+                -0.06,
+                -0.03,
+                0.28,
+                0.38,
+                0.48,
+                0.93,
+                0.57,
+                0.89,
+                0.25,
+                0.27,
+                -0.19,
+                -0.32,
+                0.17
+
+        );
+         
+     }
+         
+         
+         header('Content-type: application/json');  
+        echo json_encode($json);  
+        Yii::app()->end(); 
+    }
+    
+    
     
     
     public function actionAp3Ind4($anios, $grafico){
@@ -1693,6 +1896,30 @@ foreach ($resultado as $key => $row) {
     }
     
     
+     public function actionAp6Ind12($serie, $grafico){
+        
+     //esto es solo grafico
+      
+         
+        $json = array(
+                4625.2,
+                1146.5,
+                477.3,
+                478.4,
+                311.5,
+                276.4
+
+               
+        );   
+         
+         header('Content-type: application/json');  
+        echo json_encode($json);  
+        Yii::app()->end(); 
+    }
+    
+    
+    
+    
     public function actionAp6Ind13($anio, $grafico){
 
     $this->layout=false;
@@ -1854,6 +2081,111 @@ foreach ($resultado as $key => $row) {
             echo json_encode($json);  
             Yii::app()->end(); 
     }
+    public function actionAp7Ind12($serie, $grafico){
+        
+     //esto es solo grafico
+      
+         
+        $json = array(
+                24488,
+                25078,
+                24962,
+                25441,
+                25143,
+                25777,
+                27666,
+                29205,
+                30249,
+                30603,
+                33304,
+                30425,
+                32026,
+                35223,
+                34647,
+                36311,
+                42014
+
+
+               
+        );   
+         
+         header('Content-type: application/json');  
+        echo json_encode($json);  
+        Yii::app()->end(); 
+    }
+    
+    public function actionAp7Ind13($serie, $grafico){
+        
+     //esto es solo grafico
+      
+         
+        $json = array(
+                10450,
+                10526,
+                11219,
+                11862,
+                12653,
+                12684,
+                12891,
+                13803,
+                13387,
+                13787,
+                14482,
+                13592,
+                14989,
+                16381,
+                20105,
+                20368,
+                23597
+
+
+
+               
+        );   
+         
+         header('Content-type: application/json');  
+        echo json_encode($json);  
+        Yii::app()->end(); 
+    }
+    
+    
+    
+    public function actionAp7Ind14($serie, $grafico){
+        
+     //esto es solo grafico
+      
+         
+        $json = array(
+                62,
+                70,
+                59,
+                57,
+                52,
+                49,
+                58,
+                61,
+                67,
+                63,
+                71,
+                62,
+                93,
+                91,
+                101,
+                119,
+                135
+
+
+
+
+               
+        );   
+         
+         header('Content-type: application/json');  
+        echo json_encode($json);  
+        Yii::app()->end(); 
+    }
+    
+    
     public function actionAp7Ind2($anios, $grafico){
 
     $this->layout=false;
@@ -2213,6 +2545,383 @@ foreach ($resultado as $key => $row) {
     } 
     
     
+    public function actionAp8Ind13($serie, $grafico){
+        
+     //esto es solo grafico
+     if($serie == 1){   
+        //DF 
+        $json = array(
+                94.9,
+                90.97,
+                89.39,
+                103.43,
+                104.76,
+                105.35,
+                100.03,
+                101.25,
+                106.04,
+                109.55,
+                100.01,
+                94.33,
+                82.58,
+                81.7,
+                89.17,
+                85.98,
+                83.98,
+                85.24,
+                83.91,
+                81.04,
+                87.88,
+                86.18,
+                84.85,
+                94.7,
+                90.6,
+                96.09,
+                106.21,
+                101.77,
+                98.92,
+                104.43,
+                99.05,
+                102.37,
+                100.08,
+                108.59,
+                106.78,
+                106.59,
+                87.98,
+                85.36,
+                97.42,
+                85.48,
+                91.93,
+                100.73,
+                113.74,
+                125.61,
+                121.9,
+                128.53,
+                142.96,
+                156.3,
+                135.02,
+                115.56,
+                130.56,
+                121.91,
+                114.1,
+                120.61,
+                116.07,
+                124.77,
+                109.59,
+                103.22,
+                107.54,
+                106.12,
+                98.39,
+                108.93,
+                116.28,
+                114.88,
+                119.26,
+                119.96,
+                120,
+                125.03,
+                115.9,
+                142.12,
+                123.64,
+                117.4,
+                103.26,
+                97.53,
+                110.85,
+                110.26,
+                107.05,
+                103.51,
+                109.88,
+                99.87,
+                111.68
+
+        );
+        
+     }else{
+         //nacional
+         $json = array(
+                94.05,
+                93.47,
+                93.16,
+                105.25,
+                104.95,
+                105.79,
+                104.64,
+                100.28,
+                100.4,
+                106.01,
+                95.46,
+                96.55,
+                85.35,
+                84.75,
+                90.24,
+                87.58,
+                87.55,
+                91.54,
+                92.25,
+                89.07,
+                88.94,
+                94.11,
+                88,
+                97.01,
+                85.48,
+                88.87,
+                97.62,
+                94.04,
+                94.44,
+                96.77,
+                97.21,
+                97.35,
+                96.29,
+                100.86,
+                99.92,
+                104.93,
+                88.33,
+                89.35,
+                97.61,
+                91.18,
+                97.66,
+                102.33,
+                100.47,
+                105.69,
+                105.53,
+                108.4,
+                108.83,
+                113.82,
+                101.33,
+                100.67,
+                108.54,
+                99.5,
+                106.55,
+                107.51,
+                106.5,
+                110.21,
+                105.17,
+                110.69,
+                107.08,
+                108.86,
+                100.85,
+                98.82,
+                101,
+                104.59,
+                106.33,
+                104.16,
+                104.48,
+                107.97,
+                101.91,
+                112.82,
+                105.7,
+                112.14,
+                100.04,
+                97.87,
+                106.04,
+                104.07,
+                111.19,
+                106.97,
+                112.57,
+                106.94,
+                109.45
+
+
+        );
+         
+     }
+         
+         
+         header('Content-type: application/json');  
+        echo json_encode($json);  
+        Yii::app()->end(); 
+    }
+    
+    
+    
+    public function actionAp8Ind14($serie, $grafico){
+        
+     //esto es solo grafico
+     if($serie == 1){   
+        //DF 
+        $json = array(
+                96.12,
+                93.66,
+                94.16,
+                101.18,
+                98.64,
+                98.6,
+                101.32,
+                99.31,
+                96.81,
+                106.07,
+                101.25,
+                112.88,
+                90.7,
+                85.45,
+                93.16,
+                90.45,
+                91.19,
+                92.7,
+                96.17,
+                93.21,
+                91.06,
+                100.46,
+                99.66,
+                116.85,
+                89.23,
+                88.17,
+                99.04,
+                92.24,
+                93.71,
+                94.39,
+                95.31,
+                96.49,
+                95.18,
+                103.23,
+                103.05,
+                114.9,
+                94.75,
+                88.79,
+                98.7,
+                95.34,
+                97.83,
+                98.44,
+                98.17,
+                103.64,
+                99.64,
+                107.05,
+                111.1,
+                121.69,
+                94.9,
+                94.81,
+                101.95,
+                98.88,
+                104.22,
+                104.78,
+                104.5,
+                107.61,
+                103.3,
+                116.11,
+                116.7,
+                122.3,
+                100.43,
+                98.03,
+                102.74,
+                104.98,
+                109.39,
+                104.27,
+                110.19,
+                108.54,
+                101.61,
+                115.43,
+                118.48,
+                126.9,
+                102.64,
+                98.01,
+                104.51,
+                103.41,
+                108.96,
+                107.1,
+                110.96,
+                109.54,
+                109.37
+
+
+        );
+        
+     }else{
+         //nacional
+         $json = array(
+                93.54,
+                92.84,
+                93.51,
+                98.12,
+                98.72,
+                98.04,
+                104.06,
+                100.36,
+                96.7,
+                108.68,
+                104.12,
+                111.31,
+                87.14,
+                82.1,
+                90.53,
+                86.5,
+                86.27,
+                92.3,
+                96.12,
+                91.13,
+                89,
+                99.52,
+                103.6,
+                116.72,
+                90.39,
+                91.08,
+                97.83,
+                92,
+                94.29,
+                94.53,
+                101.28,
+                96.95,
+                100.4,
+                109.71,
+                111.2,
+                127.76,
+                98.91,
+                95.51,
+                108.27,
+                102.72,
+                104.6,
+                107.2,
+                107.26,
+                114.64,
+                117.22,
+                125.57,
+                138.73,
+                171.66,
+                104.18,
+                105.22,
+                113.75,
+                106.7,
+                117.73,
+                123.9,
+                133.84,
+                131,
+                126.97,
+                141.58,
+                144.51,
+                150.46,
+                121.6,
+                119.76,
+                125.96,
+                123.61,
+                126.04,
+                131.16,
+                148.85,
+                149.32,
+                138.69,
+                160.06,
+                167.45,
+                185.19,
+                133.59,
+                116.51,
+                138.53,
+                130.86,
+                136.1,
+                147.04,
+                146.74,
+                144.34,
+                150.86
+
+
+
+        );
+         
+     }
+         
+         
+         header('Content-type: application/json');  
+        echo json_encode($json);  
+        Yii::app()->end(); 
+    }
+    
+    
      public function actionAp8Ind21($anios,$anio_tiendas,$grafico){
 
     $this->layout=false;
@@ -2368,6 +3077,27 @@ foreach ($resultado as $key => $row) {
             header('Content-type: application/json');  
             echo json_encode($json);  
             Yii::app()->end(); 
+    }
+    
+    public function actionAp9Ind2a($serie, $grafico){
+        
+     //esto es solo grafico
+      
+         
+        $json = array(
+                3572547,
+                4316904,
+                4783655,
+                4589398,
+                5005797,
+                4969016
+
+               
+        );   
+         
+         header('Content-type: application/json');  
+        echo json_encode($json);  
+        Yii::app()->end(); 
     }
     
     

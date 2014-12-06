@@ -1,4 +1,4 @@
-  <?php
+<?php
 /* @var $this Ap1ind1JorgeController */
 /* @var $model Ap1ind1Jorge */
 
@@ -34,25 +34,36 @@ $this->breadcrumbs=array(
 	        type: 'spline'
 	    },
 	    title: {
-	    	text: ''
+	    	text: 'Turistas hospedados en hoteles del Distrito Federal, enero a junio de 2014'
 		},
 		xAxis: {
 			title: {
-                text: 'Delegación'
+                text: 'Año'
             },
             labels: {
                 rotation: -25,
                 y: 10
             },
-		    categories: [	]
+		    categories: [ 
+                        
+                        "2009",
+                        "2010",
+                        "2011",
+                        "2012",
+                        "2013",
+                        "2014"
+
+
+                    ],
+                    overflow: 'justify'
 		},
 		yAxis: {
             title: 'Porcentaje',
-            tickInterval: .5,
+            tickInterval: 100000,
             gridLineWidth: 1
         },
         scrollbar: {
-	    	height: 15
+	    	height: 1
 	    },
 	    
 	    rangeSelector: {
@@ -61,14 +72,8 @@ $this->breadcrumbs=array(
 
 	    series: [
                         {
-                        name: 'Ciudad de México',
+                        name: 'Distrito Federal',
                         color: '#ffc000',
-                        allowPointSelect: true,
-                        data: []
-                        },
-                        {
-                        name: 'Nacional',
-                        color: '#7A211D',
                         allowPointSelect: true,
                         data: []
                         }
@@ -77,19 +82,14 @@ $this->breadcrumbs=array(
 				
 	}
 
-			$.getJSON("http://localhost/recm/index.php/api/ap2Ind5?serie=1&grafico=1", function(json) {
+			$.getJSON("http://localhost/recm/index.php/api/ap9Ind2a?serie=1&grafico=1", function(json) {
 				options.series[0].data = json;
                                 chart = new Highcharts.Chart(options);
                         
                         
                         });
 
-                        $.getJSON("http://localhost/recm/index.php/api/ap2Ind5?serie=2&grafico=1", function(json2) {
-                                options.series[1].data = json2;
-                                chart = new Highcharts.Chart(options);
-
-
-                        });
+                        
 	        
 	        	
 	        });

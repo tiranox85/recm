@@ -34,7 +34,7 @@ $this->breadcrumbs=array(
 	        type: 'column'
 	    },
 	    title: {
-	    	text: ''
+	    	text: 'Exportaciones de mercancias por entidad federativa, promedio 2007 - 2012 <br> (Miles de dolares)'
 		},
 		xAxis: {
 			title: {
@@ -44,22 +44,41 @@ $this->breadcrumbs=array(
                 rotation: -25,
                 y: 10
             },
-		    categories: [	'Milpa Alta',
-							'Tlahuac',
-							'Magdalena Contreras',
-							'Xochimilco',
-							'Iztacalco',
-							'Gustavo A. Madero',
-							'Venustiano Carranza',
-							'Iztapalapa',
-							'Coyoacán',
-							'Cuajimalpa de Morelos',
-							'Tlalpan',
-							'Azcapotzalco',
-							'Alvaro Obregón',
-							'Benito Juárez',
-							'Cuauhtémoc',
-							'Miguel Hidalgo']
+		    categories: [	
+                        "Chihuahua",
+                        "Baja California",
+                        "Coahuila de Zaragoza",
+                        "Nuevo Leon",
+                        "Tamaulipas",
+                        "Jalisco",
+                        "Sonora",
+                        "Mexico",
+                        "Puebla",
+                        "Guanajuato",
+                        "Aguascalientes",
+                        "Queretaro",
+                        "San Luis Potosi",
+                        "Veracruz",
+                        "Distrito Federal",
+                        "Morelos",
+                        "Zacatecas",
+                        "Hidalgo",
+                        "Yucatan",
+                        "Chiapas",
+                        "Michoacan",
+                        "Oaxaca",
+                        "Durango",
+                        "Tlaxcala",
+                        "Tabasco",
+                        "Sinaloa",
+                        "Campeche",
+                        "Colima",
+                        "Nayarit",
+                        "Quintana Roo",
+                        "Baja California Sur",
+                        "Guerrero"
+
+                ]
 		},
 		yAxis: {
             title: 'Porcentaje',
@@ -76,7 +95,7 @@ $this->breadcrumbs=array(
 
 	    series: [{
 				       name: 'Valor Censal Bruto',
-				       color: '#0A64A4',
+				       color: '#780090',
 				       allowPointSelect: true,
 				       data: []
 					}]

@@ -31,10 +31,10 @@ $this->breadcrumbs=array(
 		credits: false,
 	    chart: {
 	        renderTo: 'valor_censal',
-	        type: 'spline'
+	        type: 'bar'
 	    },
 	    title: {
-	    	text: ''
+	    	text: 'Gráfica Variación porcentual anual del número de trabajadores asegurados en el IMSS, nacional y distrito federal, enero a junio de 2014'
 		},
 		xAxis: {
 			title: {
@@ -44,11 +44,20 @@ $this->breadcrumbs=array(
                 rotation: -25,
                 y: 10
             },
-		    categories: [	]
+		    categories: [
+                        "Distrito Federal",
+                        "Nuevo león",
+                        "Estado de México", 
+                        "Jalisco", 
+                        "Coahuila",
+                        "Puebla", 
+                        "Veracruz"
+                        
+                    ]
 		},
 		yAxis: {
             title: 'Porcentaje',
-            tickInterval: .5,
+            
             gridLineWidth: 1
         },
         scrollbar: {
@@ -62,13 +71,7 @@ $this->breadcrumbs=array(
 	    series: [
                         {
                         name: 'Ciudad de México',
-                        color: '#ffc000',
-                        allowPointSelect: true,
-                        data: []
-                        },
-                        {
-                        name: 'Nacional',
-                        color: '#7A211D',
+                        color: '#FFC200',
                         allowPointSelect: true,
                         data: []
                         }
@@ -77,20 +80,14 @@ $this->breadcrumbs=array(
 				
 	}
 
-			$.getJSON("http://localhost/recm/index.php/api/ap2Ind5?serie=1&grafico=1", function(json) {
+			$.getJSON("http://localhost/recm/index.php/api/ap3Ind31g3?serie=1&grafico=1", function(json) {
 				options.series[0].data = json;
                                 chart = new Highcharts.Chart(options);
                         
                         
                         });
 
-                        $.getJSON("http://localhost/recm/index.php/api/ap2Ind5?serie=2&grafico=1", function(json2) {
-                                options.series[1].data = json2;
-                                chart = new Highcharts.Chart(options);
-
-
-                        });
-	        
+                        
 	        	
 	        });
 	        /*

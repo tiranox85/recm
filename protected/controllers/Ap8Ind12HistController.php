@@ -82,7 +82,7 @@ class Ap8Ind12HistController extends Controller {
         $autoriza=$this->mostrarAutorizar($perfil,1,2,4);
         $model=Ap8Ind12Hist::model()->findByPk($id);
 
-        $url = "http://localhost/recm/index.php/api/ap8Ind12?anios=2014,2013,2012,2011&grafico=0";
+        $url = "http://localhost/recm/index.php/api/ap8Ind12?anios=2014,2013,2012,2011,2010,2009,2008&grafico=0";
         //$url = $baseUrl;
         $data = file_get_contents($url);
         $model= CJSON::decode($data);
